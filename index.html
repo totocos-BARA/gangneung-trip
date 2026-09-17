@@ -360,6 +360,18 @@
   .alerts .when { font-family: var(--mono); font-size: 12px; color: var(--warn); font-weight: 600; padding-top: 2px; }
   .alerts b { font-weight: 600; }
 
+  .sync {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 12px; white-space: nowrap;
+    padding: 3px 10px; border-radius: 999px;
+    background: var(--surface-2); color: var(--ink-2);
+  }
+  .sync::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .sync[data-kind="ok"] { background: var(--pine-soft); color: var(--pine); }
+  .sync[data-kind="busy"] { background: var(--sea-soft); color: var(--sea-ink); }
+  .sync[data-kind="off"] { background: var(--warn-soft); color: var(--warn); }
+  .card h3 .sync { margin-left: auto; font-weight: 400; }
+  .card h3.row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .refs { font-size: 13px; color: var(--ink-2); }
   .refs ul { margin: 6px 0 0; padding-left: 18px; }
   .refs li { margin-bottom: 3px; }
@@ -847,8 +859,11 @@
   <section id="cost">
     <div class="sec-head"><span class="tag">Budget</span><h2>발생 비용 (2인)</h2></div>
     <div class="cost-tools">
-      <p>금액은 2026년 9월 기준 후기·공식가로 잡은 <b>추정치</b>. 칸을 고치면 합계가 바로 바뀌고 이 브라우저에 저장된다. 숙박비와 레일바이크는 실제 결제액으로 바꿔 넣기.</p>
-      <button class="ghost" type="button" id="reset-costs">추정치로 되돌리기</button>
+      <p>금액은 2026년 9월 기준 후기·공식가로 잡은 <b>추정치</b>. 칸을 고치면 합계가 바로 바뀌고 <b>두 사람 화면에 모두 공유</b>된다(몇 초 안에 반영). 숙박비와 레일바이크는 실제 결제액으로 바꿔 넣기.</p>
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+        <span class="sync" data-kind="init">공유 저장소 확인 중…</span>
+        <button class="ghost" type="button" id="reset-costs">추정치로 되돌리기</button>
+      </div>
     </div>
     <div class="table-wrap">
       <table class="costs">
@@ -877,7 +892,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>✅ 챙길 것 · 할 것</h3>
+        <h3 class="row">✅ 챙길 것 · 할 것 <span class="sync" data-kind="init">공유 저장소 확인 중…</span></h3>
         <ul class="check" id="checklist"></ul>
       </div>
     </div>
@@ -924,18 +939,22 @@
     </div>
   </section>
 
-  <footer>거리·소요시간·비용은 추정치. 출발 전 내비와 각 매장 영업시간을 한 번 더 확인. 계획서 v1.1 · 2026.09.17 작성</footer>
+  <footer>거리·소요시간·비용은 추정치. 출발 전 내비와 각 매장 영업시간을 한 번 더 확인. 계획서 v1.2 · 2026.09.17 작성 · 비용표·체크리스트는 링크를 아는 사람끼리 공유 저장</footer>
 </div>
 
 <script>
 (function () {
-  var KEY_COST = "gn-plan-costs-v1";
-  var KEY_FUEL = "gn-plan-fuel-v1";
-  var KEY_CHECK = "gn-plan-check-v1";
+  /* 공유 저장소: npoint.io JSON bin (링크를 아는 사람은 누구나 읽고 쓸 수 있음) */
+  var SYNC_URL = "https://api.npoint.io/5a5f81b822db577e8123";
+  var KEY = "gn-plan-shared-v2";
+  var POLL_MS = 20000;
 
   function load(key) { try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
   function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
   function won(n) { return Math.round(n).toLocaleString("ko-KR"); }
+  function hhmm() { var d = new Date(); return (d.getHours() < 10 ? "0" : "") + d.getHours() + ":" + (d.getMinutes() < 10 ? "0" : "") + d.getMinutes(); }
+  function isNum(v) { return typeof v === "number" && !isNaN(v); }
+  function find(arr, id) { for (var i = 0; i < arr.length; i++) { if (arr[i].id === id) return arr[i]; } return null; }
 
   var COSTS = [
     { day: "day1", title: "DAY 1 · 9/23 수" },
@@ -957,86 +976,6 @@
     { id: "rest2", day: "day2", label: "휴게소 (귀갓길)", note: "선택", def: 10000 }
   ];
   var FUEL_DEF = { km: 520, kmpl: 12, price: 1700 };
-
-  var costState = load(KEY_COST) || {};
-  var fuelState = Object.assign({}, FUEL_DEF, load(KEY_FUEL) || {});
-
-  var body = document.getElementById("cost-body");
-
-  function render() {
-    var html = "";
-    COSTS.forEach(function (c) {
-      if (c.title) {
-        html += '<tr class="group"><td colspan="2">' + c.title + '</td><td class="amt"><span class="out" id="sub-' + c.day + '"></span></td></tr>';
-        return;
-      }
-      var v = (costState[c.id] != null) ? costState[c.id] : c.def;
-      var need = c.need && !(v > 0);
-      html += '<tr><td>' + c.label + '</td><td class="note-c">' + c.note + '</td><td class="amt">' +
-        '<input class="amt-in' + (need ? ' need' : '') + '" id="cost-' + c.id + '" type="number" inputmode="numeric" min="0" step="500" value="' + v + '" aria-label="' + c.label + '">' +
-        '</td></tr>';
-    });
-    html += '<tr class="group"><td colspan="2">유류비 <span>총거리 ÷ 연비 × 유가</span></td><td class="amt"><span class="out" id="sub-fuel"></span></td></tr>';
-    html += '<tr><td colspan="3"><div class="fuel">' +
-      '<label>총 이동거리 (km)<input id="fuel-km" type="number" inputmode="numeric" min="0" step="10" value="' + fuelState.km + '"></label>' +
-      '<label>연비 (km/L)<input id="fuel-kmpl" type="number" inputmode="decimal" min="1" step="0.5" value="' + fuelState.kmpl + '"></label>' +
-      '<label>유가 (원/L)<input id="fuel-price" type="number" inputmode="numeric" min="0" step="10" value="' + fuelState.price + '"></label>' +
-      '</div></td></tr>';
-    html += '<tr class="total"><td colspan="2">합계 (2인)</td><td class="amt"><span class="out" id="sum-total"></span></td></tr>';
-    html += '<tr class="pp"><td colspan="2">1인당 (÷2)</td><td class="amt"><span class="out" id="sum-pp"></span></td></tr>';
-    body.innerHTML = html;
-
-    body.querySelectorAll("input.amt-in").forEach(function (inp) {
-      inp.addEventListener("input", function () {
-        var id = inp.id.replace("cost-", "");
-        var n = parseFloat(inp.value);
-        costState[id] = isNaN(n) ? 0 : n;
-        save(KEY_COST, costState);
-        var def = COSTS.filter(function (c) { return c.id === id; })[0];
-        inp.classList.toggle("need", !!(def && def.need && !(costState[id] > 0)));
-        compute();
-      });
-    });
-    ["km", "kmpl", "price"].forEach(function (k) {
-      var inp = document.getElementById("fuel-" + k);
-      inp.addEventListener("input", function () {
-        var n = parseFloat(inp.value);
-        fuelState[k] = isNaN(n) ? 0 : n;
-        save(KEY_FUEL, fuelState);
-        compute();
-      });
-    });
-    compute();
-  }
-
-  function compute() {
-    var subs = { day1: 0, day2: 0 };
-    COSTS.forEach(function (c) {
-      if (!c.id) return;
-      var v = (costState[c.id] != null) ? costState[c.id] : c.def;
-      subs[c.day] += (v > 0 ? v : 0);
-    });
-    var fuel = fuelState.kmpl > 0 ? (fuelState.km / fuelState.kmpl) * fuelState.price : 0;
-    var total = subs.day1 + subs.day2 + fuel;
-    document.getElementById("sub-day1").textContent = won(subs.day1);
-    document.getElementById("sub-day2").textContent = won(subs.day2);
-    document.getElementById("sub-fuel").textContent = won(fuel);
-    document.getElementById("sum-total").textContent = won(total);
-    document.getElementById("sum-pp").textContent = won(total / 2);
-    var stat = document.getElementById("stat-total");
-    var stayMissing = !(((costState.stay != null) ? costState.stay : 0) > 0);
-    stat.innerHTML = won(total) + "<small>" + (stayMissing ? "원 · 숙박 제외" : "원") + "</small>";
-  }
-
-  document.getElementById("reset-costs").addEventListener("click", function () {
-    costState = {}; fuelState = Object.assign({}, FUEL_DEF);
-    try { localStorage.removeItem(KEY_COST); localStorage.removeItem(KEY_FUEL); } catch (e) {}
-    render();
-  });
-
-  render();
-
-  /* ---------- checklist ---------- */
   var CHECK = [
     { id: "call", when: "9/23 14:00", text: "숙소에 전화 — 19시 이후 체크인 · 주차장 확인" },
     { id: "hipass", when: "출발 전", text: "하이패스 잔액 · 주유 (왕복 ≈520 km)" },
@@ -1050,20 +989,220 @@
     { id: "checkout", when: "9/24 10:00", text: "숙소 두고 온 물건 확인 후 체크아웃" },
     { id: "trash", when: "9/24 밤", text: "수목원 쓰레기 되가져오기" }
   ];
-  var checkState = load(KEY_CHECK) || {};
-  var list = document.getElementById("checklist");
-  list.innerHTML = CHECK.map(function (c) {
-    var on = !!checkState[c.id];
-    return '<li' + (on ? ' class="done"' : '') + '><label for="chk-' + c.id + '"><input type="checkbox" id="chk-' + c.id + '"' + (on ? ' checked' : '') + '><span>' + c.text + '<span class="when">' + c.when + '</span></span></label></li>';
-  }).join("");
-  list.querySelectorAll("input").forEach(function (inp) {
-    inp.addEventListener("change", function () {
-      var id = inp.id.replace("chk-", "");
-      checkState[id] = inp.checked;
-      save(KEY_CHECK, checkState);
-      inp.closest("li").classList.toggle("done", inp.checked);
+
+  /* ---------- state ---------- */
+  function normalize(o) {
+    o = (o && typeof o === "object") ? o : {};
+    return {
+      v: 1,
+      costs: (o.costs && typeof o.costs === "object") ? o.costs : {},
+      fuel: (o.fuel && typeof o.fuel === "object") ? o.fuel : {},
+      check: (o.check && typeof o.check === "object") ? o.check : {},
+      updatedAt: isNum(o.updatedAt) ? o.updatedAt : 0
+    };
+  }
+  var state = normalize(load(KEY));
+  var dirty = {};            // "costs.stay" -> value  (아직 공유 저장소에 안 올라간 내 변경)
+  var pushTimer = null, pushing = false, pushAgain = false;
+
+  function getCost(id) { var v = state.costs[id]; if (isNum(v)) return v; var d = find(COSTS, id); return d ? d.def : 0; }
+  function getFuel(k) { var v = state.fuel[k]; return isNum(v) ? v : FUEL_DEF[k]; }
+  function setLocal(group, id, value) { state[group][id] = value; dirty[group + "." + id] = value; save(KEY, state); }
+
+  /* ---------- DOM: 비용표 ---------- */
+  var body = document.getElementById("cost-body");
+  function renderTable() {
+    var html = "";
+    COSTS.forEach(function (c) {
+      if (c.title) {
+        html += '<tr class="group"><td colspan="2">' + c.title + '</td><td class="amt"><span class="out" id="sub-' + c.day + '"></span></td></tr>';
+        return;
+      }
+      html += '<tr><td>' + c.label + '</td><td class="note-c">' + c.note + '</td><td class="amt">' +
+        '<input class="amt-in" id="cost-' + c.id + '" type="number" inputmode="numeric" min="0" step="500" aria-label="' + c.label + '">' +
+        '</td></tr>';
     });
+    html += '<tr class="group"><td colspan="2">유류비 <span>총거리 ÷ 연비 × 유가</span></td><td class="amt"><span class="out" id="sub-fuel"></span></td></tr>';
+    html += '<tr><td colspan="3"><div class="fuel">' +
+      '<label>총 이동거리 (km)<input id="fuel-km" type="number" inputmode="numeric" min="0" step="10"></label>' +
+      '<label>연비 (km/L)<input id="fuel-kmpl" type="number" inputmode="decimal" min="1" step="0.5"></label>' +
+      '<label>유가 (원/L)<input id="fuel-price" type="number" inputmode="numeric" min="0" step="10"></label>' +
+      '</div></td></tr>';
+    html += '<tr class="total"><td colspan="2">합계 (2인)</td><td class="amt"><span class="out" id="sum-total"></span></td></tr>';
+    html += '<tr class="pp"><td colspan="2">1인당 (÷2)</td><td class="amt"><span class="out" id="sum-pp"></span></td></tr>';
+    body.innerHTML = html;
+
+    COSTS.forEach(function (c) {
+      if (!c.id) return;
+      var inp = document.getElementById("cost-" + c.id);
+      inp.addEventListener("input", function () {
+        var n = parseFloat(inp.value);
+        setLocal("costs", c.id, isNaN(n) ? 0 : n);
+        inp.classList.toggle("need", !!(c.need && !(getCost(c.id) > 0)));
+        compute();
+        schedulePush();
+      });
+    });
+    ["km", "kmpl", "price"].forEach(function (k) {
+      var inp = document.getElementById("fuel-" + k);
+      inp.addEventListener("input", function () {
+        var n = parseFloat(inp.value);
+        setLocal("fuel", k, isNaN(n) ? 0 : n);
+        compute();
+        schedulePush();
+      });
+    });
+  }
+
+  /* ---------- DOM: 체크리스트 ---------- */
+  var list = document.getElementById("checklist");
+  function renderChecklist() {
+    list.innerHTML = CHECK.map(function (c) {
+      return '<li><label for="chk-' + c.id + '"><input type="checkbox" id="chk-' + c.id + '"><span>' + c.text + '<span class="when">' + c.when + '</span></span></label></li>';
+    }).join("");
+    CHECK.forEach(function (c) {
+      var inp = document.getElementById("chk-" + c.id);
+      inp.addEventListener("change", function () {
+        setLocal("check", c.id, !!inp.checked);
+        inp.closest("li").classList.toggle("done", inp.checked);
+        schedulePush();
+      });
+    });
+  }
+
+  /* 화면의 입력값을 state에 맞춰 갱신 (입력 중인 칸은 건드리지 않음) */
+  function applyValues() {
+    var active = document.activeElement;
+    COSTS.forEach(function (c) {
+      if (!c.id) return;
+      var inp = document.getElementById("cost-" + c.id);
+      if (inp !== active) inp.value = getCost(c.id);
+      inp.classList.toggle("need", !!(c.need && !(getCost(c.id) > 0)));
+    });
+    ["km", "kmpl", "price"].forEach(function (k) {
+      var inp = document.getElementById("fuel-" + k);
+      if (inp !== active) inp.value = getFuel(k);
+    });
+    CHECK.forEach(function (c) {
+      var inp = document.getElementById("chk-" + c.id);
+      var on = !!state.check[c.id];
+      inp.checked = on;
+      inp.closest("li").classList.toggle("done", on);
+    });
+  }
+
+  function compute() {
+    var subs = { day1: 0, day2: 0 };
+    COSTS.forEach(function (c) {
+      if (!c.id) return;
+      var v = getCost(c.id);
+      subs[c.day] += (v > 0 ? v : 0);
+    });
+    var km = getFuel("km"), kmpl = getFuel("kmpl"), price = getFuel("price");
+    var fuel = kmpl > 0 ? (km / kmpl) * price : 0;
+    var total = subs.day1 + subs.day2 + fuel;
+    document.getElementById("sub-day1").textContent = won(subs.day1);
+    document.getElementById("sub-day2").textContent = won(subs.day2);
+    document.getElementById("sub-fuel").textContent = won(fuel);
+    document.getElementById("sum-total").textContent = won(total);
+    document.getElementById("sum-pp").textContent = won(total / 2);
+    var stayMissing = !(getCost("stay") > 0);
+    document.getElementById("stat-total").innerHTML = won(total) + "<small>" + (stayMissing ? "원 · 숙박 제외" : "원") + "</small>";
+  }
+
+  /* ---------- 공유 동기화 ---------- */
+  function setStatus(kind, text) {
+    var els = document.querySelectorAll(".sync");
+    for (var i = 0; i < els.length; i++) { els[i].setAttribute("data-kind", kind); els[i].textContent = text; }
+  }
+  function fetchRemote() {
+    return fetch(SYNC_URL + "?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(normalize);
+  }
+  function saveRemote(obj) {
+    return fetch(SYNC_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(obj) })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+  }
+  function applyOnto(base, changes) {
+    Object.keys(changes).forEach(function (k) {
+      var p = k.split(".");
+      if (base[p[0]] && typeof base[p[0]] === "object") base[p[0]][p[1]] = changes[k];
+    });
+    return base;
+  }
+  function pull() {
+    if (Object.keys(dirty).length) return push();
+    return fetchRemote().then(function (remote) {
+      state = remote;
+      save(KEY, state);
+      applyValues();
+      compute();
+      setStatus("ok", "공유 동기화 " + hhmm());
+    }).catch(function () {
+      setStatus("off", "공유 저장소 연결 안 됨 · 이 기기에만 저장");
+    });
+  }
+  function push() {
+    if (pushing) { pushAgain = true; return; }
+    pushing = true;
+    setStatus("busy", "저장 중…");
+    var mine = JSON.parse(JSON.stringify(dirty));
+    return fetchRemote()
+      .catch(function () { return normalize(JSON.parse(JSON.stringify(state))); })
+      .then(function (remote) {
+        var merged = applyOnto(remote, mine);
+        merged.updatedAt = Date.now();
+        return saveRemote(merged).then(function () {
+          Object.keys(mine).forEach(function (k) { if (dirty[k] === mine[k]) delete dirty[k]; });
+          state = merged;
+          save(KEY, state);
+          applyValues();
+          compute();
+          setStatus("ok", "공유 저장됨 " + hhmm());
+        });
+      })
+      .catch(function () {
+        setStatus("off", "저장 실패 · 이 기기에만 저장 (자동 재시도)");
+      })
+      .then(function () {
+        pushing = false;
+        if (pushAgain) { pushAgain = false; schedulePush(); }
+      });
+  }
+  function schedulePush() {
+    clearTimeout(pushTimer);
+    pushTimer = setTimeout(push, 700);
+  }
+  function tick() {
+    if (document.visibilityState && document.visibilityState !== "visible") return;
+    if (Object.keys(dirty).length) push(); else pull();
+  }
+
+  document.getElementById("reset-costs").addEventListener("click", function () {
+    if (!window.confirm("비용 추정치를 초기값으로 되돌립니다. 두 사람 화면 모두에 적용됩니다. 계속할까요?")) return;
+    COSTS.forEach(function (c) { if (c.id) setLocal("costs", c.id, c.def); });
+    Object.keys(FUEL_DEF).forEach(function (k) { setLocal("fuel", k, FUEL_DEF[k]); });
+    applyValues();
+    compute();
+    push();
   });
+
+  /* ---------- boot ---------- */
+  renderTable();
+  renderChecklist();
+  applyValues();
+  compute();
+  if (typeof fetch === "function") {
+    setStatus("busy", "공유 저장소 확인 중…");
+    pull();
+    setInterval(tick, POLL_MS);
+    document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible") tick(); });
+    window.addEventListener("focus", tick);
+    window.addEventListener("online", tick);
+  } else {
+    setStatus("off", "이 브라우저는 공유 저장을 지원하지 않음 · 이 기기에만 저장");
+  }
 })();
 </script>
 </body>
