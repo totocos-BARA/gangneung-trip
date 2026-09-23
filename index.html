@@ -291,6 +291,41 @@
   }
   .btn a:hover, a.btn-link:hover { background: var(--sea-soft); }
 
+  /* ---------- 주소 복사 ---------- */
+  .hint { margin: 14px 0 0; font-size: 13.5px; color: var(--ink-2); }
+  .hint b { color: var(--sea-ink); font-weight: 600; }
+  .addr { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; max-width: 65ch; }
+  .plan .addr { margin-top: 2px; }
+  .addr button {
+    display: grid; grid-template-columns: 40px 1fr auto; align-items: start; gap: 8px;
+    width: 100%; text-align: left; cursor: pointer;
+    font-family: var(--body); font-size: 13px; line-height: 1.45; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    padding: 7px 10px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .plan .addr button { background: var(--surface-2); border-color: transparent; }
+  .addr button:hover { border-color: var(--sea); background: var(--sea-soft); }
+  .addr .k { font-size: 11.5px; color: var(--ink-3); padding-top: 1px; white-space: nowrap; }
+  .addr .v { word-break: keep-all; overflow-wrap: anywhere; }
+  .addr .v small { font-size: 12px; color: var(--ink-3); }
+  .addr .cp { min-width: 4.6em; text-align: right; font-size: 12px; font-weight: 600; color: var(--sea); white-space: nowrap; padding-top: 1px; }
+  .addr button.copied, .plan .addr button.copied { border-color: var(--pine); background: var(--pine-soft); }
+  .addr button.copied .cp { color: var(--pine); }
+
+  .toast {
+    position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 20;
+    transform: translate(-50%, 12px); opacity: 0; pointer-events: none;
+    width: max-content; max-width: calc(100vw - 32px);
+    background: var(--ink); color: var(--bg); border-radius: 10px;
+    padding: 10px 14px; font-size: 13.5px; line-height: 1.45; box-shadow: var(--shadow);
+    transition: opacity .18s, transform .18s;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .toast.fail { pointer-events: auto; user-select: all; -webkit-user-select: all; }
+  .toast b { display: block; font-size: 12px; font-weight: 600; opacity: .75; }
+  @media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+
   .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px; }
   .option { background: var(--surface-2); border-radius: 10px; padding: 11px 13px; font-size: 13.5px; }
   .option b { display: block; font-size: 14px; margin-bottom: 3px; }
@@ -384,7 +419,7 @@
     .stat .v { font-size: 19px; }
   }
   @media print {
-    nav.days, button.ghost { display: none; }
+    nav.days, button.ghost, .toast, .addr .cp { display: none; }
     body { background: #fff; color: #000; }
     .body { border-left-color: #999; }
     section { break-inside: auto; }
@@ -420,6 +455,7 @@
       <span class="chip">🏠 숙소 <b>스테이 감사</b> (사근진)</span>
       <span class="chip">📍 집결 <b>풍산역 15:00</b></span>
     </div>
+    <p class="hint">📋 일정의 <b>주소를 누르면 바로 복사</b>된다 → 내비 검색창에 붙여넣기. 도로명으로 안 잡히면 지번으로.</p>
 
     <div class="stats">
       <div class="stat sea"><div class="k">총 이동거리 (추정)</div><div class="v">≈ 520<small>km</small></div></div>
@@ -485,6 +521,7 @@
               <span class="line">먹고가기 · 포장 가능</span>
               <span class="line">🅿 강릉중앙시장 공영주차장</span>
               <span class="close">23:00 영업종료 — 가장 여유</span>
+              <div class="addr" data-place="paran"></div>
               <div class="btn"><a href="https://naver.me/GtURVZdr" target="_blank" rel="noopener">네이버 지도 ↗</a></div>
             </div>
             <div class="plan">
@@ -493,6 +530,7 @@
               <span class="line">포장만</span>
               <span class="line">🅿 중앙시장 제2공영주차장 (도보 1분)</span>
               <span class="close late">21:00 영업종료 — 도착 늦으면 빠듯</span>
+              <div class="addr" data-place="yuseong"></div>
               <div class="btn"><a href="https://naver.me/FY3yfxxw" target="_blank" rel="noopener">네이버 지도 ↗</a></div>
             </div>
             <div class="plan">
@@ -501,6 +539,7 @@
               <span class="line">먹고가기 · 포장 가능 · <b>2층 셀프 초장집</b> (시장 내 모든 음식 반입 가능)</span>
               <span class="line">🅿 남대천강변주차장 무료 (10분) / 중앙시장 공영주차장 (3분)</span>
               <span class="close">22:00 영업종료</span>
+              <div class="addr" data-place="doma"></div>
               <div class="btn"><a href="https://naver.me/5A3GxwOO" target="_blank" rel="noopener">네이버 지도 ↗</a></div>
             </div>
           </div>
@@ -520,6 +559,7 @@
             <li class="alert"><b>22:00 안에 체크인 필수</b></li>
             <li><b>전화 문의만 가능</b> (번호는 네이버 지도 링크에서 확인): 19시 이후 체크인 · 짐 보관 · 주차장</li>
           </ul>
+          <div class="addr" data-place="stay"></div>
           <div class="btn" style="margin-top:10px"><a href="https://naver.me/5SKvb30a" target="_blank" rel="noopener">숙소 네이버 지도 ↗</a></div>
         </div>
       </li>
@@ -533,6 +573,7 @@
           <h3>강문해변 밤 산책</h3>
           <p>솟대다리와 해변 조명 아래 산책. 이후 일정은 자유 — 다음날 05:30 기상이면 <b>23:30 전 취침</b>이 현실적.</p>
           <ul class="meta"><li>밤바람 15℃ 안팎 · 바람막이</li><li>이후 자유 → 수면</li></ul>
+          <div class="addr" data-place="gangmun"></div>
         </div>
       </li>
     </ol>
@@ -601,8 +642,8 @@
             <li class="hours">10:00~20:00 · 입장 마감 19:00</li>
             <li>성인 <b>17,000원</b> · 인터파크/야놀자 온라인 <b>12,000원대</b></li>
             <li>🅿 전용 주차장</li>
-            <li>강릉시 난설헌로 131</li>
           </ul>
+          <div class="addr" data-place="arte"></div>
         </div>
       </li>
       <li class="move">
@@ -620,6 +661,7 @@
               <span class="line">감자 순옹심이</span>
               <span class="line">🅿 넓은 전용 주차장 + 바로 옆 대형 공영주차장</span>
               <span class="close">라스트오더 15:30</span>
+              <div class="addr" data-place="ongmak"></div>
               <div class="btn"><a href="https://naver.me/FV7VzJK0" target="_blank" rel="noopener">네이버 지도 ↗</a></div>
             </div>
             <div class="plan">
@@ -628,6 +670,7 @@
               <span class="line">순옹심이</span>
               <span class="line">🅿 매장 바로 앞 주차 공간 넉넉</span>
               <span class="close">라스트오더 16:30</span>
+              <div class="addr" data-place="garam"></div>
               <div class="btn"><a href="https://naver.me/5uIkhT5n" target="_blank" rel="noopener">네이버 지도 ↗</a></div>
             </div>
           </div>
@@ -646,6 +689,7 @@
             <li class="hours">브레이크 15:30~16:30 · 라스트오더 19:15</li>
             <li>화요일 휴무 (목요일 영업)</li>
           </ul>
+          <div class="addr" data-place="gelato"></div>
           <div class="btn" style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap"><a href="https://naver.me/F2ZuxpbU" target="_blank" rel="noopener">네이버 지도 ↗</a><a href="https://blog.naver.com/soontofu-gelato/223751397886" target="_blank" rel="noopener">공식 블로그 ↗</a></div>
         </div>
       </li>
@@ -658,6 +702,7 @@
         <div class="body"><span class="num">8</span>
           <h3>만석닭강정 안목직영점 — 간식 구매</h3>
           <ul class="meta"><li class="hours">10:30~20:00</li><li>레일바이크 대기 시간 간식</li></ul>
+          <div class="addr" data-place="manseok"></div>
           <div class="note sea"><b>동선 팁:</b> 옹막 안목점과 만석 안목직영점은 같은 안목 권역. 점심 직후 닭강정을 먼저 사고 젤라또(초당)로 가면 <b>안목↔초당 왕복 15분을 아낀다</b>. 대신 젤라또에서 정동진까지 약 45분 — 14:20엔 출발해야 15:10 도착.</div>
         </div>
       </li>
@@ -671,6 +716,7 @@
           <h3>정동진 레일바이크 <span class="opt">예약 완료</span></h3>
           <p>바다에 가장 가까운 선로, 정동진역↔모래시계공원 구간. 50분~1시간. 전동식이라 힘들지 않다.</p>
           <ul class="meta"><li class="hours">15:35 회차</li><li>출발 15~20분 전 매표소에서 예약 확인</li><li>도착 25분 여유 → 해변에서 닭강정</li></ul>
+          <div class="addr" data-place="rail"></div>
         </div>
       </li>
       <li class="move">
@@ -683,6 +729,7 @@
           <h3>강릉원조누룽지 황금오징어순대 — 포장</h3>
           <p>수목원에서 먹을 저녁. 제2공영주차장에 대거나, 매장 앞 20분 주정차.</p>
           <ul class="meta"><li class="hours">11:00~20:00</li><li>🅿 중앙시장 제2공영주차장 / 매장 앞 20분</li></ul>
+          <div class="addr" data-place="squid"></div>
           <div class="btn" style="margin-top:10px"><a href="https://naver.me/x3jFNtfy" target="_blank" rel="noopener">네이버 지도 ↗</a></div>
         </div>
       </li>
@@ -702,6 +749,7 @@
             <li class="alert">도시락은 지정 장소에서만 · 단체 배식 금지</li>
             <li class="alert">쓰레기 되가져가기 · 주변 정리</li>
           </ul>
+          <div class="addr" data-place="arbo"></div>
           <div class="note alert"><b>당일 확인:</b> 야간관람(18~23시)은 계절 운영일 수 있으니 출발 전 수목원에 전화 한 통. 야간 산책은 손전등 대신 휴대폰 라이트면 충분, 모기기피제 하나.</div>
         </div>
       </li>
@@ -939,8 +987,116 @@
     </div>
   </section>
 
-  <footer>거리·소요시간·비용은 추정치. 출발 전 내비와 각 매장 영업시간을 한 번 더 확인. 계획서 v1.2 · 2026.09.17 작성 · 비용표·체크리스트는 링크를 아는 사람끼리 공유 저장</footer>
+  <footer>거리·소요시간·비용은 추정치. 출발 전 내비와 각 매장 영업시간을 한 번 더 확인. 계획서 v1.3 · 2026.09.23 주소 복사 추가 · 비용표·체크리스트는 링크를 아는 사람끼리 공유 저장</footer>
 </div>
+
+<script>
+(function () {
+  /* 장소 주소 — 누르면 클립보드로 복사해 내비 검색창에 붙여넣기.
+     road = 내비 검색용 도로명 (복사되는 부분), detail = 층·상호 (화면에만 표시, 내비 검색을 방해하지 않게 복사에서 뺌) */
+  var PLACES = {
+    paran:   { road: "강원 강릉시 금성로23번길 6",        detail: "1층 강릉 중앙시장 횟집 파란간판집",       jibun: "강원 강릉시 성남동 60-16" },
+    yuseong: { road: "강원 강릉시 금성로 21",             detail: "지하20호, 50호",                         jibun: "강원 강릉시 성남동 50" },
+    doma:    { road: "강원 강릉시 금성로23번길 6",        detail: "강릉중앙시장 1층 도마횟집본점",           jibun: "강원 강릉시 성남동 60-16" },
+    stay:    { road: "강원 강릉시 하남길 345-9",                                                           jibun: "강원 강릉시 안현동 55-2" },
+    gangmun: { addr: "강원 강릉시 강문동" },
+    arte:    { road: "강원 강릉시 난설헌로 131",                                                           jibun: "강원 강릉시 초당동 505" },
+    ongmak:  { road: "강원 강릉시 경강로 2608",           detail: "1층",                                    jibun: "강원 강릉시 견소동 110-7" },
+    garam:   { road: "강원 강릉시 공항길30번길 16",                                                        jibun: "강원 강릉시 병산동 423" },
+    gelato:  { road: "강원 강릉시 초당순두부길 95-5",                                                      jibun: "강원 강릉시 초당동 354-4" },
+    manseok: { road: "강원 강릉시 창해로2번길 32",        detail: "2층",                                    jibun: "강원 강릉시 견소동 161" },
+    rail:    { road: "강원 강릉시 강동면 정동역길 17",                                                     jibun: "강원 강릉시 강동면 정동진리 303" },
+    squid:   { road: "강원 강릉시 금성로 4",              detail: "강릉원조누룽지 황금오징어순대 중앙시장", jibun: "강원 강릉시 옥천동 62-1" },
+    arbo:    { road: "강원 강릉시 구정면 수목원길 156",   detail: "강릉솔향수목원",                         jibun: "강원 강릉시 구정면 구정리 산135" }
+  };
+
+  /* ---------- 클립보드 ---------- */
+  function legacyCopy(text) {
+    var prev = document.activeElement;
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;font-size:16px";
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+    if (prev && prev.focus) prev.focus();
+    return ok;
+  }
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).catch(function () {
+        if (!legacyCopy(text)) throw new Error("copy failed");
+      });
+    }
+    return new Promise(function (resolve, reject) { if (legacyCopy(text)) resolve(); else reject(new Error("copy failed")); });
+  }
+
+  /* ---------- 토스트 ---------- */
+  var toast = document.createElement("div");
+  toast.className = "toast";
+  toast.setAttribute("role", "status");
+  toast.setAttribute("aria-live", "polite");
+  document.body.appendChild(toast);
+  var toastTimer = null;
+  function showToast(title, text, failed) {
+    toast.innerHTML = "";
+    var b = document.createElement("b");
+    b.textContent = title;
+    toast.appendChild(b);
+    toast.appendChild(document.createTextNode(text));
+    toast.classList.toggle("fail", !!failed);
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("show"); toast.classList.remove("fail"); }, failed ? 7000 : 2200);
+  }
+
+  /* ---------- 주소 버튼 ---------- */
+  function markCopied(btn) {
+    var others = document.querySelectorAll(".addr button.copied");
+    for (var i = 0; i < others.length; i++) {
+      others[i].classList.remove("copied");
+      others[i].querySelector(".cp").textContent = "복사";
+    }
+    btn.classList.add("copied");
+    btn.querySelector(".cp").textContent = "✓ 복사됨";
+    clearTimeout(btn._copiedTimer);
+    btn._copiedTimer = setTimeout(function () {
+      btn.classList.remove("copied");
+      btn.querySelector(".cp").textContent = "복사";
+    }, 2500);
+  }
+  function addButton(box, label, text, detail) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.innerHTML = '<span class="k">' + label + '</span><span class="v">' + text + (detail ? ' <small>' + detail + '</small>' : '') + '</span><span class="cp">복사</span>';
+    btn.addEventListener("click", function () {
+      copyText(text).then(function () {
+        markCopied(btn);
+        showToast(label + " 복사됨 · 내비에 붙여넣기", text);
+      }, function () {
+        showToast("자동 복사가 안 됨 · 아래 주소를 길게 눌러 복사", text, true);
+      });
+    });
+    box.appendChild(btn);
+  }
+
+  var boxes = document.querySelectorAll(".addr[data-place]");
+  for (var i = 0; i < boxes.length; i++) {
+    var p = PLACES[boxes[i].getAttribute("data-place")];
+    if (!p) continue;
+    if (p.addr) {
+      addButton(boxes[i], "주소", p.addr);
+    } else {
+      addButton(boxes[i], "도로명", p.road, p.detail);
+      addButton(boxes[i], "지번", p.jibun);
+    }
+  }
+})();
+</script>
 
 <script>
 (function () {
