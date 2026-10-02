@@ -33,6 +33,8 @@
     --orange-soft: #FAEBDC;
     --red: #B23B2A;
     --red-soft: #F9E6E1;
+    --blue: #3567A8;
+    --blue-soft: #E3ECF7;
     --star-off: #D9D3C7;
     --track: #D3DDDA;
     --hero-a: #296761;
@@ -64,6 +66,8 @@
       --orange-soft: #3A2716;
       --red: #F19A8B;
       --red-soft: #3B1F1B;
+      --blue: #8DB4E8;
+      --blue-soft: #1B2A3D;
       --star-off: #3A4743;
       --track: #34433F;
       --hero-a: #1D4A43;
@@ -93,6 +97,8 @@
     --orange-soft: #3A2716;
     --red: #F19A8B;
     --red-soft: #3B1F1B;
+    --blue: #8DB4E8;
+    --blue-soft: #1B2A3D;
     --star-off: #3A4743;
     --track: #34433F;
     --hero-a: #1D4A43;
@@ -265,6 +271,43 @@
   .itin + .itin { margin-top: 0; }
   .after { margin-top: 10px; font-size: 13px; color: var(--ink-2); }
 
+  /* ---------- 흐름 그래픽 ---------- */
+  .flow-wrap { margin: 0 0 6px; }
+  .flow { list-style: none; margin: 0; padding: 12px 10px; display: flex; flex-wrap: wrap; align-items: center; row-gap: 10px; background: var(--surface-2); border-radius: 12px; }
+  .flow li { display: flex; align-items: center; }
+  .fn { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 4px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-family: var(--sans); font-size: 12.5px; color: var(--ink); line-height: 1.25; text-align: left; }
+  button.fn { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  button.fn:hover { border-color: var(--green); }
+  button.fn.copied { border-color: var(--green); background: var(--green-soft); }
+  .fn .ic { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; flex: none; color: #FFFFFF; background: var(--green); font-size: 12px; font-weight: 700; }
+  .fn .ic .ico { width: 14px; height: 14px; stroke-width: 2.2; }
+  .fn.home .ic { background: var(--ink-2); }
+  .fn.park .ic { background: var(--blue); }
+  .fn.food .ic { background: var(--orange); }
+  .fn.sight .ic { background: var(--green-pale); }
+  .fn.star { background: var(--orange-soft); border-color: transparent; }
+  .fn.star .ic, .fn.fest .ic { background: var(--orange); }
+  .fn.fest { background: var(--orange-soft); border-color: var(--orange); }
+  .fn b { display: block; font-weight: 700; }
+  .fn small { display: block; font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .fn .cpy { width: 12px; height: 12px; color: var(--ink-3); margin-left: 2px; }
+  .fs { display: inline-flex; flex-direction: column; align-items: stretch; min-width: 52px; padding: 0 4px; }
+  .fs .lb { font-size: 11px; font-weight: 700; color: var(--ink-2); white-space: nowrap; text-align: center; line-height: 1.3; }
+  .fs .ln { position: relative; height: 0; margin: 3px 6px 0 2px; border-top: 3px dashed var(--ink-3); color: var(--ink-3); }
+  .fs .ln::after { content: ""; position: absolute; right: -7px; top: -6.5px; border-left: 7px solid currentColor; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+  .fs.train .ln { border-top: 4px solid var(--green); color: var(--green); }
+  .fs.walk .ln { border-top: 3px dotted var(--orange); color: var(--orange); }
+  .fs.bus .ln { border-top: 3px dashed var(--blue); color: var(--blue); }
+  .fs.car .lb { color: var(--ink-3); }
+  .flow-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; font-size: 11.5px; color: var(--ink-3); }
+  .flow-legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .flow-legend i { display: inline-block; width: 22px; height: 0; }
+  .flow-legend i.car { border-top: 3px dashed var(--ink-3); }
+  .flow-legend i.train { border-top: 4px solid var(--green); }
+  .flow-legend i.walk { border-top: 3px dotted var(--orange); }
+  .flow-legend i.bus { border-top: 3px dashed var(--blue); }
+  .pcard .mini { font-size: 12.5px; line-height: 1.6; color: var(--ink); }
+
   /* ---------- 주소 복사 ---------- */
   .addr { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; max-width: 560px; container-type: inline-size; }
   .addr .pname { font-size: 12.5px; font-weight: 700; color: var(--ink); margin-top: 4px; display: flex; align-items: center; gap: 5px; }
@@ -374,6 +417,7 @@
   <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M8.5 3.5 3 6.5l2 4 2.5-1V20.5h9V9.5l3 1 2-4-5.5-3c-.6 1.8-1.9 2.8-3.5 2.8S9.1 5.3 8.5 3.5Z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
   <symbol id="i-train" viewBox="0 0 24 24"><rect x="6" y="3.5" width="12" height="13" rx="3"/><path d="M6 11h12M9 20.5l1.5-4M15 20.5l-1.5-4"/><circle cx="9.5" cy="14" r=".7"/><circle cx="14.5" cy="14" r=".7"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/></symbol>
   <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.4"/></symbol>
 </svg>
 
@@ -519,42 +563,42 @@
         <div class="top"><span class="badge go">⭐ Claude 추천</span><span class="stars" aria-label="추천도 5점 만점에 5점">★★★★★</span></div>
         <h3>터널 걷고 불꽃놀이로 끝</h3>
         <p class="one">2코스 하이라이트(국수→아신) + 박람회 개막 불꽃놀이 · 차는 양평읍에 한 번만 세움</p>
-        <dl><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>08:30 → 22:30 · 약 14시간</dd><dt>걷기</dt><dd>약 4.5km · 1시간 30분</dd><dt>주차</dt><dd>양평역 1주차장 (유료)</dd><dt>식사</dt><dd>국수리국수집</dd></dl>
+        <dl><dt>흐름</dt><dd class="mini">원당 🚗 양평역P 🚆 국수 🍜 🚶 터널 🚶 아신 🚆 양평 🎆 🚶 양평역P 🚗 원당</dd><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>08:30 → 22:30 · 약 14시간</dd><dt>걷기</dt><dd>약 4.5km · 1시간 30분</dd><dt>주차</dt><dd>양평역 1주차장 (유료)</dd><dt>식사</dt><dd>국수리국수집</dd></dl>
         <span class="go-btn">일정 보기 →</span>
       </a>
       <a class="pcard" href="#c2">
         <div class="top"><span class="tag">2코스 · 터널이 있는 기찻길</span><span class="stars" aria-label="추천도 5점 만점에 5점">★★★★★</span></div>
         <h3>옛 철길 터널 완주</h3>
         <p class="one">가장 무난한 인기 코스 · 평지 위주 · 남한강변</p>
-        <dl><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>07:30 → 18:00 · 약 10시간 30분</dd><dt>걷기</dt><dd>8.6km · 약 3시간</dd><dt>주차</dt><dd>양수역 공영주차장 (무료)</dd><dt>식사</dt><dd>국수리국수집</dd></dl>
+        <dl><dt>흐름</dt><dd class="mini">원당 🚗 양수역P 🚆 신원 🚶 국수 🍜 🚶 터널 🚶 아신 🚆 양수 🚶 두물머리 🚗 원당</dd><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>07:30 → 18:00 · 약 10시간 30분</dd><dt>걷기</dt><dd>8.6km · 약 3시간</dd><dt>주차</dt><dd>양수역 공영주차장 (무료)</dd><dt>식사</dt><dd>국수리국수집</dd></dl>
         <span class="go-btn">일정 보기 →</span>
       </a>
       <a class="pcard" href="#c3">
         <div class="top"><span class="tag">3코스 · 강변이야기길</span><span class="stars" aria-label="추천도 5점 만점에 4점">★★★★<i>★</i></span></div>
         <h3>옥천냉면 먹고 양평역까지</h3>
         <p class="one">코스 한가운데 옥천냉면 · 종점이 박람회장 옆</p>
-        <dl><dt>난이도</dt><dd><span class="lv mid">보통</span></dd><dt>총 소요</dt><dd>07:30 → 17:30 · 약 10시간</dd><dt>걷기</dt><dd>10.9km · 약 3시간 30분</dd><dt>주차</dt><dd>양평역 1주차장 (유료)</dd><dt>식사</dt><dd>옥천냉면</dd></dl>
+        <dl><dt>흐름</dt><dd class="mini">원당 🚗 양평역P 🚆 아신 🚶 옥천 🍜 🚶 양근성지 🚶 양평역P 🚗 원당</dd><dt>난이도</dt><dd><span class="lv mid">보통</span></dd><dt>총 소요</dt><dd>07:30 → 17:30 · 약 10시간</dd><dt>걷기</dt><dd>10.9km · 약 3시간 30분</dd><dt>주차</dt><dd>양평역 1주차장 (유료)</dd><dt>식사</dt><dd>옥천냉면</dd></dl>
         <span class="go-btn">일정 보기 →</span>
       </a>
       <a class="pcard" href="#fest">
         <div class="top"><span class="tag">🎆 이전 플랜</span><span class="stars" aria-label="추천도 5점 만점에 4점">★★★★<i>★</i></span></div>
         <h3>3코스 끝 구간 + 박람회</h3>
         <p class="one">강변 산책 → 축제 구경 → 불꽃놀이로 마무리</p>
-        <dl><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>09:30 → 22:30 · 약 13시간</dd><dt>걷기</dt><dd>왕복 2~4km · 1~2시간</dd><dt>주차</dt><dd>생활문화센터 (무료·혼잡)</dd><dt>식사</dt><dd>옥천냉면</dd></dl>
+        <dl><dt>흐름</dt><dd class="mini">원당 🚗 옥천 🍜 🚗 문화센터P 🚶 양강섬 · 성지 · 수목원 🚶 박람회 🎆 🚗 원당</dd><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>09:30 → 22:30 · 약 13시간</dd><dt>걷기</dt><dd>왕복 2~4km · 1~2시간</dd><dt>주차</dt><dd>생활문화센터 (무료·혼잡)</dd><dt>식사</dt><dd>옥천냉면</dd></dl>
         <span class="go-btn">일정 보기 →</span>
       </a>
       <a class="pcard" href="#c1">
         <div class="top"><span class="tag">1코스 · 문화유적길</span><span class="stars" aria-label="추천도 5점 만점에 3점">★★★<i>★★</i></span></div>
         <h3>역사 산책 + 두물머리</h3>
         <p class="one">이덕형 신도비 · 여운형 생가 · 끝나고 두물머리 · 세미원</p>
-        <dl><dt>난이도</dt><dd><span class="lv mid">보통 · 산길 고개</span></dd><dt>총 소요</dt><dd>07:30 → 18:30 · 약 11시간</dd><dt>걷기</dt><dd>10.5km + 두물머리 · 약 4시간 30분</dd><dt>주차</dt><dd>양수역 공영주차장 (무료)</dd><dt>식사</dt><dd>황금연못 · 명가연밭</dd></dl>
+        <dl><dt>흐름</dt><dd class="mini">원당 🚗 양수역P 🚶 이덕형 신도비 🚶 여운형 생가 🚶 신원 🍜 🚆 양수 🚶 두물머리 🚗 원당</dd><dt>난이도</dt><dd><span class="lv mid">보통 · 산길 고개</span></dd><dt>총 소요</dt><dd>07:30 → 18:30 · 약 11시간</dd><dt>걷기</dt><dd>10.5km + 두물머리 · 약 4시간 30분</dd><dt>주차</dt><dd>양수역 공영주차장 (무료)</dd><dt>식사</dt><dd>황금연못 · 명가연밭</dd></dl>
         <span class="go-btn">일정 보기 →</span>
       </a>
       <a class="pcard" href="#c6">
         <div class="top"><span class="tag">6코스 · 용문산 은행나무길</span><span class="stars" aria-label="추천도 5점 만점에 3점">★★★<i>★★</i></span></div>
         <h3>천년 은행나무까지</h3>
         <p class="one">용문사 은행나무 · 산채정식 · 가장 먼 코스, 은행잎은 아직 초록일 듯</p>
-        <dl><dt>난이도</dt><dd><span class="lv mid">보통 · 작은 고개 2번</span></dd><dt>총 소요</dt><dd>07:30 → 18:00 · 약 10시간 30분</dd><dt>걷기</dt><dd>10.3km + 은행나무 2km · 약 4시간</dd><dt>주차</dt><dd>용문역 주차장 (무료)</dd><dt>식사</dt><dd>용문산 중앙식당</dd></dl>
+        <dl><dt>흐름</dt><dd class="mini">원당 🚗 용문역P 🚶 관광지 🍜 🚶 은행나무 🚌 용문역P 🚗 원당</dd><dt>난이도</dt><dd><span class="lv mid">보통 · 작은 고개 2번</span></dd><dt>총 소요</dt><dd>07:30 → 18:00 · 약 10시간 30분</dd><dt>걷기</dt><dd>10.3km + 은행나무 2km · 약 4시간</dd><dt>주차</dt><dd>용문역 주차장 (무료)</dd><dt>식사</dt><dd>용문산 중앙식당</dd></dl>
         <span class="go-btn">일정 보기 →</span>
       </a>
     </div>
@@ -565,6 +609,7 @@
         <li><b>한쪽 역에 주차</b>하고 경의중앙선 전철로 출발역까지 1~4정거장 이동</li>
         <li>걸어서 코스를 따라오면 <b>끝나는 곳에 내 차</b> — 시간 압박 없이 걷고, 택시 필요 없음</li>
       </ol>
+      <div class="flow-legend"><span><i class="car"></i>🚗 차</span><span><i class="train"></i>🚆 전철</span><span><i class="walk"></i>🚶 걷기</span><span><i class="bus"></i>🚌 버스 · 택시</span><span>각 일정의 ‘흐름 한눈에’에서 점을 누르면 그 장소 주소가 복사된다</span></div>
       <p>경의중앙선은 휴일엔 모든 역에 서는 완행만 다니고, 양평 쪽은 대략 20~30분 간격(용문은 약 30분). 출발 전 휴일 시간표 확인. 6코스는 끝이 역이 아니라 버스 · 택시로 회수.</p>
     </div>
     <p class="foot">추천도는 10월 9일 기준(날씨 · 박람회 · 은행잎 시기 · 이동 거리)으로 매긴 Claude의 판단. 운전 시간은 원당 기준 평소 소요에 연휴 정체를 더한 추정이라 출발 전 내비 실시간 확인.</p>
@@ -585,6 +630,7 @@
         </div>
       </div>
       <div class="ibody">
+        <div class="flow-wrap"><h4><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>흐름 한눈에 <span class="badge ok">점을 누르면 주소 복사</span></h4><ol class="flow" data-flow="c1" aria-label="이동 흐름"></ol><div class="flow-legend"><span><i class="car"></i>차</span><span><i class="train"></i>전철</span><span><i class="walk"></i>걷기</span></div></div>
         <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
         <ul class="points">
           <li class="hl"><b>출발점 양수역 바로 옆이 두물머리</b><small>걷고 나서 강 풍경 · 연핫도그 · 세미원으로 마무리</small></li>
@@ -603,14 +649,14 @@
         <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
         <ol class="tl">
           <li><span class="when">07:30</span><div class="what"><h5>원당 출발</h5><p>연휴 첫날 오전 양평 방향 정체 → 일찍</p><span class="mv"><b>🚗 약 1시간~1시간 30분</b> · 6번 국도 · 양수리 정체 변수</span></div></li>
-          <li><span class="when">09:00</span><div class="what"><h5>양수역 공영주차장 주차</h5></div></li>
-          <li class="hl"><span class="when">09:15</span><div class="what"><h5>1코스 출발</h5><p>양수역 → 부용리 → 한음 이덕형 신도비(인증대) → 샘골고개(산길) → 몽양 여운형 생가 → 신원역</p><span class="mv walk"><b>🚶 10.5km · 약 3시간 30분</b> · 쉬는 시간 포함</span></div></li>
+          <li><span class="when">09:00</span><div class="what"><h5>양수역 공영주차장 주차</h5><div class="addr" data-places="pk_yangsu" data-bare></div></div></li>
+          <li class="hl"><span class="when">09:15</span><div class="what"><h5>1코스 출발</h5><p>양수역 → 부용리(정창손 묘) → 한음 이덕형 신도비(인증대) → 샘골고개(산길) → 몽양 여운형 생가 → 신원역</p><span class="mv walk"><b>🚶 10.5km · 약 3시간 30분</b> · 쉬는 시간 포함</span><div class="addr" data-places="st_yangsu jeongcs leedh"></div></div></li>
           <li><span class="when">11:45</span><div class="what"><h5>몽양 여운형 생가 · 기념관</h5><p>코스 후반 · 잠깐 들러 관람</p><div class="addr" data-places="mongyang" data-bare></div></div></li>
-          <li><span class="when">12:45</span><div class="what"><h5>신원역 도착 → 점심</h5><p>역 앞 황금연못 (아래 식당 참고)</p></div></li>
-          <li class="move"><span class="when">14:00</span><div class="what"><h5>전철로 양수역 복귀</h5><span class="mv train"><b>🚆 신원 → 양수 1정거장</b> · 약 4분 · 20~30분 간격</span></div></li>
-          <li><span class="when">14:30</span><div class="what"><h5>두물머리 산책 + 연핫도그</h5><p>양수역에서 걸어서 약 20분 · 느티나무 · 강 합류 지점</p><div class="addr" data-places="dumul" data-bare></div></div></li>
+          <li><span class="when">12:45</span><div class="what"><h5>신원역 도착 → 점심</h5><p>역 앞 황금연못 (아래 식당 참고)</p><div class="addr" data-places="st_sinwon r_hwanggeum"></div></div></li>
+          <li class="move"><span class="when">14:00</span><div class="what"><h5>전철로 양수역 복귀</h5><span class="mv train"><b>🚆 신원 → 양수 1정거장</b> · 약 4분 · 20~30분 간격</span><div class="addr" data-places="st_yangsu"></div></div></li>
+          <li><span class="when">14:30</span><div class="what"><h5>두물머리 산책 + 연핫도그</h5><p>양수역에서 걸어서 약 20분 · 느티나무 · 강 합류 지점</p><div class="addr" data-places="dumul r_hotdog"></div></div></li>
           <li><span class="when">15:30</span><div class="what"><h5>세미원 <span class="badge ok">선택</span></h5><p>09:00~18:00(입장 마감 17:30) · 성인 7,000원(양평사랑상품권 2,000원 지급) · 음식물 반입 불가(음료 가능) · 수련문화제 9/1~10/31</p><div class="addr" data-places="semiwon" data-bare></div></div></li>
-          <li><span class="when">17:00</span><div class="what"><h5>양수역 출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간~1시간 30분</b></span></div></li>
+          <li><span class="when">17:00</span><div class="what"><h5>양수역 공영주차장 출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간~1시간 30분</b></span><div class="addr" data-places="pk_yangsu" data-bare></div></div></li>
           <li><span class="when">18:30</span><div class="what"><h5>원당 도착</h5></div></li>
         </ol>
 
@@ -639,6 +685,7 @@
         </div>
       </div>
       <div class="ibody">
+        <div class="flow-wrap"><h4><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>흐름 한눈에 <span class="badge ok">점을 누르면 주소 복사</span></h4><ol class="flow" data-flow="c2" aria-label="이동 흐름"></ol><div class="flow-legend"><span><i class="car"></i>차</span><span><i class="train"></i>전철</span><span><i class="walk"></i>걷기</span></div></div>
         <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
         <ul class="points">
           <li class="hl"><b>옛 철길 터널 2곳 — 원복터널 · 기곡터널</b><small>코스 후반(국수→아신)에 몰려 있음 · 사진 명소</small></li>
@@ -657,14 +704,14 @@
         <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
         <ol class="tl">
           <li><span class="when">07:30</span><div class="what"><h5>원당 출발</h5><span class="mv"><b>🚗 약 1시간~1시간 30분</b> · 양수리 정체 변수</span></div></li>
-          <li><span class="when">09:00</span><div class="what"><h5>양수역 공영주차장 주차</h5></div></li>
-          <li class="move"><span class="when">09:15</span><div class="what"><h5>전철로 신원역</h5><span class="mv train"><b>🚆 양수 → 신원 1정거장</b> · 약 4분</span></div></li>
-          <li class="hl"><span class="when">09:30</span><div class="what"><h5>2코스 전반 출발</h5><p>신원역 → 4대강 수변공원 → 신원교 토끼굴 → 질울고래실마을 → 국수역</p><span class="mv walk"><b>🚶 약 4km · 1시간 20분</b></span></div></li>
-          <li><span class="when">10:55</span><div class="what"><h5>국수역 근처 점심 — 국수리국수집</h5><p>11:00 오픈에 맞춰 첫 타임 → 연휴 대기 줄 피하기</p></div></li>
-          <li class="hl"><span class="when">12:00</span><div class="what"><h5>2코스 후반 — 터널 구간</h5><p>국수역 → <b>원복터널</b> → <b>기곡터널</b> → <b>기차 속 갤러리</b> → 물소리길센터(인증대) → 아신역</p><span class="mv walk"><b>🚶 약 4.5km · 1시간 40분</b> · 사진 시간 포함</span></div></li>
-          <li class="move"><span class="when">13:45</span><div class="what"><h5>전철로 양수역 복귀</h5><span class="mv train"><b>🚆 아신 → 양수 3정거장</b> · 약 10분</span></div></li>
-          <li><span class="when">14:15</span><div class="what"><h5>두물머리 산책 + 연핫도그 <span class="badge ok">선택</span></h5><p>양수역에서 걸어서 약 20분 · 피곤하면 바로 귀가</p><div class="addr" data-places="dumul" data-bare></div></div></li>
-          <li><span class="when">16:30</span><div class="what"><h5>양수역 출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간~1시간 30분</b></span></div></li>
+          <li><span class="when">09:00</span><div class="what"><h5>양수역 공영주차장 주차</h5><div class="addr" data-places="pk_yangsu" data-bare></div></div></li>
+          <li class="move"><span class="when">09:15</span><div class="what"><h5>전철로 신원역</h5><span class="mv train"><b>🚆 양수 → 신원 1정거장</b> · 약 4분</span><div class="addr" data-places="st_sinwon"></div></div></li>
+          <li class="hl"><span class="when">09:30</span><div class="what"><h5>2코스 전반 출발</h5><p>신원역 → 4대강 수변공원 → 신원교 토끼굴 → 질울고래실마을 → 국수역</p><span class="mv walk"><b>🚶 약 4km · 1시간 20분</b></span><div class="addr" data-places="st_guksu"></div></div></li>
+          <li><span class="when">10:55</span><div class="what"><h5>국수역 근처 점심 — 국수리국수집</h5><p>11:00 오픈에 맞춰 첫 타임 → 연휴 대기 줄 피하기</p><div class="addr" data-places="r_guksu" data-bare></div></div></li>
+          <li class="hl"><span class="when">12:00</span><div class="what"><h5>2코스 후반 — 터널 구간</h5><p>국수역 → <b>원복터널</b> → <b>기곡터널</b> → <b>기차 속 갤러리</b> → 물소리길센터(인증대) → 아신역 · 터널 · 갤러리는 걷는 길 위라 따로 주소 없음</p><span class="mv walk"><b>🚶 약 4.5km · 1시간 40분</b> · 사진 시간 포함</span><div class="addr" data-places="mulsori_center st_asin"></div></div></li>
+          <li class="move"><span class="when">13:45</span><div class="what"><h5>전철로 양수역 복귀</h5><span class="mv train"><b>🚆 아신 → 양수 3정거장</b> · 약 10분</span><div class="addr" data-places="st_yangsu"></div></div></li>
+          <li><span class="when">14:15</span><div class="what"><h5>두물머리 산책 + 연핫도그 <span class="badge ok">선택</span></h5><p>양수역에서 걸어서 약 20분 · 피곤하면 바로 귀가</p><div class="addr" data-places="dumul r_hotdog"></div></div></li>
+          <li><span class="when">16:30</span><div class="what"><h5>양수역 공영주차장 출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간~1시간 30분</b></span><div class="addr" data-places="pk_yangsu" data-bare></div></div></li>
           <li><span class="when">18:00</span><div class="what"><h5>원당 도착</h5></div></li>
         </ol>
 
@@ -692,6 +739,7 @@
         </div>
       </div>
       <div class="ibody">
+        <div class="flow-wrap"><h4><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>흐름 한눈에 <span class="badge ok">점을 누르면 주소 복사</span></h4><ol class="flow" data-flow="c3" aria-label="이동 흐름"></ol><div class="flow-legend"><span><i class="car"></i>차</span><span><i class="train"></i>전철</span><span><i class="walk"></i>걷기</span></div></div>
         <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
         <ul class="points">
           <li class="hl"><b>코스 한가운데 옥천냉면</b><small>걷다가 먹는 양평 대표 음식 · 황해도식 냉면과 완자</small></li>
@@ -709,13 +757,13 @@
         <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
         <ol class="tl">
           <li><span class="when">07:30</span><div class="what"><h5>원당 출발</h5><span class="mv"><b>🚗 약 1시간 15분~2시간</b> · 연휴 오전 정체</span></div></li>
-          <li><span class="when">09:00</span><div class="what"><h5>양평역 1주차장 주차</h5></div></li>
-          <li class="move"><span class="when">09:20</span><div class="what"><h5>전철로 아신역</h5><span class="mv train"><b>🚆 양평 → 오빈 → 아신 2정거장</b> · 약 7분</span></div></li>
-          <li class="hl"><span class="when">09:40</span><div class="what"><h5>3코스 전반 출발</h5><p>아신역 → 성곡재(산길) → 옥천레포츠공원 → 옥천</p><span class="mv walk"><b>🚶 약 5km · 1시간 50분</b></span></div></li>
-          <li class="hl"><span class="when">11:30</span><div class="what"><h5>점심 — 옥천냉면</h5><p>11시 오픈 직후라 덜 붐빔 · 연휴 영업 여부 미리 확인</p></div></li>
-          <li><span class="when">12:30</span><div class="what"><h5>3코스 후반</h5><p>옥천 → 들꽃수목원 → 천주교 양근성지 → 물안개공원 → 양평역</p><span class="mv walk"><b>🚶 약 6km · 1시간 50분</b></span><div class="addr" data-places="deulkkot yanggeun"></div></div></li>
-          <li><span class="when">14:30</span><div class="what"><h5>양평역 도착</h5><p>여기서 귀가하거나, 박람회장으로 이어가기 → <a href="#fest">🎆 박람회 코스</a> 참고</p></div></li>
-          <li><span class="when">16:00</span><div class="what"><h5>양평역 출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간 15분~1시간 30분</b></span></div></li>
+          <li><span class="when">09:00</span><div class="what"><h5>양평역 1주차장 주차</h5><div class="addr" data-places="pk_yangpyeong" data-bare></div></div></li>
+          <li class="move"><span class="when">09:20</span><div class="what"><h5>전철로 아신역</h5><span class="mv train"><b>🚆 양평 → 오빈 → 아신 2정거장</b> · 약 7분</span><div class="addr" data-places="st_asin"></div></div></li>
+          <li class="hl"><span class="when">09:40</span><div class="what"><h5>3코스 전반 출발</h5><p>아신역 → 성곡재(산길) → 옥천레포츠공원 → 옥천</p><span class="mv walk"><b>🚶 약 5km · 1시간 50분</b></span><div class="addr" data-places="okcheon_park"></div></div></li>
+          <li class="hl"><span class="when">11:30</span><div class="what"><h5>점심 — 옥천냉면</h5><p>11시 오픈 직후라 덜 붐빔 · 연휴 영업 여부 미리 확인</p><div class="addr" data-places="r_okcheon r_okcheon2"></div></div></li>
+          <li><span class="when">12:30</span><div class="what"><h5>3코스 후반</h5><p>옥천 → 들꽃수목원 → 천주교 양근성지 → 물안개공원 → 양평역</p><span class="mv walk"><b>🚶 약 6km · 1시간 50분</b></span><div class="addr" data-places="deulkkot yanggeun mulangae"></div></div></li>
+          <li><span class="when">14:30</span><div class="what"><h5>양평역 도착 · 차 있는 곳</h5><p>여기서 귀가하거나, 박람회장으로 이어가기 → <a href="#fest">🎆 박람회 코스</a> 참고</p><div class="addr" data-places="pk_yangpyeong" data-bare></div></div></li>
+          <li><span class="when">16:00</span><div class="what"><h5>양평역 1주차장 출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간 15분~1시간 30분</b></span><div class="addr" data-places="pk_yangpyeong" data-bare></div></div></li>
           <li><span class="when">17:30</span><div class="what"><h5>원당 도착</h5></div></li>
         </ol>
 
@@ -743,6 +791,7 @@
         </div>
       </div>
       <div class="ibody">
+        <div class="flow-wrap"><h4><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>흐름 한눈에 <span class="badge ok">점을 누르면 주소 복사</span></h4><ol class="flow" data-flow="c6" aria-label="이동 흐름"></ol><div class="flow-legend"><span><i class="car"></i>차</span><span><i class="train"></i>전철</span><span><i class="walk"></i>걷기</span><span><i class="bus"></i>버스 · 택시</span></div></div>
         <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
         <ul class="points">
           <li class="hl"><b>용문사 은행나무</b><small>천연기념물 · 높이 42m · 관광지 ↔ 은행나무 왕복 약 2km(1시간 이내)</small></li>
@@ -761,12 +810,12 @@
         <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
         <ol class="tl">
           <li><span class="when">07:30</span><div class="what"><h5>원당 출발</h5><span class="mv"><b>🚗 약 1시간 30분~2시간</b> · 6번 국도 양평 지나 용문</span></div></li>
-          <li><span class="when">09:15</span><div class="what"><h5>용문역 주차장 주차</h5></div></li>
-          <li class="hl"><span class="when">09:30</span><div class="what"><h5>6코스 출발</h5><p>용문역 → 용문국민체육센터(인증대 6-1) → 흑천 → 천주교 용문수련장 → 인삼밭 → 인증대 6-2 → 오촌리 마을회관 → 용문산관광지</p><span class="mv walk"><b>🚶 10.3km · 약 3시간</b></span></div></li>
-          <li><span class="when">12:30</span><div class="what"><h5>점심 — 용문산 중앙식당</h5><p>산채정식 · 더덕구이</p></div></li>
-          <li class="hl"><span class="when">13:30</span><div class="what"><h5>용문사 은행나무 왕복</h5><span class="mv walk"><b>🚶 약 2km · 1시간 이내</b></span></div></li>
-          <li class="move"><span class="when">15:00</span><div class="what"><h5>용문역으로 복귀</h5><p>군내버스(7-4번 등 · 용문사 쪽 출발은 매시 15분 · 45분이라는 후기 — 현장 시간표 확인) 또는 택시</p><span class="mv"><b>🚌 · 🚕 약 15분</b> (추정)</span></div></li>
-          <li><span class="when">15:30</span><div class="what"><h5>용문역 출발 → 귀가</h5><p>귀갓길에 양평 신내서울해장국 본점(개군면) 들러 이른 저녁도 가능</p><span class="mv"><b>🚗 약 1시간 30분~2시간</b></span></div></li>
+          <li><span class="when">09:15</span><div class="what"><h5>용문역 주차장 주차</h5><div class="addr" data-places="pk_yongmun" data-bare></div></div></li>
+          <li class="hl"><span class="when">09:30</span><div class="what"><h5>6코스 출발</h5><p>용문역 → 용문국민체육센터(인증대 6-1) → 흑천 → 천주교 용문수련장 → 인삼밭 → 인증대 6-2 → 오촌리 마을회관 → 용문산관광지</p><span class="mv walk"><b>🚶 10.3km · 약 3시간</b></span><div class="addr" data-places="pk_yongmunsan"></div></div></li>
+          <li><span class="when">12:30</span><div class="what"><h5>점심 — 용문산 중앙식당</h5><p>산채정식 · 더덕구이</p><div class="addr" data-places="r_jungang" data-bare></div></div></li>
+          <li class="hl"><span class="when">13:30</span><div class="what"><h5>용문사 은행나무 왕복</h5><span class="mv walk"><b>🚶 약 2km · 1시간 이내</b></span><div class="addr" data-places="yongmunsa" data-bare></div></div></li>
+          <li class="move"><span class="when">15:00</span><div class="what"><h5>용문역으로 복귀</h5><p>군내버스(7-4번 등 · 용문사 쪽 출발은 매시 15분 · 45분이라는 후기 — 현장 시간표 확인) 또는 택시</p><span class="mv"><b>🚌 · 🚕 약 15분</b> (추정)</span><div class="addr" data-places="pk_yongmun"></div></div></li>
+          <li><span class="when">15:30</span><div class="what"><h5>용문역 출발 → 귀가</h5><p>귀갓길에 양평 신내서울해장국 본점(개군면) 들러 이른 저녁도 가능</p><span class="mv"><b>🚗 약 1시간 30분~2시간</b></span><div class="addr" data-places="r_sinnae"></div></div></li>
           <li><span class="when">17:30</span><div class="what"><h5>원당 도착</h5><p>해장국 들르면 18:30 전후</p></div></li>
         </ol>
 
@@ -794,6 +843,7 @@
         </div>
       </div>
       <div class="ibody">
+        <div class="flow-wrap"><h4><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>흐름 한눈에 <span class="badge ok">점을 누르면 주소 복사</span></h4><ol class="flow" data-flow="best" aria-label="이동 흐름"></ol><div class="flow-legend"><span><i class="car"></i>차</span><span><i class="train"></i>전철</span><span><i class="walk"></i>걷기</span></div></div>
         <p class="why"><b>왜 이 코스?</b> 인기 1위 2코스에서 <b>터널 두 곳과 기차 속 갤러리만</b> 골라 걷고, 저녁엔 <b>그날만 있는 박람회 개막 불꽃놀이</b>로 마무리. 차는 아침에 양평읍에 한 번 세우면 밤까지 안 움직여서, 축제 날 주차 스트레스가 가장 적다.</p>
 
         <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
@@ -814,15 +864,15 @@
         <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
         <ol class="tl">
           <li><span class="when">08:30</span><div class="what"><h5>원당 출발</h5><span class="mv"><b>🚗 약 1시간 15분~2시간</b> · 연휴 오전 정체</span></div></li>
-          <li><span class="when">10:00</span><div class="what"><h5>양평역 1주차장 주차</h5><p>여기서 밤까지 차 안 움직임</p></div></li>
-          <li class="move"><span class="when">10:20</span><div class="what"><h5>전철로 국수역</h5><span class="mv train"><b>🚆 양평 → 오빈 → 아신 → 국수 3정거장</b> · 약 12분</span></div></li>
-          <li><span class="when">10:55</span><div class="what"><h5>점심 — 국수리국수집</h5><p>된장칼국수 · 부추수제비 · 녹두빈대떡</p></div></li>
-          <li class="hl"><span class="when">12:00</span><div class="what"><h5>2코스 터널 구간 걷기</h5><p>국수역 → <b>원복터널</b> → <b>기곡터널</b> → <b>기차 속 갤러리</b> → 물소리길센터(인증 도장) → 아신역</p><span class="mv walk"><b>🚶 약 4.5km · 1시간 30분</b> · 평지 위주</span></div></li>
-          <li class="move"><span class="when">13:40</span><div class="what"><h5>전철로 양평역</h5><span class="mv train"><b>🚆 아신 → 오빈 → 양평 2정거장</b> · 약 7분</span></div></li>
+          <li><span class="when">10:00</span><div class="what"><h5>양평역 1주차장 주차</h5><p>여기서 밤까지 차 안 움직임</p><div class="addr" data-places="pk_yangpyeong" data-bare></div></div></li>
+          <li class="move"><span class="when">10:20</span><div class="what"><h5>전철로 국수역</h5><span class="mv train"><b>🚆 양평 → 오빈 → 아신 → 국수 3정거장</b> · 약 12분</span><div class="addr" data-places="st_guksu"></div></div></li>
+          <li><span class="when">10:55</span><div class="what"><h5>점심 — 국수리국수집</h5><p>된장칼국수 · 부추수제비 · 녹두빈대떡</p><div class="addr" data-places="r_guksu" data-bare></div></div></li>
+          <li class="hl"><span class="when">12:00</span><div class="what"><h5>2코스 터널 구간 걷기</h5><p>국수역 → <b>원복터널</b> → <b>기곡터널</b> → <b>기차 속 갤러리</b> → 물소리길센터(인증 도장) → 아신역 · 터널 · 갤러리는 걷는 길 위라 따로 주소 없음</p><span class="mv walk"><b>🚶 약 4.5km · 1시간 30분</b> · 평지 위주</span><div class="addr" data-places="mulsori_center st_asin"></div></div></li>
+          <li class="move"><span class="when">13:40</span><div class="what"><h5>전철로 양평역</h5><span class="mv train"><b>🚆 아신 → 오빈 → 양평 2정거장</b> · 약 7분</span><div class="addr" data-places="pk_yangpyeong"></div></div></li>
           <li><span class="when">14:15</span><div class="what"><h5>카페 휴식 or 3코스 끝 구간 짧게</h5><p>양강섬 → 천주교 양근성지 (편도 약 1km) · 저녁이 길어서 낮에 한 번 쉬어 두기</p><div class="addr" data-places="yanggang yanggeun"></div></div></li>
-          <li class="hl"><span class="when">15:30</span><div class="what"><h5>박람회장 둘러보기</h5><p>양강섬 일원 · 부스 · 전시 · 플리마켓 · 먹거리 · 돗자리 피크닉</p></div></li>
-          <li class="hl"><span class="when">저녁</span><div class="what"><h5>개막식 → 불꽃놀이</h5><p>시각 미정 → 당일 양평문화원 공지 확인</p></div></li>
-          <li><span class="when">21:00</span><div class="what"><h5>출차 → 귀가</h5><p>불꽃놀이 직후 한꺼번에 몰리니 조금 여유 두고 출발</p><span class="mv"><b>🚗 약 1시간 15분~1시간 30분</b></span></div></li>
+          <li class="hl"><span class="when">15:30</span><div class="what"><h5>박람회장 둘러보기</h5><p>양강섬 일원 · 부스 · 전시 · 플리마켓 · 먹거리 · 돗자리 피크닉 · 양평역에서 걸어서 약 10~15분</p><div class="addr" data-places="yanggang mulangae"></div></div></li>
+          <li class="hl"><span class="when">저녁</span><div class="what"><h5>개막식 → 불꽃놀이</h5><p>양강섬 특설무대 · 시각 미정 → 당일 양평문화원 공지 확인</p><div class="addr" data-places="yanggang" data-bare></div></div></li>
+          <li><span class="when">21:00</span><div class="what"><h5>양평역 1주차장 출차 → 귀가</h5><p>불꽃놀이 직후 한꺼번에 몰리니 조금 여유 두고 출발</p><span class="mv"><b>🚗 약 1시간 15분~1시간 30분</b></span><div class="addr" data-places="pk_yangpyeong" data-bare></div></div></li>
           <li><span class="when">22:30</span><div class="what"><h5>원당 도착</h5></div></li>
         </ol>
 
@@ -850,6 +900,7 @@
         </div>
       </div>
       <div class="ibody">
+        <div class="flow-wrap"><h4><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>흐름 한눈에 <span class="badge ok">점을 누르면 주소 복사</span></h4><ol class="flow" data-flow="fest" aria-label="이동 흐름"></ol><div class="flow-legend"><span><i class="car"></i>차</span><span><i class="train"></i>전철</span><span><i class="walk"></i>걷기</span></div></div>
         <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
         <ul class="points">
           <li class="hl"><b>개막일 저녁 개막식 → 불꽃놀이 (무료)</b><small>낮엔 ‘양평 지역문화人’ 지역예술인 무대</small></li>
@@ -869,10 +920,10 @@
         <ol class="tl">
           <li><span class="when">09:30</span><div class="what"><h5>원당 출발</h5><p>연휴 첫날이라 오전 양평 방향 정체 예상</p><span class="mv"><b>🚗 약 1시간 30분~2시간</b> · 옥천면까지</span></div></li>
           <li><span class="when">11:30</span><div class="what"><h5>옥천면에서 옥천냉면</h5><p>양평읍 들어가기 전 옥천면 · 연휴 영업 여부 미리 확인</p><div class="addr" data-places="r_okcheon r_okcheon2"></div></div></li>
-          <li><span class="when">13:00</span><div class="what"><h5>양평읍 주차 → 3코스 끝 구간 산책</h5><p>양강섬 → 천주교 양근성지 → 들꽃수목원 왕복(편도 약 1~2km)</p><span class="mv walk"><b>🚶 왕복 2~4km · 1~2시간</b></span><div class="addr" data-places="yanggang yanggeun deulkkot"></div></div></li>
-          <li class="hl"><span class="when">15:30</span><div class="what"><h5>박람회장 둘러보기</h5><p>전국 문화원 부스 · 야외 전시 ‘양평 아뜰리에’ · 플리마켓 · 돗자리 피크닉 형태</p></div></li>
-          <li class="hl"><span class="when">저녁</span><div class="what"><h5>개막식 → 불꽃놀이</h5><p>개막 시각은 보도에 나오지 않음 → 양평문화원 공지 확인</p></div></li>
-          <li><span class="when">21:00</span><div class="what"><h5>출차 · 도로 혼잡 예상</h5><p>불꽃놀이 직후 한꺼번에 몰리니 조금 여유 두고 출발</p><span class="mv"><b>🚗 약 1시간 15분~1시간 30분</b></span></div></li>
+          <li><span class="when">13:00</span><div class="what"><h5>양평읍 주차 → 3코스 끝 구간 산책</h5><p>양강섬 → 천주교 양근성지 → 들꽃수목원 왕복(편도 약 1~2km) · 옥천냉면에서 차로 약 15분(추정)</p><span class="mv walk"><b>🚶 왕복 2~4km · 1~2시간</b></span><div class="addr" data-places="pk_ypcc pk_yangpyeong yanggang yanggeun deulkkot"></div></div></li>
+          <li class="hl"><span class="when">15:30</span><div class="what"><h5>박람회장 둘러보기</h5><p>전국 문화원 부스 · 야외 전시 ‘양평 아뜰리에’ · 플리마켓 · 돗자리 피크닉 형태</p><div class="addr" data-places="yanggang mulangae"></div></div></li>
+          <li class="hl"><span class="when">저녁</span><div class="what"><h5>개막식 → 불꽃놀이</h5><p>양강섬 특설무대 · 개막 시각은 보도에 나오지 않음 → 양평문화원 공지 확인</p><div class="addr" data-places="yanggang" data-bare></div></div></li>
+          <li><span class="when">21:00</span><div class="what"><h5>출차 · 도로 혼잡 예상</h5><p>불꽃놀이 직후 한꺼번에 몰리니 조금 여유 두고 출발</p><span class="mv"><b>🚗 약 1시간 15분~1시간 30분</b></span><div class="addr" data-places="pk_ypcc" data-bare></div></div></li>
           <li><span class="when">22:30</span><div class="what"><h5>원당 도착</h5></div></li>
         </ol>
         <p class="after"><b>풀코스로 걷고 싶다면</b> · 3코스 아신역 → 양평역 완주(10.9km · 약 3시간 · 보통) → <a href="#c3">3코스 일정</a>처럼 양평역에 차 두고 전철로 아신역 출발</p>
@@ -891,7 +942,7 @@
     <div class="places" data-places="r_hwanggeum r_yeonbat r_hotdog r_guksu r_okcheon r_okcheon2 r_jungang r_sinnae"></div>
 
     <h3 class="group-t"><span class="badge ok">장소</span>들르는 곳</h3>
-    <div class="places" data-places="dumul semiwon mongyang yanggang yanggeun deulkkot mulangae"></div>
+    <div class="places" data-places="dumul semiwon jeongcs leedh mongyang mulsori_center okcheon_park yanggang yanggeun deulkkot mulangae yongmunsa"></div>
 
     <h3 class="group-t"><span class="badge ok">역</span>코스 출발 · 도착 · 환승 역</h3>
     <div class="places" data-places="st_yangsu st_sinwon st_guksu st_asin"></div>
@@ -1003,7 +1054,89 @@
     st_yangsu:      { name: "양수역",                        role: "1코스 출발 · 두물머리 옆",                            road: "경기 양평군 양서면 목왕로 55-10",    jibun: "경기 양평군 양서면 용담리 255-2" },
     st_sinwon:      { name: "신원역",                        role: "1코스 도착 · 2코스 출발",                             road: "경기 양평군 양서면 신원역길 5-3",    jibun: "경기 양평군 양서면 신원리 480-29" },
     st_guksu:       { name: "국수역",                        role: "2코스 중간 · 추천 코스 출발",                         road: "경기 양평군 양서면 국수역길 45",     jibun: "경기 양평군 양서면 국수리 258-25" },
-    st_asin:        { name: "아신역",                        role: "2코스 도착 · 3코스 출발",                             road: "경기 양평군 옥천면 아신역1길 23",    jibun: "경기 양평군 옥천면 아신리 산112-2" }
+    st_asin:        { name: "아신역",                        role: "2코스 도착 · 3코스 출발",                             road: "경기 양평군 옥천면 아신역1길 23",    jibun: "경기 양평군 옥천면 아신리 산112-2" },
+
+    jeongcs:        { name: "정창손 묘역",                   role: "1코스 초반 · 부용리 · 걸어서 지나감",                 jibun: "경기 양평군 양서면 부용리 산37-1" },
+    leedh:          { name: "한음 이덕형 묘 · 신도비",       role: "1코스 · 인증대 도장 (신도비는 묘 아래 300m)",          jibun: "경기 양평군 양서면 목왕리 산82" },
+    mulsori_center: { name: "물소리길 안내소 (물소리길센터)", role: "2코스 끝 무렵 · 인증 도장 · 터널 · 기차 속 갤러리 근처", road: "경기 양평군 옥천면 경강로 1353-27" },
+    okcheon_park:   { name: "옥천레포츠공원",                role: "3코스 전반",                                          road: "경기 양평군 옥천면 옥천체육공원길 40", jibun: "경기 양평군 옥천면 옥천리 764" },
+    yongmunsa:      { name: "용문사 · 은행나무",             role: "6코스 · 관광지에서 걸어서 왕복 약 2km",               road: "경기 양평군 용문면 용문산로 782",    jibun: "경기 양평군 용문면 신점리 625" }
+  };
+
+  /* 코스별 이동 흐름 — 노드(n: 이름, t: 종류, p: 주소 id, time)와 구간(m: car/train/walk/bus, l: 설명)이 번갈아 온다 */
+  var FLOWS = {
+    best: [
+      { n: "원당", t: "home", time: "08:30" }, { m: "car", l: "1시간 15분~2시간" },
+      { n: "양평역 1주차장", t: "park", p: "pk_yangpyeong", time: "10:00" }, { m: "train", l: "3정거장 · 12분" },
+      { n: "국수역", t: "station", p: "st_guksu", time: "10:40" }, { m: "walk", l: "역 근처" },
+      { n: "국수리국수집", t: "food", p: "r_guksu", time: "10:55 점심" }, { m: "walk", l: "4.5km · 1시간 30분" },
+      { n: "원복 · 기곡터널", t: "star" }, { m: "walk", l: "" },
+      { n: "기차 속 갤러리 · 안내소", t: "sight", p: "mulsori_center" }, { m: "walk", l: "" },
+      { n: "아신역", t: "station", p: "st_asin", time: "13:40" }, { m: "train", l: "2정거장 · 7분" },
+      { n: "양평역", t: "station", p: "pk_yangpyeong", time: "14:00" }, { m: "walk", l: "10~15분" },
+      { n: "박람회 · 불꽃놀이", t: "fest", p: "yanggang", time: "15:30~밤" }, { m: "walk", l: "10~15분" },
+      { n: "양평역 1주차장", t: "park", p: "pk_yangpyeong", time: "21:00" }, { m: "car", l: "1시간 15분~1시간 30분" },
+      { n: "원당", t: "home", time: "22:30" }
+    ],
+    c1: [
+      { n: "원당", t: "home", time: "07:30" }, { m: "car", l: "1시간~1시간 30분" },
+      { n: "양수역 공영주차장", t: "park", p: "pk_yangsu", time: "09:00" }, { m: "walk", l: "1코스 10.5km · 3시간 30분" },
+      { n: "정창손 묘 · 이덕형 신도비", t: "sight", p: "leedh" }, { m: "walk", l: "샘골고개 산길" },
+      { n: "몽양 여운형 생가", t: "star", p: "mongyang", time: "11:45" }, { m: "walk", l: "" },
+      { n: "신원역", t: "station", p: "st_sinwon", time: "12:45" }, { m: "walk", l: "역 앞" },
+      { n: "황금연못", t: "food", p: "r_hwanggeum", time: "점심" }, { m: "train", l: "1정거장 · 4분" },
+      { n: "양수역", t: "station", p: "st_yangsu", time: "14:00" }, { m: "walk", l: "약 20분" },
+      { n: "두물머리 · 연핫도그", t: "star", p: "dumul", time: "14:30" }, { m: "walk", l: "배다리" },
+      { n: "세미원 (선택)", t: "sight", p: "semiwon", time: "15:30" }, { m: "walk", l: "약 10분" },
+      { n: "양수역 공영주차장", t: "park", p: "pk_yangsu", time: "17:00" }, { m: "car", l: "1시간~1시간 30분" },
+      { n: "원당", t: "home", time: "18:30" }
+    ],
+    c2: [
+      { n: "원당", t: "home", time: "07:30" }, { m: "car", l: "1시간~1시간 30분" },
+      { n: "양수역 공영주차장", t: "park", p: "pk_yangsu", time: "09:00" }, { m: "train", l: "1정거장 · 4분" },
+      { n: "신원역", t: "station", p: "st_sinwon", time: "09:30" }, { m: "walk", l: "4km · 1시간 20분" },
+      { n: "국수리국수집", t: "food", p: "r_guksu", time: "10:55 점심" }, { m: "walk", l: "4.5km · 1시간 40분" },
+      { n: "원복 · 기곡터널", t: "star" }, { m: "walk", l: "" },
+      { n: "기차 속 갤러리 · 안내소", t: "sight", p: "mulsori_center" }, { m: "walk", l: "" },
+      { n: "아신역", t: "station", p: "st_asin", time: "13:45" }, { m: "train", l: "3정거장 · 10분" },
+      { n: "양수역", t: "station", p: "st_yangsu", time: "14:00" }, { m: "walk", l: "약 20분" },
+      { n: "두물머리 (선택)", t: "sight", p: "dumul", time: "14:15" }, { m: "walk", l: "약 20분" },
+      { n: "양수역 공영주차장", t: "park", p: "pk_yangsu", time: "16:30" }, { m: "car", l: "1시간~1시간 30분" },
+      { n: "원당", t: "home", time: "18:00" }
+    ],
+    c3: [
+      { n: "원당", t: "home", time: "07:30" }, { m: "car", l: "1시간 15분~2시간" },
+      { n: "양평역 1주차장", t: "park", p: "pk_yangpyeong", time: "09:00" }, { m: "train", l: "2정거장 · 7분" },
+      { n: "아신역", t: "station", p: "st_asin", time: "09:40" }, { m: "walk", l: "5km · 1시간 50분 · 성곡재" },
+      { n: "옥천레포츠공원", t: "sight", p: "okcheon_park" }, { m: "walk", l: "" },
+      { n: "옥천냉면", t: "food", p: "r_okcheon", time: "11:30 점심" }, { m: "walk", l: "6km · 1시간 50분" },
+      { n: "들꽃수목원", t: "sight", p: "deulkkot" }, { m: "walk", l: "" },
+      { n: "천주교 양근성지", t: "sight", p: "yanggeun" }, { m: "walk", l: "" },
+      { n: "물안개공원", t: "sight", p: "mulangae" }, { m: "walk", l: "" },
+      { n: "양평역 1주차장", t: "park", p: "pk_yangpyeong", time: "14:30" }, { m: "car", l: "1시간 15분~1시간 30분" },
+      { n: "원당", t: "home", time: "17:30" }
+    ],
+    c6: [
+      { n: "원당", t: "home", time: "07:30" }, { m: "car", l: "1시간 30분~2시간" },
+      { n: "용문역 주차장", t: "park", p: "pk_yongmun", time: "09:15" }, { m: "walk", l: "10.3km · 3시간 · 흑천" },
+      { n: "용문산관광지", t: "sight", p: "pk_yongmunsan", time: "12:30" }, { m: "walk", l: "관광지 안" },
+      { n: "용문산 중앙식당", t: "food", p: "r_jungang", time: "점심" }, { m: "walk", l: "왕복 2km · 1시간" },
+      { n: "용문사 은행나무", t: "star", p: "yongmunsa", time: "13:30" }, { m: "bus", l: "버스 · 택시 15분" },
+      { n: "용문역 주차장", t: "park", p: "pk_yongmun", time: "15:30" }, { m: "car", l: "선택 · 귀갓길" },
+      { n: "신내서울해장국", t: "food", p: "r_sinnae", time: "이른 저녁" }, { m: "car", l: "1시간 30분~2시간" },
+      { n: "원당", t: "home", time: "17:30~18:30" }
+    ],
+    fest: [
+      { n: "원당", t: "home", time: "09:30" }, { m: "car", l: "1시간 30분~2시간" },
+      { n: "옥천냉면", t: "food", p: "r_okcheon", time: "11:30 점심" }, { m: "car", l: "약 15분" },
+      { n: "양평생활문화센터", t: "park", p: "pk_ypcc", time: "13:00" }, { m: "walk", l: "편도 1~2km" },
+      { n: "양강섬", t: "sight", p: "yanggang" }, { m: "walk", l: "" },
+      { n: "천주교 양근성지", t: "sight", p: "yanggeun" }, { m: "walk", l: "" },
+      { n: "들꽃수목원", t: "sight", p: "deulkkot" }, { m: "walk", l: "되돌아오기" },
+      { n: "박람회 · 불꽃놀이", t: "fest", p: "yanggang", time: "15:30~밤" }, { m: "walk", l: "" },
+      { n: "양평생활문화센터", t: "park", p: "pk_ypcc", time: "21:00" }, { m: "car", l: "1시간 15분~1시간 30분" },
+      { n: "원당", t: "home", time: "22:30" }
+    ]
   };
 
   /* ---------- 클립보드 ---------- */
@@ -1097,15 +1230,6 @@
     }
   }
   function ids(node) { return (node.getAttribute("data-places") || "").split(/\s+/).filter(function (id) { return PLACES[id]; }); }
-  function pinIcon() {
-    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("class", "ico pin");
-    svg.setAttribute("aria-hidden", "true");
-    var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-    use.setAttribute("href", "#i-pin");
-    svg.appendChild(use);
-    return svg;
-  }
 
   /* 일정 속 인라인 주소: 장소 이름 + 복사 버튼 (data-bare면 이름 없이 버튼만) */
   var inline = document.querySelectorAll(".addr[data-places]");
@@ -1115,12 +1239,71 @@
       var p = PLACES[id];
       if (!bare) {
         var nm = el("span", "pname");
-        nm.appendChild(pinIcon());
+        nm.appendChild(svgIcon("i-pin", "pin"));
         nm.appendChild(document.createTextNode(p.name));
         this.appendChild(nm);
       }
       addRows(this, p);
     }, inline[i]);
+  }
+
+  /* 흐름 그래픽: 노드는 누르면 주소(도로명 우선) 복사 */
+  var MODE = { car: "🚗", train: "🚆", walk: "🚶", bus: "🚌" };
+  var NODE_ICON = { home: "i-home", station: "i-train", food: "i-food", sight: "i-pin", fest: "i-spark" };
+  var NODE_TEXT = { park: "P", star: "★" };
+  function svgIcon(id, cls) {
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "ico" + (cls ? " " + cls : ""));
+    svg.setAttribute("aria-hidden", "true");
+    var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    use.setAttribute("href", "#" + id);
+    svg.appendChild(use);
+    return svg;
+  }
+  function flowNode(item) {
+    var place = item.p && PLACES[item.p];
+    var node = el(place ? "button" : "span", "fn " + item.t);
+    var ic = el("span", "ic");
+    if (NODE_ICON[item.t]) ic.appendChild(svgIcon(NODE_ICON[item.t])); else ic.textContent = NODE_TEXT[item.t] || "";
+    node.appendChild(ic);
+    var txt = el("span");
+    txt.appendChild(el("b", "", item.n));
+    if (item.time) txt.appendChild(el("small", "", item.time));
+    node.appendChild(txt);
+    if (place) {
+      var text = place.road || place.jibun;
+      var label = place.road ? "도로명" : "지번";
+      node.type = "button";
+      node.setAttribute("aria-label", item.n + " 주소 복사: " + text);
+      node.appendChild(svgIcon("i-copy", "cpy"));
+      node.addEventListener("click", function () {
+        copyText(text).then(function () {
+          var prev = document.querySelectorAll(".fn.copied");
+          for (var k = 0; k < prev.length; k++) prev[k].classList.remove("copied");
+          node.classList.add("copied");
+          clearTimeout(node._t);
+          node._t = setTimeout(function () { node.classList.remove("copied"); }, 2500);
+          showToast(place.name + " · " + label + " 복사됨 → 내비에 붙여넣기", text);
+        }, function () {
+          showToast("자동 복사가 안 됨 · 아래 주소를 길게 눌러 복사", text, true);
+        });
+      });
+    }
+    return node;
+  }
+  function flowSeg(item) {
+    var seg = el("span", "fs " + item.m);
+    seg.appendChild(el("span", "lb", MODE[item.m] + (item.l ? " " + item.l : "")));
+    seg.appendChild(el("span", "ln"));
+    return seg;
+  }
+  var flows = document.querySelectorAll("ol.flow[data-flow]");
+  for (var f = 0; f < flows.length; f++) {
+    (FLOWS[flows[f].getAttribute("data-flow")] || []).forEach(function (item) {
+      var li = el("li");
+      li.appendChild(item.m ? flowSeg(item) : flowNode(item));
+      this.appendChild(li);
+    }, flows[f]);
   }
 
   /* 주소 모음: 장소 카드 */
