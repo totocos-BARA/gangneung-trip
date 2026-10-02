@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="10월 5일(월·대체공휴일) vs 10월 9일(금·한글날) · 원당 출발 자차 여행 — 날짜 고르기부터 코스 · 주차 · 운영 정보, 내비 주소 복사까지">
-<meta property="og:title" content="양평 물소리길 가을 데이트">
-<meta property="og:description" content="10/5 vs 10/9 날짜 비교 · 추천 동선 · 물소리길 1~9코스 · 공휴일 운영·주차 · 내비 주소 복사">
+<meta name="description" content="10월 9일(금·한글날) 원당 출발 자차 당일치기 — 물소리길 1·2·3·6코스 일정, Claude 추천 코스, 지역문화박람회 코스. 주차장·식당·내비 주소 복사">
+<meta property="og:title" content="양평 물소리길 가을 데이트 · 10월 9일">
+<meta property="og:description" content="원당 → 양평 → 원당 자차 당일치기 · 코스 6가지 · 주차장 · 식당 · 추천도 · 난이도 · 내비 주소 복사">
 <meta property="og:type" content="website">
 <style>body{margin:0}[hidden]{display:none!important}</style>
 <title>양평 물소리길 가을 데이트</title>
@@ -31,6 +31,9 @@
     --orange: #C8722A;
     --orange-ink: #A65A19;
     --orange-soft: #FAEBDC;
+    --red: #B23B2A;
+    --red-soft: #F9E6E1;
+    --star-off: #D9D3C7;
     --track: #D3DDDA;
     --hero-a: #296761;
     --hero-b: #6FA38C;
@@ -59,6 +62,9 @@
       --orange: #F0A060;
       --orange-ink: #F5B883;
       --orange-soft: #3A2716;
+      --red: #F19A8B;
+      --red-soft: #3B1F1B;
+      --star-off: #3A4743;
       --track: #34433F;
       --hero-a: #1D4A43;
       --hero-b: #3D6F5E;
@@ -85,6 +91,9 @@
     --orange: #F0A060;
     --orange-ink: #F5B883;
     --orange-soft: #3A2716;
+    --red: #F19A8B;
+    --red-soft: #3B1F1B;
+    --star-off: #3A4743;
     --track: #34433F;
     --hero-a: #1D4A43;
     --hero-b: #3D6F5E;
@@ -105,221 +114,188 @@
   a:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
   .wrap { max-width: 920px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 28px); padding-bottom: 72px; }
   .ico { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  b, strong { font-weight: 700; }
 
   /* ---------- hero ---------- */
-  .hero {
-    position: relative; color: #FFFFFF; overflow: hidden;
-    background: linear-gradient(115deg, var(--hero-a) 0%, var(--hero-a) 35%, var(--hero-b) 100%);
-  }
+  .hero { position: relative; color: #FFFFFF; overflow: hidden; background: linear-gradient(115deg, var(--hero-a) 0%, var(--hero-a) 35%, var(--hero-b) 100%); }
   .hero-in { max-width: 920px; margin: 0 auto; padding: 34px clamp(16px, 4vw, 28px) 64px; position: relative; }
   .hero .leaf { position: absolute; right: clamp(16px, 4vw, 28px); top: 26px; width: 58px; height: 58px; opacity: .35; }
   @media (max-width: 600px) { .hero .leaf { display: none; } }
   .eyebrow { margin: 0 0 10px; font-size: 11.5px; letter-spacing: .18em; font-weight: 500; opacity: .85; }
   h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(30px, 7vw, 46px); line-height: 1.2; margin: 0 0 12px; letter-spacing: -.01em; }
   .hero .sub { margin: 0; font-size: clamp(15px, 2.6vw, 17px); font-weight: 500; }
-  .hero .desc { margin: 4px 0 0; font-size: 14px; opacity: .88; max-width: 60ch; }
+  .hero .desc { margin: 4px 0 0; font-size: 14px; opacity: .88; max-width: 62ch; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-  .chip {
-    display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px;
-    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35);
-    font-size: 13px; font-weight: 700;
-  }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); font-size: 13px; font-weight: 700; }
   .chip .ico { width: 15px; height: 15px; }
   .wave { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 40px; display: block; }
 
-  /* ---------- summary ---------- */
-  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 10px; margin-top: 6px; }
-  .sum {
-    background: var(--cream); border: 1px solid var(--cream-line); border-radius: 12px; padding: 13px 16px;
-  }
-  .sum .k { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--orange-ink); }
-  .sum .k .ico { width: 15px; height: 15px; }
-  .sum .v { margin: 3px 0 2px; font-size: 17px; font-weight: 700; color: var(--green-ink); line-height: 1.4; }
-  .sum p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
-
-  .hint {
-    display: flex; gap: 8px; align-items: flex-start; margin: 14px 0 0; padding: 10px 14px;
-    background: var(--green-soft); border-radius: 10px; font-size: 13.5px; color: var(--ink);
-  }
+  /* ---------- 그날 양평 ---------- */
+  .day { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px; margin-top: 6px; }
+  .dcell { background: var(--cream); border: 1px solid var(--cream-line); border-radius: 12px; padding: 12px 14px; }
+  .dcell .k { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--orange-ink); }
+  .dcell .k .ico { width: 15px; height: 15px; }
+  .dcell .v { margin: 3px 0 2px; font-size: 15.5px; font-weight: 700; color: var(--green-ink); line-height: 1.45; }
+  .dcell p { margin: 0; font-size: 13px; color: var(--ink-2); }
+  .hint { display: flex; gap: 8px; align-items: flex-start; margin: 12px 0 0; padding: 10px 14px; background: var(--green-soft); border-radius: 10px; font-size: 13.5px; }
   .hint b { color: var(--green-ink); }
+  .hint .ico { margin-top: 2px; color: var(--green); }
 
   /* ---------- nav ---------- */
-  nav.toc {
-    position: sticky; top: 0; z-index: 5; margin-top: 18px;
-    background: var(--bg); border-bottom: 1px solid var(--line);
-    display: flex; gap: 2px; overflow-x: auto; padding-block: 8px; scrollbar-width: none;
-  }
+  nav.toc { position: sticky; top: 0; z-index: 5; margin-top: 18px; background: var(--bg); border-bottom: 1px solid var(--line); display: flex; gap: 2px; overflow-x: auto; padding-block: 8px; scrollbar-width: none; }
   nav.toc::-webkit-scrollbar { display: none; }
-  nav.toc a {
-    white-space: nowrap; text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--ink-2);
-    padding: 6px 11px; border-radius: 999px;
-  }
+  nav.toc a { white-space: nowrap; text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--ink-2); padding: 6px 11px; border-radius: 999px; }
   nav.toc a:hover { background: var(--surface-2); color: var(--ink); }
-  nav.toc a .n { color: var(--orange); font-weight: 700; margin-right: 4px; }
+  nav.toc a.best { color: var(--orange-ink); background: var(--orange-soft); font-weight: 700; }
   nav.toc a.pin { color: var(--green-ink); background: var(--green-soft); font-weight: 700; }
 
   /* ---------- sections ---------- */
   section { margin-top: 46px; scroll-margin-top: 58px; }
   .sec-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
-  .sec-head .num { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--orange); line-height: 1; }
-  .sec-head .num.pin { font-size: 24px; }
+  .sec-head .num { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--orange); line-height: 1; }
   h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(22px, 4.4vw, 27px); color: var(--green-ink); margin: 0; line-height: 1.25; }
   .sec-head .s { font-size: 13px; color: var(--ink-3); }
   .sec-head::after { content: ""; flex: 1 1 40px; height: 1px; background: var(--line); align-self: center; min-width: 20px; }
   .foot { margin: 10px 0 0; font-size: 12.5px; color: var(--ink-3); }
-
-  .badge {
-    display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 999px;
-    font-size: 12px; font-weight: 700; white-space: nowrap; line-height: 1.6;
-  }
+  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; line-height: 1.6; }
   .badge.go { background: var(--orange); color: var(--on-accent); }
   .badge.ok { background: var(--mist); color: var(--ink-2); border: 1px solid var(--line); }
   .badge.pop { background: var(--green-soft); color: var(--green-ink); }
   .badge.rec { background: var(--orange-soft); color: var(--orange-ink); }
 
-  /* ---------- 01 날짜 비교 ---------- */
-  .dates { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 12px; }
-  .date { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
-  .date-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--mist); }
-  .date.pick .date-head { background: var(--orange-soft); }
-  .date-head .circ {
-    width: 40px; height: 40px; border-radius: 50%; background: var(--surface); flex: none;
-    display: grid; place-items: center; color: var(--green);
-  }
-  .date.pick .date-head .circ { color: var(--orange); }
-  .date-head .circ .ico { width: 22px; height: 22px; }
-  .date-head h3 { margin: 0; font-family: var(--serif); font-size: 20px; font-weight: 700; line-height: 1.25; }
-  .date-head .t { flex: 1; min-width: 0; }
-  .date-head small { display: block; font-size: 12.5px; color: var(--ink-2); }
-  .rows { margin: 0; padding: 4px 16px 8px; }
-  .rows > div { display: grid; grid-template-columns: 62px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px dashed var(--line); }
-  .rows > div:last-child { border-bottom: 0; }
-  .rows dt { font-size: 13px; font-weight: 700; color: var(--green-ink); line-height: 1.5; padding-top: 1px; }
-  .rows dd { margin: 0; font-size: 14px; }
-  .rows dd small { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 2px; }
-  .rows .verdict dd { font-weight: 700; color: var(--green-ink); }
-  .date.pick .rows .verdict dd { color: var(--orange-ink); }
-  .temp {
-    display: flex; gap: 8px; align-items: center; margin-top: 12px; padding: 10px 14px;
-    background: var(--green-soft); border-radius: 10px; font-size: 14px;
-  }
-  .temp .ico { color: var(--green); }
+  /* 추천도 · 난이도 */
+  .stars { color: var(--orange); letter-spacing: 1px; font-size: 14px; white-space: nowrap; }
+  .stars i { font-style: normal; color: var(--star-off); }
+  .lv { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .lv.easy { background: var(--green-soft); color: var(--green-ink); }
+  .lv.mid { background: var(--orange-soft); color: var(--orange-ink); }
 
-  /* ---------- 02 동선 ---------- */
-  .route { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 14px; }
-  .route-head { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--mist); }
-  .route.pick .route-head { background: var(--orange-soft); }
-  .route-head .t { flex: 1; min-width: 0; }
-  .route-head h3 { margin: 0; font-family: var(--serif); font-size: 18px; font-weight: 700; line-height: 1.4; }
-  .route-head p { margin: 2px 0 0; font-size: 13px; color: var(--ink-2); }
-  .tl { list-style: none; margin: 0; padding: 16px 16px 4px; }
-  .tl li { display: grid; grid-template-columns: 64px 1fr; column-gap: 14px; }
-  .tl .when { font-size: 12.5px; font-weight: 500; color: var(--ink-2); text-align: right; padding-top: 2px; line-height: 1.4; }
-  .tl .what { position: relative; padding: 0 0 18px 22px; border-left: 2px solid var(--line); }
-  .tl li:last-child .what { border-left-color: transparent; }
-  .tl .what::before {
-    content: ""; position: absolute; left: -8px; top: 3px; width: 14px; height: 14px; border-radius: 50%;
-    background: var(--surface); border: 2px solid var(--orange); box-sizing: border-box;
-  }
-  .route.alt .tl .what::before { border-color: var(--green); }
-  .tl li.hl .what::before { background: var(--orange); }
-  @media (max-width: 480px) {
-    .tl { padding-inline: 12px; }
-    .tl li { grid-template-columns: 50px 1fr; column-gap: 10px; }
-    .tl .what { padding-left: 18px; }
-    .route .box { margin-inline: 12px; }
-  }
-  .tl h4 { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.45; }
+  /* ---------- 코스 비교 ---------- */
+  .line-map { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px 12px; margin-bottom: 14px; }
+  .line-map svg { display: block; width: 100%; height: auto; }
+  .line-map .tall { display: none; }
+  @media (max-width: 640px) { .line-map .wide { display: none; } .line-map .tall { display: block; max-width: 380px; margin: 0 auto; } }
+  .legend { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-top: 4px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 18px; height: 5px; border-radius: 3px; display: inline-block; }
+
+  .pick { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 10px; }
+  .pcard { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 15px; box-shadow: var(--shadow); }
+  .pcard:hover { border-color: var(--green); }
+  .pcard.best { border: 2px solid var(--orange); background: linear-gradient(var(--orange-soft), var(--surface) 70%); }
+  .pcard .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .pcard .tag { font-size: 12px; font-weight: 700; color: var(--ink-3); }
+  .pcard h3 { margin: 0; font-family: var(--serif); font-size: 17px; line-height: 1.4; }
+  .pcard .one { margin: 0; font-size: 13px; color: var(--ink-2); }
+  .pcard dl { margin: 4px 0 0; display: grid; grid-template-columns: 54px 1fr; gap: 3px 8px; font-size: 13px; }
+  .pcard dt { color: var(--ink-3); font-size: 12px; padding-top: 1px; }
+  .pcard dd { margin: 0; }
+  .pcard .go-btn { margin-top: auto; padding-top: 6px; font-size: 12.5px; font-weight: 700; color: var(--green); }
+
+  .trick { margin-top: 14px; padding: 13px 16px; border-radius: 12px; background: var(--green-soft); border: 1px dashed var(--green-pale); }
+  .trick h3 { margin: 0 0 4px; font-size: 15px; color: var(--green-ink); display: flex; align-items: center; gap: 6px; }
+  .trick ol { margin: 4px 0 0; padding-left: 20px; font-size: 14px; }
+  .trick p { margin: 6px 0 0; font-size: 13px; color: var(--ink-2); }
+
+  /* ---------- 일정 카드 ---------- */
+  .itin { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+  .itin.best { border: 2px solid var(--orange); }
+  .ihead { padding: 16px 18px 14px; background: var(--mist); }
+  .itin.best .ihead { background: var(--orange-soft); }
+  .ihead .kick { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--ink-3); }
+  .ihead h3 { margin: 4px 0 2px; font-family: var(--serif); font-size: clamp(19px, 4vw, 23px); line-height: 1.35; }
+  .ihead .route-s { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(46%, 150px), 1fr)); gap: 8px; margin-top: 12px; }
+  .fact { background: var(--surface); border-radius: 10px; padding: 8px 11px; }
+  .fact .k { font-size: 11.5px; color: var(--ink-3); font-weight: 500; }
+  .fact .v { font-size: 14px; font-weight: 700; line-height: 1.4; }
+  .fact .v small { display: block; font-size: 11.5px; font-weight: 400; color: var(--ink-2); }
+  .ibody { padding: 16px 18px 18px; }
+  .ibody h4 { margin: 18px 0 8px; font-size: 14.5px; display: flex; align-items: center; gap: 6px; color: var(--green-ink); }
+  .ibody h4:first-child { margin-top: 0; }
+  .ibody h4 .ico { width: 17px; height: 17px; }
+  .why { margin: 0 0 4px; padding: 10px 13px; border-radius: 10px; background: var(--cream); border: 1px solid var(--cream-line); font-size: 14px; }
+  .why b { color: var(--orange-ink); }
+
+  .points { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .points li { position: relative; padding: 7px 10px 7px 34px; border-radius: 9px; background: var(--surface-2); font-size: 14px; }
+  .points li::before { content: "•"; position: absolute; left: 14px; top: 6px; color: var(--green); font-weight: 700; }
+  .points li.hl { background: var(--orange-soft); }
+  .points li.hl::before { content: "★"; left: 11px; color: var(--orange); }
+  .points li.warn { background: var(--red-soft); }
+  .points li.warn::before { content: "!"; left: 15px; color: var(--red); }
+  .points li b { color: var(--ink); }
+  .points li small { display: block; color: var(--ink-2); font-size: 12.5px; }
+
+  .park { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 8px; }
+  .pk { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+  .pk.main { border-color: var(--green-pale); background: var(--green-soft); }
+  .pk .pt { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 14.5px; font-weight: 700; }
+  .pk .pt .badge { font-size: 11px; }
+  .pk p { margin: 2px 0 0; font-size: 13px; color: var(--ink-2); }
+
+  .tl { list-style: none; margin: 0; padding: 0; }
+  .tl li { display: grid; grid-template-columns: 54px 1fr; column-gap: 12px; }
+  .tl .when { font-size: 13px; font-weight: 700; color: var(--ink); text-align: right; padding-top: 1px; line-height: 1.4; font-variant-numeric: tabular-nums; }
+  .tl .what { position: relative; padding: 0 0 16px 20px; border-left: 2px solid var(--line); }
+  .tl li:last-child .what { border-left-color: transparent; padding-bottom: 0; }
+  .tl .what::before { content: ""; position: absolute; left: -8px; top: 3px; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); border: 2px solid var(--green); box-sizing: border-box; }
+  .tl li.hl .what::before { background: var(--orange); border-color: var(--orange); }
+  .tl li.move .what::before { width: 10px; height: 10px; left: -6px; top: 5px; border-color: var(--ink-3); }
+  .tl h5 { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.45; }
   .tl p { margin: 2px 0 0; font-size: 13.5px; color: var(--ink-2); }
-  .route .box {
-    margin: 0 16px 16px; padding: 10px 14px; border-radius: 10px;
-    border: 1px dashed var(--green-pale); background: var(--green-soft); font-size: 13.5px;
+  .mv { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); background: var(--surface-2); border-radius: 8px; padding: 4px 10px; }
+  .mv b { color: var(--ink); }
+  .mv.walk { background: var(--green-soft); color: var(--green-ink); }
+  .mv.walk b { color: inherit; }
+  .mv.train { background: var(--mist); }
+  @media (max-width: 480px) {
+    .ibody, .ihead { padding-inline: 14px; }
+    .tl li { grid-template-columns: 46px 1fr; column-gap: 10px; }
+    .tl .what { padding-left: 17px; }
   }
-  .route .box p { margin: 0; }
-  .route .box p + p { margin-top: 6px; }
-  .route .box b { color: var(--green-ink); }
+
+  .foods { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 8px; }
+  .food { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+  .food .ft { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 14.5px; font-weight: 700; }
+  .food .ft .badge { font-size: 11px; }
+  .food .menu { margin: 2px 0 0; font-size: 13.5px; }
+  .food .meta { margin: 2px 0 0; font-size: 12.5px; color: var(--ink-2); }
+
+  .itin + .itin { margin-top: 0; }
+  .after { margin-top: 10px; font-size: 13px; color: var(--ink-2); }
 
   /* ---------- 주소 복사 ---------- */
-  .addr { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; max-width: 560px; }
+  .addr { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; max-width: 560px; container-type: inline-size; }
   .addr .pname { font-size: 12.5px; font-weight: 700; color: var(--ink); margin-top: 4px; display: flex; align-items: center; gap: 5px; }
   .addr .pname:first-child { margin-top: 0; }
   .addr .pname .pin { width: 13px; height: 13px; color: var(--orange); }
-  .addr button {
-    display: grid; grid-template-columns: 40px 1fr auto; align-items: start; gap: 8px;
-    width: 100%; text-align: left; cursor: pointer;
-    font-family: var(--sans); font-size: 13px; line-height: 1.45; color: var(--ink);
-    background: var(--surface-2); border: 1px solid transparent; border-radius: 8px;
-    padding: 7px 10px; -webkit-tap-highlight-color: transparent;
-  }
+  .addr button { display: grid; grid-template-columns: 40px 1fr auto; align-items: start; gap: 8px; width: 100%; text-align: left; cursor: pointer; font-family: var(--sans); font-size: 13px; line-height: 1.45; color: var(--ink); background: var(--surface-2); border: 1px solid transparent; border-radius: 8px; padding: 7px 10px; -webkit-tap-highlight-color: transparent; }
+  .pk.main .addr button { background: var(--surface); }
   .addr button:hover { border-color: var(--green); background: var(--green-soft); }
   .addr .k { font-size: 11.5px; color: var(--ink-3); padding-top: 1px; white-space: nowrap; }
   .addr .v { overflow-wrap: anywhere; }
   .addr .cp { min-width: 4.6em; text-align: right; font-size: 12px; font-weight: 700; color: var(--green); white-space: nowrap; padding-top: 1px; }
-  .addr button.copied { border-color: var(--green); background: var(--green-soft); }
+  .addr button.copied, .pk.main .addr button.copied { border-color: var(--green); background: var(--green-soft); }
   .addr button.copied .cp { color: var(--green-ink); }
-  /* 좁은 칸(휴대폰 일정 안)에서는 주소를 한 줄 전체 폭으로 */
-  .addr { container-type: inline-size; }
   @container (max-width: 340px) {
     .addr button { grid-template-columns: 1fr auto; row-gap: 0; }
     .addr .k { grid-column: 1; grid-row: 1; }
     .addr .cp { grid-column: 2; grid-row: 1; }
     .addr .v { grid-column: 1 / -1; grid-row: 2; font-size: 13.5px; }
   }
-
   .places { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 10px; }
-  .group-t { margin: 22px 0 10px; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .group-t { margin: 22px 0 10px; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .group-t:first-of-type { margin-top: 0; }
-  .group-t .badge { font-size: 11.5px; }
-  .place { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; scroll-margin-top: 64px; }
-  .place h4 { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.4; }
+  .place { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+  .place h5 { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.4; }
   .place .role { margin: 1px 0 0; font-size: 12.5px; color: var(--ink-2); }
   .place .addr { max-width: none; }
-  .place:target { border-color: var(--orange); box-shadow: 0 0 0 3px var(--orange-soft); }
-
-  .toast {
-    position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 20;
-    transform: translate(-50%, 12px); opacity: 0; pointer-events: none;
-    width: max-content; max-width: calc(100vw - 32px);
-    background: var(--ink); color: var(--bg); border-radius: 10px;
-    padding: 10px 14px; font-size: 13.5px; line-height: 1.45; box-shadow: var(--shadow);
-    transition: opacity .18s, transform .18s;
-  }
+  .toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 20; transform: translate(-50%, 12px); opacity: 0; pointer-events: none; width: max-content; max-width: calc(100vw - 32px); background: var(--ink); color: var(--bg); border-radius: 10px; padding: 10px 14px; font-size: 13.5px; line-height: 1.45; box-shadow: var(--shadow); transition: opacity .18s, transform .18s; }
   .toast.show { opacity: 1; transform: translate(-50%, 0); }
   .toast.fail { pointer-events: auto; user-select: all; -webkit-user-select: all; }
   .toast b { display: block; font-size: 12px; font-weight: 700; opacity: .75; }
   @media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
-
-  /* ---------- 03 TOP 3 ---------- */
-  .line-map { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px 12px; }
-  .line-map svg { display: block; width: 100%; height: auto; }
-  .line-map .tall { display: none; }
-  @media (max-width: 640px) {
-    .line-map .wide { display: none; }
-    .line-map .tall { display: block; max-width: 380px; margin: 0 auto; }
-  }
-  .legend { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-top: 4px; }
-  .legend span { display: inline-flex; align-items: center; gap: 6px; }
-  .legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-
-  .top { display: grid; grid-template-columns: 52px 1fr; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-top: 12px; }
-  .top .rank {
-    width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
-    font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--on-accent); background: var(--green);
-  }
-  .top.r2 .rank { background: var(--orange); }
-  .top.r3 .rank { background: var(--green-pale); }
-  .top h3 { margin: 6px 0 0; font-family: var(--serif); font-size: 19px; font-weight: 700; line-height: 1.4; }
-  .top h3 small { font-family: var(--sans); font-size: 13px; font-weight: 400; color: var(--ink-2); margin-left: 6px; white-space: nowrap; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
-  .tags span { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: var(--green-soft); color: var(--green-ink); }
-  .top.r2 .tags span { background: var(--orange-soft); color: var(--orange-ink); }
-  .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 6px 22px; }
-  .two-col h5 { margin: 0 0 4px; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--ink-2); }
-  .two-col h5 .ico { width: 15px; height: 15px; }
-  .dots { list-style: none; margin: 0 0 6px; padding: 0; }
-  .dots li { position: relative; padding-left: 14px; font-size: 14px; margin-bottom: 3px; }
-  .dots li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
-  .top.r2 .dots li::before { background: var(--orange); }
 
   /* ---------- tables ---------- */
   .tbl { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 14px; }
@@ -327,12 +303,8 @@
   .tbl tr:last-child td { border-bottom: 0; }
   .tbl thead th { background: var(--mist); font-size: 12.5px; font-weight: 700; color: var(--green-ink); white-space: nowrap; }
   .tbl td small { display: block; font-size: 12px; color: var(--ink-3); }
-  .cn {
-    width: 26px; height: 26px; border-radius: 50%; display: inline-grid; place-items: center;
-    font-size: 12.5px; font-weight: 700; border: 1.5px solid var(--track); color: var(--ink-2); background: var(--surface);
-  }
+  .cn { width: 26px; height: 26px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 12.5px; font-weight: 700; border: 1.5px solid var(--track); color: var(--ink-2); background: var(--surface); }
   .cn.g { background: var(--green); border-color: var(--green); color: var(--on-accent); }
-  .cn.o { background: var(--orange); border-color: var(--orange); color: var(--on-accent); }
   .courses .nm { font-weight: 700; }
   .courses .muted { color: var(--ink-3); }
   .courses td .badge { margin-left: 4px; font-size: 11.5px; }
@@ -340,10 +312,7 @@
   .st.open { background: var(--green-soft); color: var(--green-ink); }
   .st.event { background: var(--orange-soft); color: var(--orange-ink); }
   .st.tbd { background: var(--cream); color: var(--orange-ink); border: 1px solid var(--cream-line); }
-  .st.none { background: var(--mist); color: var(--ink-3); }
   .ops td.c { text-align: center; }
-  .ops .lbl { display: none; }
-
   @media (max-width: 680px) {
     .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; }
     .tbl thead { display: none; }
@@ -356,40 +325,30 @@
     .courses td:nth-child(3) { grid-column: 2; grid-row: 2; font-size: 13px; color: var(--ink-2); }
     .courses td:nth-child(4) { grid-column: 3; grid-row: 1; font-weight: 700; color: var(--green-ink); white-space: nowrap; }
     .courses td:nth-child(5) { grid-column: 2 / span 2; grid-row: 3; font-size: 13.5px; }
-    .ops tr { display: grid; grid-template-columns: 1fr auto auto; column-gap: 6px; row-gap: 6px; align-items: start; }
+    .ops tr { display: grid; grid-template-columns: 1fr auto; column-gap: 6px; row-gap: 6px; align-items: start; }
     .ops td:nth-child(1) { grid-column: 1; grid-row: 1; font-weight: 700; }
     .ops td:nth-child(2) { grid-column: 2; grid-row: 1; }
-    .ops td:nth-child(3) { grid-column: 3; grid-row: 1; }
-    .ops td:nth-child(4), .ops td:nth-child(5) { grid-column: 1 / -1; font-size: 13.5px; }
-    .ops .lbl { display: inline; font-size: 11px; font-weight: 500; color: var(--ink-3); margin-right: 3px; }
-    .ops td.c { text-align: right; }
-    .ops td:nth-child(4)::before, .ops td:nth-child(5)::before {
-      content: attr(data-label); display: block; font-size: 11.5px; font-weight: 700; color: var(--green-ink); margin-bottom: 1px;
-    }
+    .ops td:nth-child(3), .ops td:nth-child(4) { grid-column: 1 / -1; font-size: 13.5px; }
+    .ops td:nth-child(3)::before, .ops td:nth-child(4)::before { content: attr(data-label); display: block; font-size: 11.5px; font-weight: 700; color: var(--green-ink); margin-bottom: 1px; }
   }
 
-  /* ---------- 06 팁 ---------- */
+  /* ---------- 팁 · 출처 ---------- */
   .tips { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 10px; }
   .tip { display: grid; grid-template-columns: 38px 1fr; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px; }
   .tip .ic { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: var(--green-soft); color: var(--green); }
   .tip .ic.o { background: var(--orange-soft); color: var(--orange); }
   .tip h4 { margin: 0; font-size: 15px; font-weight: 700; }
   .tip p { margin: 2px 0 0; font-size: 13.5px; color: var(--ink-2); }
-
-  /* ---------- 07 출처 ---------- */
   .refs { margin: 0; padding-left: 22px; columns: 2 300px; column-gap: 28px; font-size: 13.5px; color: var(--ink-2); }
   .refs li { margin-bottom: 6px; break-inside: avoid; }
-  .notice {
-    display: flex; gap: 8px; align-items: flex-start; margin-top: 14px; padding: 11px 14px;
-    background: var(--cream); border: 1px solid var(--cream-line); border-radius: 10px; font-size: 13.5px;
-  }
+  .sub-h { margin: 22px 0 8px; font-size: 15px; font-weight: 700; color: var(--green-ink); }
+  .notice { display: flex; gap: 8px; align-items: flex-start; margin-top: 14px; padding: 11px 14px; background: var(--cream); border: 1px solid var(--cream-line); border-radius: 10px; font-size: 13.5px; }
   .notice .ico { color: var(--orange); margin-top: 2px; }
   footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-3); }
-
   @media print {
     nav.toc, .toast, .addr .cp, .hint { display: none; }
     body { background: #fff; }
-    .route, .top, .place, .tip, .date { break-inside: avoid; }
+    .itin, .pcard, .place, .tip { break-inside: avoid; }
   }
 </style>
 </head>
@@ -399,20 +358,22 @@
   <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
   <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8 18h7.5a3.5 3.5 0 0 0 0-7h-7a3.5 3.5 0 0 1 0-7H16"/></symbol>
   <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16.5V12l1.8-4.6A2 2 0 0 1 8.7 6h6.6a2 2 0 0 1 1.9 1.4L19 12v4.5M4 16.5h16M5 12h14"/><path d="M6.5 16.5V19M17.5 16.5V19"/><circle cx="8" cy="14.2" r=".6"/><circle cx="16" cy="14.2" r=".6"/></symbol>
-  <symbol id="i-rain" viewBox="0 0 24 24"><path d="M7 15.5a4 4 0 0 1-.6-8 5.5 5.5 0 0 1 10.6 1.4A3.4 3.4 0 0 1 17 15.5Z"/><path d="M9 18l-1 2.5M13 18l-1 2.5M17 18l-1 2.5"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3.2"/><path d="M9 2.5v1.5M3.5 9H2.5M4.6 4.6l1 1M13.4 4.6l-1 1"/><path d="M10 20.5a3.6 3.6 0 0 1-.4-7.2 5 5 0 0 1 9.6 1.4 3 3 0 0 1-.3 5.8Z"/></symbol>
   <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10 10 5 20 4c0 10-5 15-14 15Z"/><path d="M5 19 14 10"/></symbol>
   <symbol id="i-temp" viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 0 1 4 0v9.5a4 4 0 1 1-4 0Z"/><path d="M12 9v7"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></symbol>
-  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9Z"/></symbol>
   <symbol id="i-road" viewBox="0 0 24 24"><path d="M5 21 9 3M19 21 15 3M12 5v2.5M12 11v2.5M12 17v2.5"/></symbol>
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M17 3l3.5 3.5L17 10M3.5 11V9.5a3 3 0 0 1 3-3h14M7 21l-3.5-3.5L7 14M20.5 13v1.5a3 3 0 0 1-3 3h-14"/></symbol>
   <symbol id="i-park" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M10 16.5v-9h3.2a2.7 2.7 0 0 1 0 5.4H10"/></symbol>
+  <symbol id="i-food" viewBox="0 0 24 24"><path d="M4 11h16a8 8 0 0 1-16 0ZM8 4c0 1.5 1 1.5 1 3M12 4c0 1.5 1 1.5 1 3M16 4c0 1.5 1 1.5 1 3"/></symbol>
   <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.2"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.2"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.2"/><path d="M14 14h2.5v2.5M20.5 14v6.5H14v-3"/></symbol>
   <symbol id="i-stamp" viewBox="0 0 24 24"><path d="M10 3.5h4v5.5l1 2.5h3.5a1.5 1.5 0 0 1 1.5 1.5V16H4v-3a1.5 1.5 0 0 1 1.5-1.5H9L10 9Z"/><path d="M5 20h14"/></symbol>
-  <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M8.5 3.5 3 6.5l2 4 2.5-1V20.5h9V9.5l2.5 1 2-4-5.5-3c-.6 1.8-1.9 2.8-3.5 2.8S9.1 5.3 8.5 3.5Z"/></symbol>
+  <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M8.5 3.5 3 6.5l2 4 2.5-1V20.5h9V9.5l3 1 2-4-5.5-3c-.6 1.8-1.9 2.8-3.5 2.8S9.1 5.3 8.5 3.5Z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-train" viewBox="0 0 24 24"><rect x="6" y="3.5" width="12" height="13" rx="3"/><path d="M6 11h12M9 20.5l1.5-4M15 20.5l-1.5-4"/><circle cx="9.5" cy="14" r=".7"/><circle cx="14.5" cy="14" r=".7"/></symbol>
   <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.4"/></symbol>
 </svg>
 
@@ -421,11 +382,11 @@
     <svg class="leaf ico" aria-hidden="true"><use href="#i-leaf"/></svg>
     <p class="eyebrow">YANGPYEONG MULSORI-GIL · AUTUMN DATE</p>
     <h1>양평 물소리길 가을 데이트</h1>
-    <p class="sub">10월 5일(월·대체공휴일) vs 10월 9일(금·한글날) · 원당 출발 자차 여행</p>
-    <p class="desc">북한강 · 남한강 · 흑천 물길을 따라 걷는 양평의 걷기길 — 날짜 고르기부터 코스 · 주차 · 운영 정보까지 한 번에</p>
+    <p class="sub">10월 9일(금·한글날) 확정 · 원당 → 양평 → 원당 자차 당일치기</p>
+    <p class="desc">북한강 · 남한강 · 흑천 물길을 따라 걷는 양평의 걷기길 — 1 · 2 · 3 · 6코스 일정과 Claude 추천 코스, 지역문화박람회 코스까지. 주차장 · 식당 · 내비 주소를 한 번에</p>
     <div class="chips">
       <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg>자차 이동</span>
-      <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>1~9코스 총정리</span>
+      <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>코스 6가지</span>
       <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>2026년 10월 2일 기준</span>
     </div>
   </div>
@@ -436,365 +397,558 @@
 </header>
 
 <div class="wrap">
-  <div class="summary">
-    <div class="sum">
-      <div class="k"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>날짜</div>
-      <div class="v">10월 9일(금) 추천</div>
-      <p>맑은 날씨 전망 + 양강섬 지역문화박람회 개막 · 불꽃놀이(무료)</p>
+  <!-- ================= 그날 양평 ================= -->
+  <div class="day" id="day">
+    <div class="dcell">
+      <div class="k"><svg class="ico" aria-hidden="true"><use href="#i-sun"/></svg>날씨</div>
+      <div class="v">대체로 맑거나 구름 많음</div>
+      <p>6일(화)부터 고기압 영향권 · 기온은 평년 수준 회복 전망. 일주일 앞 예보라 전날 재확인</p>
     </div>
-    <div class="sum">
-      <div class="k"><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>코스</div>
-      <div class="v">3코스 끝 구간 + 박람회</div>
-      <p>가장 무난한 인기 코스는 2코스 ‘터널이 있는 기찻길’</p>
+    <div class="dcell">
+      <div class="k"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg>행사</div>
+      <div class="v">지역문화박람회 개막 · 불꽃놀이</div>
+      <p>양강섬 일원 · 10/9~11 · 무료 · 낮 지역예술인 무대 → 저녁 개막식 · 불꽃놀이</p>
     </div>
-    <div class="sum">
-      <div class="k"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg>자차</div>
-      <div class="v">주차 → 하이라이트 구간 왕복</div>
-      <p>역에서 역으로 가는 편도 코스라, 완주한다면 택시로 차량 회수</p>
+    <div class="dcell">
+      <div class="k"><svg class="ico" aria-hidden="true"><use href="#i-road"/></svg>도로 (예상)</div>
+      <div class="v">오전 양평 방향 정체</div>
+      <p>3일 연휴(10/9~11) 첫날 + 박람회 주변 주차 혼잡 → 07:30 전후 출발 권장</p>
     </div>
-    <div class="sum">
-      <div class="k"><svg class="ico" aria-hidden="true"><use href="#i-rain"/></svg>5일이라면</div>
-      <div class="v">비 그친 오후, 두물머리 · 세미원</div>
-      <p>연휴 마지막 날이라 저녁 서울 방향 정체 예상</p>
+    <div class="dcell">
+      <div class="k"><svg class="ico" aria-hidden="true"><use href="#i-temp"/></svg>옷차림</div>
+      <div class="v">일교차 10℃ 안팎</div>
+      <p>경기 일부 내륙 15℃ 안팎 → 얇은 겉옷 + 운동화 꼭</p>
     </div>
   </div>
+  <p class="foot">날씨: 기상청 10월 1일 정례 브리핑 보도 기준 · ‘(예상)’은 공식 발표가 아닌 일반적인 연휴 흐름에 따른 예상입니다.</p>
 
-  <p class="hint"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg><span>일정 속 <b>주소를 누르면 바로 복사</b>된다 → 내비 검색창에 붙여넣기. 도로명으로 안 잡히면 지번으로. 모든 장소는 <a href="#navi">📍 내비 주소</a>에 모아 두었다.</span></p>
+  <p class="hint"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg><span>일정 속 <b>주소를 누르면 바로 복사</b>된다 → 내비 검색창에 붙여넣기. 도로명으로 안 잡히면 지번으로. 모든 주소는 <a href="#navi">📍 내비 주소</a>에도 모아 두었다.</span></p>
 
   <nav class="toc" aria-label="목차">
-    <a href="#s1"><span class="n">01</span>날짜 비교</a>
-    <a href="#s2"><span class="n">02</span>추천 동선</a>
+    <a href="#pick">코스 고르기</a>
+    <a href="#c1">1코스</a>
+    <a href="#c2">2코스</a>
+    <a href="#c3">3코스</a>
+    <a href="#c6">6코스</a>
+    <a class="best" href="#best">⭐ Claude 추천</a>
+    <a href="#fest">🎆 3코스 끝 + 박람회</a>
     <a class="pin" href="#navi">📍 내비 주소</a>
-    <a href="#s3"><span class="n">03</span>TOP 3</a>
-    <a href="#s4"><span class="n">04</span>1~9코스</a>
-    <a href="#s5"><span class="n">05</span>운영·주차</a>
-    <a href="#s6"><span class="n">06</span>실전 팁</a>
-    <a href="#s7"><span class="n">07</span>출처</a>
+    <a href="#more">참고</a>
   </nav>
 
-  <!-- ================= 01 ================= -->
-  <section id="s1">
-    <div class="sec-head"><span class="num">01</span><h2>날짜 비교</h2><span class="s">5일과 9일, 어느 날이 나을까</span></div>
-    <div class="dates">
-      <article class="date">
-        <div class="date-head">
-          <span class="circ"><svg class="ico" aria-hidden="true"><use href="#i-rain"/></svg></span>
-          <div class="t"><h3>10월 5일 (월)</h3><small>개천절 대체공휴일</small></div>
-          <span class="badge ok">무난</span>
-        </div>
-        <dl class="rows">
-          <div><dt>날씨</dt><dd>4일(일) 밤 ~ 5일 오전 중부지방 비. 강수 시간은 짧지만 돌풍·천둥·번개 동반 가능</dd></div>
-          <div><dt>기온</dt><dd>연휴 기간 수도권 아침 10℃ 안팎 · 낮 20℃ 초반<small>비 그친 뒤 6일(화)은 평년보다 낮음</small></dd></div>
-          <div><dt>행사</dt><dd>확인된 대형 행사 없음<small>세미원 수련문화제는 10/31까지 진행</small></dd></div>
-          <div><dt>도로<br>(예상)</dt><dd>3일 연휴(10/3~5) 마지막 날 → 오후~저녁 서울 방향 정체</dd></div>
-          <div class="verdict"><dt>한 줄 평</dt><dd>비 그친 오후에 가볍게</dd></div>
-        </dl>
-      </article>
-      <article class="date pick">
-        <div class="date-head">
-          <span class="circ"><svg class="ico" aria-hidden="true"><use href="#i-sun"/></svg></span>
-          <div class="t"><h3>10월 9일 (금)</h3><small>한글날</small></div>
-          <span class="badge go">추천</span>
-        </div>
-        <dl class="rows">
-          <div><dt>날씨</dt><dd>6일(화)부터 고기압 영향권, 대체로 맑거나 구름 많음<small>일주일 뒤 예보라 변동 가능 — 전날 재확인</small></dd></div>
-          <div><dt>기온</dt><dd>다음 주 후반 평년 수준 기온 회복 전망</dd></div>
-          <div><dt>행사</dt><dd><b>2026 대한민국 지역문화박람회 개막</b><br>양강섬 일원 · 10/9~11 · 무료 · 낮 지역예술인 무대 → 저녁 개막식 · 불꽃놀이</dd></div>
-          <div><dt>도로<br>(예상)</dt><dd>3일 연휴(10/9~11) 첫날 → 오전 양평 방향 정체 + 박람회 주변 주차 혼잡</dd></div>
-          <div class="verdict"><dt>한 줄 평</dt><dd>날씨 · 행사 모두 유리</dd></div>
-        </dl>
-      </article>
+  <!-- ================= 코스 고르기 ================= -->
+  <section id="pick">
+    <div class="sec-head"><h2>코스 고르기</h2><span class="s">10월 9일 · 원당 출발 · 시간은 모두 추정</span></div>
+
+    <div class="line-map">
+      <svg class="wide" viewBox="0 0 870 180" role="img" aria-label="물소리길 노선도. 이번에 고른 1·2·3·6코스와 Claude 추천 구간(국수역→아신역)을 표시">
+        <g font-family="var(--sans)" fill="var(--ink-3)" font-size="12">
+          <text x="205" y="46" text-anchor="middle">〰 남한강 〰</text>
+          <text x="508" y="46" text-anchor="middle">흑천</text>
+        </g>
+        <g stroke-width="6" stroke-linecap="round" fill="none">
+          <path d="M40 112 H830" stroke="var(--track)"/>
+          <path d="M40 112 H380" stroke="var(--green)"/>
+          <path d="M550 112 L618 54" stroke="var(--green)"/>
+          <path d="M205 112 H270" stroke="var(--orange)" stroke-width="9"/>
+        </g>
+        <g fill="var(--surface)" stroke="var(--ink-3)" stroke-width="2"><circle cx="205" cy="112" r="4.5"/><circle cx="325" cy="112" r="4.5"/></g>
+        <g fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5">
+          <circle cx="40" cy="112" r="6.5"/><circle cx="140" cy="112" r="6.5"/><circle cx="270" cy="112" r="6.5"/><circle cx="380" cy="112" r="6.5"/>
+          <circle cx="465" cy="112" r="6.5"/><circle cx="550" cy="112" r="6.5"/><circle cx="650" cy="112" r="6.5"/><circle cx="740" cy="112" r="6.5"/><circle cx="830" cy="112" r="6.5"/>
+          <circle cx="618" cy="54" r="6.5"/>
+        </g>
+        <g font-family="var(--sans)" font-size="12" font-weight="700" text-anchor="middle">
+          <g fill="var(--green)"><circle cx="90" cy="112" r="11"/><circle cx="172" cy="112" r="11"/><circle cx="352" cy="112" r="11"/><circle cx="584" cy="83" r="11"/></g>
+          <g fill="var(--surface)" stroke="var(--track)" stroke-width="1.5"><circle cx="422" cy="112" r="11"/><circle cx="507" cy="112" r="11"/><circle cx="600" cy="112" r="11"/><circle cx="695" cy="112" r="11"/><circle cx="785" cy="112" r="11"/></g>
+          <g fill="var(--on-accent)"><text x="90" y="116">1</text><text x="172" y="116">2</text><text x="352" y="116">3</text><text x="584" y="87">6</text></g>
+          <g fill="var(--ink-3)"><text x="422" y="116">4</text><text x="507" y="116">5</text><text x="600" y="116">7</text><text x="695" y="116">8</text><text x="785" y="116">9</text></g>
+        </g>
+        <g font-family="var(--sans)" text-anchor="middle">
+          <g font-size="13" font-weight="700" fill="var(--ink)">
+            <text x="40" y="142">양수</text><text x="140" y="142">신원</text><text x="270" y="142">아신</text><text x="380" y="142">양평</text><text x="465" y="142">원덕</text>
+            <text x="550" y="142">용문</text><text x="650" y="142">지평</text><text x="740" y="142">일신</text><text x="830" y="142">양동</text>
+          </g>
+          <g font-size="11.5" fill="var(--ink-3)"><text x="205" y="140">국수</text><text x="325" y="140">오빈</text></g>
+          <g font-size="11" fill="var(--ink-3)"><text x="40" y="159">두물머리</text><text x="380" y="159">양강섬 · 박람회</text><text x="740" y="159">구둔역</text></g>
+          <text x="238" y="92" font-size="11" font-weight="700" fill="var(--orange-ink)">⭐ 터널</text>
+          <text x="632" y="50" text-anchor="start" font-size="13" font-weight="700" fill="var(--ink)">용문산관광지</text>
+          <text x="632" y="66" text-anchor="start" font-size="11" fill="var(--ink-3)">용문사 은행나무</text>
+        </g>
+      </svg>
+      <svg class="tall" viewBox="0 0 340 610" role="img" aria-label="물소리길 노선도(세로). 이번에 고른 1·2·3·6코스와 Claude 추천 구간(국수역→아신역)을 표시">
+        <g stroke-width="6" stroke-linecap="round" fill="none">
+          <path d="M120 30 V580" stroke="var(--track)"/>
+          <path d="M120 30 V260" stroke="var(--green)"/>
+          <path d="M120 380 L222 422" stroke="var(--green)"/>
+          <path d="M120 130 V180" stroke="var(--orange)" stroke-width="9"/>
+        </g>
+        <g font-family="var(--sans)" font-size="12" fill="var(--ink-3)"><text x="150" y="98">〰 남한강</text><text x="150" y="330">흑천</text></g>
+        <text x="146" y="160" font-family="var(--sans)" font-size="12" font-weight="700" fill="var(--orange-ink)">⭐ 추천 구간 · 터널</text>
+        <g fill="var(--surface)" stroke="var(--ink-3)" stroke-width="2"><circle cx="120" cy="130" r="4.5"/><circle cx="120" cy="220" r="4.5"/></g>
+        <g fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5">
+          <circle cx="120" cy="30" r="6.5"/><circle cx="120" cy="90" r="6.5"/><circle cx="120" cy="180" r="6.5"/><circle cx="120" cy="260" r="6.5"/><circle cx="120" cy="320" r="6.5"/>
+          <circle cx="120" cy="380" r="6.5"/><circle cx="120" cy="460" r="6.5"/><circle cx="120" cy="520" r="6.5"/><circle cx="120" cy="580" r="6.5"/><circle cx="222" cy="422" r="6.5"/>
+        </g>
+        <g font-family="var(--sans)" font-size="12" font-weight="700" text-anchor="middle">
+          <g fill="var(--green)"><circle cx="120" cy="60" r="11"/><circle cx="120" cy="110" r="11"/><circle cx="120" cy="200" r="11"/><circle cx="171" cy="401" r="11"/></g>
+          <g fill="var(--surface)" stroke="var(--track)" stroke-width="1.5"><circle cx="120" cy="290" r="11"/><circle cx="120" cy="350" r="11"/><circle cx="120" cy="420" r="11"/><circle cx="120" cy="490" r="11"/><circle cx="120" cy="550" r="11"/></g>
+          <g fill="var(--on-accent)"><text x="120" y="64">1</text><text x="120" y="114">2</text><text x="120" y="204">3</text><text x="171" y="405">6</text></g>
+          <g fill="var(--ink-3)"><text x="120" y="294">4</text><text x="120" y="354">5</text><text x="120" y="424">7</text><text x="120" y="494">8</text><text x="120" y="554">9</text></g>
+        </g>
+        <g font-family="var(--sans)" text-anchor="end">
+          <g font-size="14" font-weight="700" fill="var(--ink)">
+            <text x="100" y="35">양수</text><text x="100" y="95">신원</text><text x="100" y="185">아신</text><text x="100" y="265">양평</text><text x="100" y="325">원덕</text>
+            <text x="100" y="385">용문</text><text x="100" y="465">지평</text><text x="100" y="525">일신</text><text x="100" y="585">양동</text>
+          </g>
+          <g font-size="12" fill="var(--ink-3)"><text x="100" y="134">국수</text><text x="100" y="224">오빈</text></g>
+          <g font-size="11.5" fill="var(--ink-3)"><text x="100" y="51">두물머리</text><text x="100" y="281">양강섬·박람회</text><text x="100" y="541">구둔역</text></g>
+        </g>
+        <text x="236" y="427" font-family="var(--sans)" font-size="14" font-weight="700" fill="var(--ink)">용문산관광지</text>
+        <text x="236" y="444" font-family="var(--sans)" font-size="11.5" fill="var(--ink-3)">용문사 은행나무</text>
+      </svg>
+      <div class="legend">
+        <span><i style="background:var(--green)"></i>이번에 고른 1 · 2 · 3 · 6코스</span>
+        <span><i style="background:var(--orange)"></i>⭐ Claude 추천 구간 (국수 → 아신)</span>
+        <span>○ 작은 점 = 중간역</span>
+      </div>
     </div>
-    <p class="temp"><svg class="ico" aria-hidden="true"><use href="#i-temp"/></svg><span>일교차 10℃ 안팎(경기 일부 내륙 15℃ 안팎) 예보 → 얇은 겉옷 꼭 챙기기</span></p>
-    <p class="foot">날씨: 기상청 10월 1일 정례 브리핑 보도 기준 · ‘(예상)’은 공식 발표가 아닌 일반적인 연휴 흐름에 따른 예상입니다.</p>
+
+    <div class="pick">
+      <a class="pcard best" href="#best">
+        <div class="top"><span class="badge go">⭐ Claude 추천</span><span class="stars" aria-label="추천도 5점 만점에 5점">★★★★★</span></div>
+        <h3>터널 걷고 불꽃놀이로 끝</h3>
+        <p class="one">2코스 하이라이트(국수→아신) + 박람회 개막 불꽃놀이 · 차는 양평읍에 한 번만 세움</p>
+        <dl><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>08:30 → 22:30 · 약 14시간</dd><dt>걷기</dt><dd>약 4.5km · 1시간 30분</dd><dt>주차</dt><dd>양평역 1주차장 (유료)</dd><dt>식사</dt><dd>국수리국수집</dd></dl>
+        <span class="go-btn">일정 보기 →</span>
+      </a>
+      <a class="pcard" href="#c2">
+        <div class="top"><span class="tag">2코스 · 터널이 있는 기찻길</span><span class="stars" aria-label="추천도 5점 만점에 5점">★★★★★</span></div>
+        <h3>옛 철길 터널 완주</h3>
+        <p class="one">가장 무난한 인기 코스 · 평지 위주 · 남한강변</p>
+        <dl><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>07:30 → 18:00 · 약 10시간 30분</dd><dt>걷기</dt><dd>8.6km · 약 3시간</dd><dt>주차</dt><dd>양수역 공영주차장 (무료)</dd><dt>식사</dt><dd>국수리국수집</dd></dl>
+        <span class="go-btn">일정 보기 →</span>
+      </a>
+      <a class="pcard" href="#c3">
+        <div class="top"><span class="tag">3코스 · 강변이야기길</span><span class="stars" aria-label="추천도 5점 만점에 4점">★★★★<i>★</i></span></div>
+        <h3>옥천냉면 먹고 양평역까지</h3>
+        <p class="one">코스 한가운데 옥천냉면 · 종점이 박람회장 옆</p>
+        <dl><dt>난이도</dt><dd><span class="lv mid">보통</span></dd><dt>총 소요</dt><dd>07:30 → 17:30 · 약 10시간</dd><dt>걷기</dt><dd>10.9km · 약 3시간 30분</dd><dt>주차</dt><dd>양평역 1주차장 (유료)</dd><dt>식사</dt><dd>옥천냉면</dd></dl>
+        <span class="go-btn">일정 보기 →</span>
+      </a>
+      <a class="pcard" href="#fest">
+        <div class="top"><span class="tag">🎆 이전 플랜</span><span class="stars" aria-label="추천도 5점 만점에 4점">★★★★<i>★</i></span></div>
+        <h3>3코스 끝 구간 + 박람회</h3>
+        <p class="one">강변 산책 → 축제 구경 → 불꽃놀이로 마무리</p>
+        <dl><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>09:30 → 22:30 · 약 13시간</dd><dt>걷기</dt><dd>왕복 2~4km · 1~2시간</dd><dt>주차</dt><dd>생활문화센터 (무료·혼잡)</dd><dt>식사</dt><dd>옥천냉면</dd></dl>
+        <span class="go-btn">일정 보기 →</span>
+      </a>
+      <a class="pcard" href="#c1">
+        <div class="top"><span class="tag">1코스 · 문화유적길</span><span class="stars" aria-label="추천도 5점 만점에 3점">★★★<i>★★</i></span></div>
+        <h3>역사 산책 + 두물머리</h3>
+        <p class="one">이덕형 신도비 · 여운형 생가 · 끝나고 두물머리 · 세미원</p>
+        <dl><dt>난이도</dt><dd><span class="lv mid">보통 · 산길 고개</span></dd><dt>총 소요</dt><dd>07:30 → 18:30 · 약 11시간</dd><dt>걷기</dt><dd>10.5km + 두물머리 · 약 4시간 30분</dd><dt>주차</dt><dd>양수역 공영주차장 (무료)</dd><dt>식사</dt><dd>황금연못 · 명가연밭</dd></dl>
+        <span class="go-btn">일정 보기 →</span>
+      </a>
+      <a class="pcard" href="#c6">
+        <div class="top"><span class="tag">6코스 · 용문산 은행나무길</span><span class="stars" aria-label="추천도 5점 만점에 3점">★★★<i>★★</i></span></div>
+        <h3>천년 은행나무까지</h3>
+        <p class="one">용문사 은행나무 · 산채정식 · 가장 먼 코스, 은행잎은 아직 초록일 듯</p>
+        <dl><dt>난이도</dt><dd><span class="lv mid">보통 · 작은 고개 2번</span></dd><dt>총 소요</dt><dd>07:30 → 18:00 · 약 10시간 30분</dd><dt>걷기</dt><dd>10.3km + 은행나무 2km · 약 4시간</dd><dt>주차</dt><dd>용문역 주차장 (무료)</dd><dt>식사</dt><dd>용문산 중앙식당</dd></dl>
+        <span class="go-btn">일정 보기 →</span>
+      </a>
+    </div>
+
+    <div class="trick">
+      <h3><svg class="ico" aria-hidden="true"><use href="#i-train"/></svg>편도 코스, 차는 이렇게 회수</h3>
+      <ol>
+        <li><b>한쪽 역에 주차</b>하고 경의중앙선 전철로 출발역까지 1~4정거장 이동</li>
+        <li>걸어서 코스를 따라오면 <b>끝나는 곳에 내 차</b> — 시간 압박 없이 걷고, 택시 필요 없음</li>
+      </ol>
+      <p>경의중앙선은 휴일엔 모든 역에 서는 완행만 다니고, 양평 쪽은 대략 20~30분 간격(용문은 약 30분). 출발 전 휴일 시간표 확인. 6코스는 끝이 역이 아니라 버스 · 택시로 회수.</p>
+    </div>
+    <p class="foot">추천도는 10월 9일 기준(날씨 · 박람회 · 은행잎 시기 · 이동 거리)으로 매긴 Claude의 판단. 운전 시간은 원당 기준 평소 소요에 연휴 정체를 더한 추정이라 출발 전 내비 실시간 확인.</p>
   </section>
 
-  <!-- ================= 02 ================= -->
-  <section id="s2">
-    <div class="sec-head"><span class="num">02</span><h2>날짜별 추천 동선</h2><span class="s">자차 기준 · 원당 출발</span></div>
-
-    <article class="route pick">
-      <div class="route-head">
-        <div class="t"><h3>10월 9일(금) · 3코스 끝 구간 + 지역문화박람회</h3><p>강변 산책 → 축제 구경 → 불꽃놀이로 마무리</p></div>
-        <span class="badge go">추천</span>
+  <!-- ================= 1코스 ================= -->
+  <section id="c1">
+    <article class="itin">
+      <div class="ihead">
+        <div class="kick">1코스 · 문화유적길 <span class="stars" aria-label="추천도 5점 만점에 3점">★★★<i>★★</i></span> <span class="lv mid">보통</span></div>
+        <h3>역사 산책 + 두물머리</h3>
+        <p class="route-s">양수역 → 신원역 · 하천길 + 산길 · 끝나고 전철 1정거장으로 차 있는 양수역 복귀</p>
+        <div class="facts">
+          <div class="fact"><div class="k">총 소요</div><div class="v">약 11시간<small>07:30 출발 → 18:30 도착</small></div></div>
+          <div class="fact"><div class="k">걷기</div><div class="v">10.5km · 약 3시간 30분<small>+ 두물머리 왕복 약 2km</small></div></div>
+          <div class="fact"><div class="k">운전 (편도)</div><div class="v">약 1시간~1시간 30분<small>양수리 정체 변수</small></div></div>
+          <div class="fact"><div class="k">주차</div><div class="v">양수역 공영주차장<small>무료</small></div></div>
+        </div>
       </div>
-      <ol class="tl">
-        <li><span class="when">오전</span><div class="what"><h4>원당 출발</h4><p>연휴 첫날이라 오전 양평 방향 정체 예상 → 일찍 출발</p></div></li>
-        <li><span class="when">점심</span><div class="what"><h4>옥천면에서 옥천냉면</h4><p>양평읍 들어가기 전 옥천면 · 연휴 영업 여부 미리 확인</p>
-          <div class="addr" data-places="okcheon okcheon2"></div></div></li>
-        <li><span class="when">오후</span><div class="what"><h4>양평읍 주차 → 3코스 끝 구간 산책</h4><p>양강섬 → 천주교 양근성지 → 들꽃수목원 왕복(편도 약 1~2km) · 공식 홈페이지 ‘3코스 양강섬 우회도로 안내’ 공지 확인</p>
-          <div class="addr" data-places="ypcc"></div></div></li>
-        <li><span class="when">늦은 오후</span><div class="what"><h4>박람회장 둘러보기</h4><p>전국 문화원 부스 · 야외 전시 ‘양평 아뜰리에’ · 플리마켓 · 돗자리 피크닉 형태</p></div></li>
-        <li class="hl"><span class="when">저녁</span><div class="what"><h4>개막식 → 불꽃놀이</h4><p>개막 시각은 보도에 나오지 않음 → 양평문화원 공지 확인</p></div></li>
-        <li><span class="when">귀가</span><div class="what"><h4>출차 · 도로 혼잡 예상</h4><p>불꽃놀이 직후 한꺼번에 몰리니 조금 여유 두고 출발</p></div></li>
-      </ol>
-      <div class="box">
-        <p><b>주차</b> · 행사 주차 안내는 보도에 없음 → 공지 확인. 평소엔 양평문화센터 무료 주차(2024년 기사 기준), 행사 기간엔 셔틀(양평역 ↔ 물안개공원) 운행</p>
-        <p><b>풀코스로 걷고 싶다면</b> · 3코스 아신역 → 양평역 완주(10.9km · 약 3시간 · 보통) 후 택시로 출발점 차량 회수</p>
+      <div class="ibody">
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
+        <ul class="points">
+          <li class="hl"><b>출발점 양수역 바로 옆이 두물머리</b><small>걷고 나서 강 풍경 · 연핫도그 · 세미원으로 마무리</small></li>
+          <li class="hl"><b>몽양 여운형 생가 · 기념관</b><small>코스 후반 · 월요일 휴관이라 금요일은 관람 가능 (09:30부터)</small></li>
+          <li><b>정창손 묘 · 한음 이덕형 신도비</b> (인증대 도장)</li>
+          <li><b>샘골고개</b> — 코스의 산길 구간, 하천길 + 산길이 섞임</li>
+          <li class="warn">산길이라 비 온 뒤 미끄럼 주의 · 지도 · 패스포트를 비치한 양서면사무소는 공휴일 휴무</li>
+        </ul>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-park"/></svg>주차</h4>
+        <div class="park">
+          <div class="pk main"><div class="pt">양수역 공영주차장 <span class="badge pop">무료</span></div><p>역 바로 아래 · 하루 종일 세워두고 끝나면 전철로 복귀</p><div class="addr" data-places="pk_yangsu" data-bare></div></div>
+          <div class="pk"><div class="pt">대안 · 두물머리 교량하부 공영주차장 <span class="badge pop">무료</span></div><p>170면 · 24시간 · 명소까지 조금 걸음</p><div class="addr" data-places="pk_dumul" data-bare></div></div>
+        </div>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
+        <ol class="tl">
+          <li><span class="when">07:30</span><div class="what"><h5>원당 출발</h5><p>연휴 첫날 오전 양평 방향 정체 → 일찍</p><span class="mv"><b>🚗 약 1시간~1시간 30분</b> · 6번 국도 · 양수리 정체 변수</span></div></li>
+          <li><span class="when">09:00</span><div class="what"><h5>양수역 공영주차장 주차</h5></div></li>
+          <li class="hl"><span class="when">09:15</span><div class="what"><h5>1코스 출발</h5><p>양수역 → 부용리 → 한음 이덕형 신도비(인증대) → 샘골고개(산길) → 몽양 여운형 생가 → 신원역</p><span class="mv walk"><b>🚶 10.5km · 약 3시간 30분</b> · 쉬는 시간 포함</span></div></li>
+          <li><span class="when">11:45</span><div class="what"><h5>몽양 여운형 생가 · 기념관</h5><p>코스 후반 · 잠깐 들러 관람</p><div class="addr" data-places="mongyang" data-bare></div></div></li>
+          <li><span class="when">12:45</span><div class="what"><h5>신원역 도착 → 점심</h5><p>역 앞 황금연못 (아래 식당 참고)</p></div></li>
+          <li class="move"><span class="when">14:00</span><div class="what"><h5>전철로 양수역 복귀</h5><span class="mv train"><b>🚆 신원 → 양수 1정거장</b> · 약 4분 · 20~30분 간격</span></div></li>
+          <li><span class="when">14:30</span><div class="what"><h5>두물머리 산책 + 연핫도그</h5><p>양수역에서 걸어서 약 20분 · 느티나무 · 강 합류 지점</p><div class="addr" data-places="dumul" data-bare></div></div></li>
+          <li><span class="when">15:30</span><div class="what"><h5>세미원 <span class="badge ok">선택</span></h5><p>09:00~18:00(입장 마감 17:30) · 성인 7,000원(양평사랑상품권 2,000원 지급) · 음식물 반입 불가(음료 가능) · 수련문화제 9/1~10/31</p><div class="addr" data-places="semiwon" data-bare></div></div></li>
+          <li><span class="when">17:00</span><div class="what"><h5>양수역 출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간~1시간 30분</b></span></div></li>
+          <li><span class="when">18:30</span><div class="what"><h5>원당 도착</h5></div></li>
+        </ol>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-food"/></svg>식당</h4>
+        <div class="foods">
+          <div class="food"><div class="ft">황금연못 <span class="badge rec">점심 · 신원역 앞</span></div><p class="menu">매운탕 · 청국장 · 황태국밥</p><p class="meta">09:00~20:00 · 자전거 라이더들이 꼭 들르는 집</p><div class="addr" data-places="r_hwanggeum" data-bare></div></div>
+          <div class="food"><div class="ft">명가연밭 <span class="badge ok">늦은 점심 · 양수역 앞</span></div><p class="menu">연잎밥 · 연잎 수육</p><p class="meta">11:30~19:00 · 휴무일 변동 → 전화 확인</p><div class="addr" data-places="r_yeonbat" data-bare></div></div>
+          <div class="food"><div class="ft">두물머리 연핫도그 <span class="badge ok">간식</span></div><p class="menu">연잎 반죽 핫도그 (순한맛 · 매운맛) 4,000원</p><p class="meta">운영시간 변동 있음 · 강변 야외 테이블</p><div class="addr" data-places="r_hotdog" data-bare></div></div>
+        </div>
       </div>
     </article>
+  </section>
 
-    <article class="route alt">
-      <div class="route-head">
-        <div class="t"><h3>10월 5일(월) · 비 그친 뒤 두물머리 · 세미원</h3><p>짧게 걷고 정원 산책 위주로 가볍게</p></div>
-        <span class="badge ok">대안</span>
+  <!-- ================= 2코스 ================= -->
+  <section id="c2">
+    <article class="itin">
+      <div class="ihead">
+        <div class="kick">2코스 · 터널이 있는 기찻길 <span class="stars" aria-label="추천도 5점 만점에 5점">★★★★★</span> <span class="lv easy">쉬움</span> <span class="badge pop">가장 무난한 인기 코스</span></div>
+        <h3>옛 철길 터널 완주</h3>
+        <p class="route-s">신원역 → 국수역 → 아신역 · 남한강 · 옛 철길 · 양수역에 차 두고 전철로 왕복</p>
+        <div class="facts">
+          <div class="fact"><div class="k">총 소요</div><div class="v">약 10시간 30분<small>07:30 출발 → 18:00 도착</small></div></div>
+          <div class="fact"><div class="k">걷기</div><div class="v">8.6km · 약 3시간<small>점심 시간 별도</small></div></div>
+          <div class="fact"><div class="k">운전 (편도)</div><div class="v">약 1시간~1시간 30분<small>양수리 정체 변수</small></div></div>
+          <div class="fact"><div class="k">주차</div><div class="v">양수역 공영주차장<small>무료</small></div></div>
+        </div>
       </div>
-      <ol class="tl">
-        <li><span class="when">점심 무렵</span><div class="what"><h4>원당 출발</h4><p>비 예보(5일 오전까지) → 늦게 출발</p></div></li>
-        <li><span class="when">오후</span><div class="what"><h4>두물머리 산책</h4><p>교량하부 공영주차장 무료 · 170면 · 24시간(명소까지 조금 걸음) / 느티나무 근처 사설 주차장 1일 3,000원</p>
-          <div class="addr" data-places="dumulpark dumul"></div></div></li>
-        <li><span class="when">오후</span><div class="what"><h4>세미원</h4><p>09:00~18:00(입장 마감 17:30) · 성인 7,000원(양평사랑상품권 2,000원 지급) · 음식물 반입 불가 · 전용 주차장 공사 중 → 인근 공영주차장(도보 약 5분)</p>
-          <div class="addr" data-places="semiwon"></div></div></li>
-        <li><span class="when">여유 시</span><div class="what"><h4>2코스 터널 구간 왕복</h4><p>아신역 쪽에서 기곡 · 원복 터널까지 왕복 약 5.6km</p>
-          <div class="addr" data-places="asin"></div></div></li>
-        <li><span class="when">귀가</span><div class="what"><h4>연휴 마지막 날</h4><p>저녁 서울 방향 정체 예상 → 일찍 출발하거나 저녁 먹고 늦게</p></div></li>
-      </ol>
-      <div class="box">
-        <p><b>참고</b> · 두물머리 · 세미원이 있는 양수리 일대는 평소에도 교통 체증이 잦은 곳(세미원 안내) → 시간 여유 있게</p>
+      <div class="ibody">
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
+        <ul class="points">
+          <li class="hl"><b>옛 철길 터널 2곳 — 원복터널 · 기곡터널</b><small>코스 후반(국수→아신)에 몰려 있음 · 사진 명소</small></li>
+          <li class="hl"><b>기차 속 갤러리</b><small>아신역 가까이 · 객차 안 전시</small></li>
+          <li><b>남한강변 수변공원 · 신원교 토끼굴 · 질울고래실마을</b></li>
+          <li><b>물소리길센터 인증대</b> — 코스 도장 찍기</li>
+          <li class="warn">남한강 자전거길과 함께 쓰는 길 → 자전거 주의 (양평군 여름 7~8월 추천 코스)</li>
+        </ul>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-park"/></svg>주차</h4>
+        <div class="park">
+          <div class="pk main"><div class="pt">양수역 공영주차장 <span class="badge pop">무료</span></div><p>주차 → 전철 1정거장으로 신원역 → 걷고 나서 아신역에서 전철 3정거장으로 복귀</p><div class="addr" data-places="pk_yangsu" data-bare></div></div>
+          <div class="pk"><div class="pt">참고 · 신원역 · 아신역 앞</div><p>역 앞 공간은 공개 자료로 확인 못 함 → 현장에서 자리 있으면 이용</p><div class="addr" data-places="st_sinwon st_asin"></div></div>
+        </div>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
+        <ol class="tl">
+          <li><span class="when">07:30</span><div class="what"><h5>원당 출발</h5><span class="mv"><b>🚗 약 1시간~1시간 30분</b> · 양수리 정체 변수</span></div></li>
+          <li><span class="when">09:00</span><div class="what"><h5>양수역 공영주차장 주차</h5></div></li>
+          <li class="move"><span class="when">09:15</span><div class="what"><h5>전철로 신원역</h5><span class="mv train"><b>🚆 양수 → 신원 1정거장</b> · 약 4분</span></div></li>
+          <li class="hl"><span class="when">09:30</span><div class="what"><h5>2코스 전반 출발</h5><p>신원역 → 4대강 수변공원 → 신원교 토끼굴 → 질울고래실마을 → 국수역</p><span class="mv walk"><b>🚶 약 4km · 1시간 20분</b></span></div></li>
+          <li><span class="when">10:55</span><div class="what"><h5>국수역 근처 점심 — 국수리국수집</h5><p>11:00 오픈에 맞춰 첫 타임 → 연휴 대기 줄 피하기</p></div></li>
+          <li class="hl"><span class="when">12:00</span><div class="what"><h5>2코스 후반 — 터널 구간</h5><p>국수역 → <b>원복터널</b> → <b>기곡터널</b> → <b>기차 속 갤러리</b> → 물소리길센터(인증대) → 아신역</p><span class="mv walk"><b>🚶 약 4.5km · 1시간 40분</b> · 사진 시간 포함</span></div></li>
+          <li class="move"><span class="when">13:45</span><div class="what"><h5>전철로 양수역 복귀</h5><span class="mv train"><b>🚆 아신 → 양수 3정거장</b> · 약 10분</span></div></li>
+          <li><span class="when">14:15</span><div class="what"><h5>두물머리 산책 + 연핫도그 <span class="badge ok">선택</span></h5><p>양수역에서 걸어서 약 20분 · 피곤하면 바로 귀가</p><div class="addr" data-places="dumul" data-bare></div></div></li>
+          <li><span class="when">16:30</span><div class="what"><h5>양수역 출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간~1시간 30분</b></span></div></li>
+          <li><span class="when">18:00</span><div class="what"><h5>원당 도착</h5></div></li>
+        </ol>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-food"/></svg>식당</h4>
+        <div class="foods">
+          <div class="food"><div class="ft">국수리국수집 <span class="badge rec">점심 · 국수역 근처</span></div><p class="menu">된장칼국수 · 부추수제비 · 메밀비빔국수 · 녹두빈대떡</p><p class="meta">11:00~20:30 (20:00 입장 마감) · 브레이크 16:00~17:00 · 수요일 휴무(금요일 영업) · 무료 주차</p><div class="addr" data-places="r_guksu" data-bare></div></div>
+          <div class="food"><div class="ft">두물머리 연핫도그 <span class="badge ok">간식</span></div><p class="menu">연잎 반죽 핫도그 4,000원</p><p class="meta">운영시간 변동 있음</p><div class="addr" data-places="r_hotdog" data-bare></div></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= 3코스 ================= -->
+  <section id="c3">
+    <article class="itin">
+      <div class="ihead">
+        <div class="kick">3코스 · 강변이야기길 <span class="stars" aria-label="추천도 5점 만점에 4점">★★★★<i>★</i></span> <span class="lv mid">보통</span></div>
+        <h3>옥천냉면 먹고 양평역까지</h3>
+        <p class="route-s">아신역 → 옥천 → 들꽃수목원 → 양근성지 → 양평역 · 양평역에 차 두고 전철 2정거장으로 출발</p>
+        <div class="facts">
+          <div class="fact"><div class="k">총 소요</div><div class="v">약 10시간<small>07:30 출발 → 17:30 도착</small></div></div>
+          <div class="fact"><div class="k">걷기</div><div class="v">10.9km · 약 3시간 30분<small>점심 시간 별도</small></div></div>
+          <div class="fact"><div class="k">운전 (편도)</div><div class="v">약 1시간 15분~2시간<small>연휴 오전 정체</small></div></div>
+          <div class="fact"><div class="k">주차</div><div class="v">양평역 1주차장<small>유료 · 1일 최대 6,000원</small></div></div>
+        </div>
+      </div>
+      <div class="ibody">
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
+        <ul class="points">
+          <li class="hl"><b>코스 한가운데 옥천냉면</b><small>걷다가 먹는 양평 대표 음식 · 황해도식 냉면과 완자</small></li>
+          <li class="hl"><b>종점 양평역 = 박람회장(양강섬) 옆</b><small>끝나고 축제 구경으로 바로 이어가기 좋음</small></li>
+          <li><b>성곡재 · 옥천레포츠공원 · 들꽃수목원 · 천주교 양근성지 · 물안개공원</b></li>
+          <li class="warn">공식 홈페이지 ‘3코스 양강섬 우회도로 안내’ 공지 확인 · 성곡재 산길은 비 온 뒤 미끄럼 주의</li>
+        </ul>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-park"/></svg>주차</h4>
+        <div class="park">
+          <div class="pk main"><div class="pt">양평역 1주차장 <span class="badge rec">유료</span></div><p>30분 600원 · 10분 200원 · 1일 최대 6,000원 · 박람회 셔틀 출발점이라 일찍 도착</p><div class="addr" data-places="pk_yangpyeong" data-bare></div></div>
+          <div class="pk"><div class="pt">대안 · 양평생활문화센터 <span class="badge pop">무료</span></div><p>물안개공원 입구 · 3코스 끝 무렵 지나감 · 박람회 기간엔 혼잡하거나 통제될 수 있음</p><div class="addr" data-places="pk_ypcc" data-bare></div></div>
+        </div>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
+        <ol class="tl">
+          <li><span class="when">07:30</span><div class="what"><h5>원당 출발</h5><span class="mv"><b>🚗 약 1시간 15분~2시간</b> · 연휴 오전 정체</span></div></li>
+          <li><span class="when">09:00</span><div class="what"><h5>양평역 1주차장 주차</h5></div></li>
+          <li class="move"><span class="when">09:20</span><div class="what"><h5>전철로 아신역</h5><span class="mv train"><b>🚆 양평 → 오빈 → 아신 2정거장</b> · 약 7분</span></div></li>
+          <li class="hl"><span class="when">09:40</span><div class="what"><h5>3코스 전반 출발</h5><p>아신역 → 성곡재(산길) → 옥천레포츠공원 → 옥천</p><span class="mv walk"><b>🚶 약 5km · 1시간 50분</b></span></div></li>
+          <li class="hl"><span class="when">11:30</span><div class="what"><h5>점심 — 옥천냉면</h5><p>11시 오픈 직후라 덜 붐빔 · 연휴 영업 여부 미리 확인</p></div></li>
+          <li><span class="when">12:30</span><div class="what"><h5>3코스 후반</h5><p>옥천 → 들꽃수목원 → 천주교 양근성지 → 물안개공원 → 양평역</p><span class="mv walk"><b>🚶 약 6km · 1시간 50분</b></span><div class="addr" data-places="deulkkot yanggeun"></div></div></li>
+          <li><span class="when">14:30</span><div class="what"><h5>양평역 도착</h5><p>여기서 귀가하거나, 박람회장으로 이어가기 → <a href="#fest">🎆 박람회 코스</a> 참고</p></div></li>
+          <li><span class="when">16:00</span><div class="what"><h5>양평역 출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간 15분~1시간 30분</b></span></div></li>
+          <li><span class="when">17:30</span><div class="what"><h5>원당 도착</h5></div></li>
+        </ol>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-food"/></svg>식당</h4>
+        <div class="foods">
+          <div class="food"><div class="ft">옥천냉면 황해식당 <span class="badge rec">점심 · 코스 위</span></div><p class="menu">물냉면 · 비빔냉면 · 완자 · 편육</p><p class="meta">11:00~20:00 · 수요일 휴무로 소개됨(금요일 영업) · 주차 가능</p><div class="addr" data-places="r_okcheon" data-bare></div></div>
+          <div class="food"><div class="ft">옥천냉면 황해식당 본점 <span class="badge ok">이름 비슷한 다른 집</span></div><p class="menu">물냉면 · 비빔냉면 · 완자</p><p class="meta">상호가 비슷한 두 집 중 ‘본점’ 간판 · 둘 중 가까운 곳으로</p><div class="addr" data-places="r_okcheon2" data-bare></div></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= 6코스 ================= -->
+  <section id="c6">
+    <article class="itin">
+      <div class="ihead">
+        <div class="kick">6코스 · 용문산 은행나무길 <span class="stars" aria-label="추천도 5점 만점에 3점">★★★<i>★★</i></span> <span class="lv mid">보통</span> <span class="badge rec">양평군 10월 추천</span></div>
+        <h3>천년 은행나무까지</h3>
+        <p class="route-s">용문역 → 흑천 · 용문천 → 용문산관광지 → 용문사 은행나무 · 용문역에 차 두고 버스 · 택시로 회수</p>
+        <div class="facts">
+          <div class="fact"><div class="k">총 소요</div><div class="v">약 10시간 30분<small>07:30 출발 → 18:00 도착</small></div></div>
+          <div class="fact"><div class="k">걷기</div><div class="v">10.3km · 약 3시간<small>+ 은행나무 왕복 2km · 1시간</small></div></div>
+          <div class="fact"><div class="k">운전 (편도)</div><div class="v">약 1시간 30분~2시간<small>가장 먼 코스</small></div></div>
+          <div class="fact"><div class="k">주차</div><div class="v">용문역 주차장<small>무료 · 24시간</small></div></div>
+        </div>
+      </div>
+      <div class="ibody">
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
+        <ul class="points">
+          <li class="hl"><b>용문사 은행나무</b><small>천연기념물 · 높이 42m · 관광지 ↔ 은행나무 왕복 약 2km(1시간 이내)</small></li>
+          <li class="hl"><b>용문산관광지 산채정식</b><small>코스 끝에서 먹는 산나물 · 더덕구이</small></li>
+          <li><b>흑천 · 용문천 물길</b> — 인삼밭 · 오촌리 마을길 · 작은 고개 두 번</li>
+          <li>용문산관광지 입장료 무료(2023.5.1~) · 단풍철 주차관리 · 안전요원 배치 예정</li>
+          <li class="warn">은행잎 절정은 늦가을(10월 셋째 주에도 물드는 중이던 후기) → 9일엔 초록일 가능성 큼</li>
+        </ul>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-park"/></svg>주차</h4>
+        <div class="park">
+          <div class="pk main"><div class="pt">용문역 주차장 <span class="badge pop">무료</span></div><p>3주차장 무료 · 24시간 (2주차장은 유료: 30분 600원 · 1일 최대 7,000원)</p><div class="addr" data-places="pk_yongmun" data-bare></div></div>
+          <div class="pk"><div class="pt">대안 · 용문산관광지 주차장 <span class="badge rec">유료</span></div><p>경차 1,500 · 소형 3,000 · 중대형 5,000원 · 대형 주차장 · 여기 세우면 먼저 버스로 용문역 간 뒤 걸어서 차로</p><div class="addr" data-places="pk_yongmunsan" data-bare></div></div>
+        </div>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
+        <ol class="tl">
+          <li><span class="when">07:30</span><div class="what"><h5>원당 출발</h5><span class="mv"><b>🚗 약 1시간 30분~2시간</b> · 6번 국도 양평 지나 용문</span></div></li>
+          <li><span class="when">09:15</span><div class="what"><h5>용문역 주차장 주차</h5></div></li>
+          <li class="hl"><span class="when">09:30</span><div class="what"><h5>6코스 출발</h5><p>용문역 → 용문국민체육센터(인증대 6-1) → 흑천 → 천주교 용문수련장 → 인삼밭 → 인증대 6-2 → 오촌리 마을회관 → 용문산관광지</p><span class="mv walk"><b>🚶 10.3km · 약 3시간</b></span></div></li>
+          <li><span class="when">12:30</span><div class="what"><h5>점심 — 용문산 중앙식당</h5><p>산채정식 · 더덕구이</p></div></li>
+          <li class="hl"><span class="when">13:30</span><div class="what"><h5>용문사 은행나무 왕복</h5><span class="mv walk"><b>🚶 약 2km · 1시간 이내</b></span></div></li>
+          <li class="move"><span class="when">15:00</span><div class="what"><h5>용문역으로 복귀</h5><p>군내버스(7-4번 등 · 용문사 쪽 출발은 매시 15분 · 45분이라는 후기 — 현장 시간표 확인) 또는 택시</p><span class="mv"><b>🚌 · 🚕 약 15분</b> (추정)</span></div></li>
+          <li><span class="when">15:30</span><div class="what"><h5>용문역 출발 → 귀가</h5><p>귀갓길에 양평 신내서울해장국 본점(개군면) 들러 이른 저녁도 가능</p><span class="mv"><b>🚗 약 1시간 30분~2시간</b></span></div></li>
+          <li><span class="when">17:30</span><div class="what"><h5>원당 도착</h5><p>해장국 들르면 18:30 전후</p></div></li>
+        </ol>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-food"/></svg>식당</h4>
+        <div class="foods">
+          <div class="food"><div class="ft">용문산 중앙식당 <span class="badge rec">점심 · 관광지 안</span></div><p class="menu">산채정식 · 더덕구이</p><p class="meta">09:00~19:00 · 51년 전통으로 소개</p><div class="addr" data-places="r_jungang" data-bare></div></div>
+          <div class="food"><div class="ft">양평 신내서울해장국 본점 <span class="badge ok">귀갓길 · 개군면</span></div><p class="menu">한우 내장 해장국</p><p class="meta">매일 05:30~20:00 · 건물 뒤 주차장</p><div class="addr" data-places="r_sinnae" data-bare></div></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= Claude 추천 ================= -->
+  <section id="best">
+    <article class="itin best">
+      <div class="ihead">
+        <div class="kick"><span class="badge go">⭐ Claude 추천</span> <span class="stars" aria-label="추천도 5점 만점에 5점">★★★★★</span> <span class="lv easy">쉬움</span></div>
+        <h3>터널 걷고 불꽃놀이로 끝</h3>
+        <p class="route-s">양평읍 주차 → 전철로 국수역 → 국수리국수집 → 2코스 터널 구간 → 아신역 → 전철로 양평 → 박람회 · 불꽃놀이</p>
+        <div class="facts">
+          <div class="fact"><div class="k">총 소요</div><div class="v">약 14시간<small>08:30 출발 → 22:30 도착</small></div></div>
+          <div class="fact"><div class="k">걷기</div><div class="v">약 4.5km · 1시간 30분<small>+ 박람회장 산책</small></div></div>
+          <div class="fact"><div class="k">운전 (편도)</div><div class="v">약 1시간 15분~2시간<small>밤 귀가는 행사 혼잡</small></div></div>
+          <div class="fact"><div class="k">주차</div><div class="v">양평역 1주차장<small>유료 · 1일 최대 6,000원</small></div></div>
+        </div>
+      </div>
+      <div class="ibody">
+        <p class="why"><b>왜 이 코스?</b> 인기 1위 2코스에서 <b>터널 두 곳과 기차 속 갤러리만</b> 골라 걷고, 저녁엔 <b>그날만 있는 박람회 개막 불꽃놀이</b>로 마무리. 차는 아침에 양평읍에 한 번 세우면 밤까지 안 움직여서, 축제 날 주차 스트레스가 가장 적다.</p>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
+        <ul class="points">
+          <li class="hl"><b>원복터널 · 기곡터널 · 기차 속 갤러리</b><small>2코스에서 가장 볼거리가 몰린 국수 → 아신 구간만 편도로</small></li>
+          <li class="hl"><b>박람회 개막식 → 불꽃놀이 (무료)</b><small>양강취타대 · 양평전통연희단 · 한국무용가 원미자 · 성악가 임청화 · 캘리그라피 퍼포먼스 후 불꽃놀이 (보도 기준)</small></li>
+          <li><b>국수리국수집 된장칼국수</b> — 11시 오픈 첫 타임으로 대기 줄 피하기</li>
+          <li><b>전국 232개 문화원 부스 · 야외 전시 ‘양평 아뜰리에’ · 플리마켓 · 돗자리 피크닉</b></li>
+          <li class="warn">개막 · 불꽃놀이 시각은 아직 보도에 없음 → 양평문화원 공지 확인 · 돗자리 챙기기</li>
+        </ul>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-park"/></svg>주차</h4>
+        <div class="park">
+          <div class="pk main"><div class="pt">양평역 1주차장 <span class="badge rec">유료</span></div><p>30분 600원 · 10분 200원 · 1일 최대 6,000원 · 전철역 바로 앞 + 박람회 셔틀(양평역 ↔ 물안개공원) 출발점</p><div class="addr" data-places="pk_yangpyeong" data-bare></div></div>
+          <div class="pk"><div class="pt">대안 · 양평생활문화센터 <span class="badge pop">무료</span></div><p>박람회장 바로 옆이지만 행사 땐 혼잡 · 통제 가능 · 불꽃놀이 뒤 출차가 가장 막힘</p><div class="addr" data-places="pk_ypcc" data-bare></div></div>
+        </div>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
+        <ol class="tl">
+          <li><span class="when">08:30</span><div class="what"><h5>원당 출발</h5><span class="mv"><b>🚗 약 1시간 15분~2시간</b> · 연휴 오전 정체</span></div></li>
+          <li><span class="when">10:00</span><div class="what"><h5>양평역 1주차장 주차</h5><p>여기서 밤까지 차 안 움직임</p></div></li>
+          <li class="move"><span class="when">10:20</span><div class="what"><h5>전철로 국수역</h5><span class="mv train"><b>🚆 양평 → 오빈 → 아신 → 국수 3정거장</b> · 약 12분</span></div></li>
+          <li><span class="when">10:55</span><div class="what"><h5>점심 — 국수리국수집</h5><p>된장칼국수 · 부추수제비 · 녹두빈대떡</p></div></li>
+          <li class="hl"><span class="when">12:00</span><div class="what"><h5>2코스 터널 구간 걷기</h5><p>국수역 → <b>원복터널</b> → <b>기곡터널</b> → <b>기차 속 갤러리</b> → 물소리길센터(인증 도장) → 아신역</p><span class="mv walk"><b>🚶 약 4.5km · 1시간 30분</b> · 평지 위주</span></div></li>
+          <li class="move"><span class="when">13:40</span><div class="what"><h5>전철로 양평역</h5><span class="mv train"><b>🚆 아신 → 오빈 → 양평 2정거장</b> · 약 7분</span></div></li>
+          <li><span class="when">14:15</span><div class="what"><h5>카페 휴식 or 3코스 끝 구간 짧게</h5><p>양강섬 → 천주교 양근성지 (편도 약 1km) · 저녁이 길어서 낮에 한 번 쉬어 두기</p><div class="addr" data-places="yanggang yanggeun"></div></div></li>
+          <li class="hl"><span class="when">15:30</span><div class="what"><h5>박람회장 둘러보기</h5><p>양강섬 일원 · 부스 · 전시 · 플리마켓 · 먹거리 · 돗자리 피크닉</p></div></li>
+          <li class="hl"><span class="when">저녁</span><div class="what"><h5>개막식 → 불꽃놀이</h5><p>시각 미정 → 당일 양평문화원 공지 확인</p></div></li>
+          <li><span class="when">21:00</span><div class="what"><h5>출차 → 귀가</h5><p>불꽃놀이 직후 한꺼번에 몰리니 조금 여유 두고 출발</p><span class="mv"><b>🚗 약 1시간 15분~1시간 30분</b></span></div></li>
+          <li><span class="when">22:30</span><div class="what"><h5>원당 도착</h5></div></li>
+        </ol>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-food"/></svg>식당</h4>
+        <div class="foods">
+          <div class="food"><div class="ft">국수리국수집 <span class="badge rec">점심 · 국수역 근처</span></div><p class="menu">된장칼국수 · 부추수제비 · 메밀비빔국수 · 녹두빈대떡</p><p class="meta">11:00~20:30 (20:00 입장 마감) · 브레이크 16:00~17:00 · 수요일 휴무(금요일 영업)</p><div class="addr" data-places="r_guksu" data-bare></div></div>
+          <div class="food"><div class="ft">저녁은 박람회 먹거리 <span class="badge ok">현장</span></div><p class="menu">행사장 먹거리 프로그램 · 돗자리 피크닉</p><p class="meta">줄이 길면 양평역 근처 식당으로</p></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= 3코스 끝 + 박람회 ================= -->
+  <section id="fest">
+    <article class="itin">
+      <div class="ihead">
+        <div class="kick">🎆 이전 플랜 · 3코스 끝 구간 + 지역문화박람회 <span class="stars" aria-label="추천도 5점 만점에 4점">★★★★<i>★</i></span> <span class="lv easy">쉬움</span></div>
+        <h3>강변 산책 → 축제 구경 → 불꽃놀이로 마무리</h3>
+        <p class="route-s">옥천냉면 → 양평읍 주차 → 양강섬 · 양근성지 · 들꽃수목원 왕복 → 박람회 → 개막식 · 불꽃놀이</p>
+        <div class="facts">
+          <div class="fact"><div class="k">총 소요</div><div class="v">약 13시간<small>09:30 출발 → 22:30 도착</small></div></div>
+          <div class="fact"><div class="k">걷기</div><div class="v">왕복 2~4km · 1~2시간<small>편도 약 1~2km</small></div></div>
+          <div class="fact"><div class="k">운전 (편도)</div><div class="v">약 1시간 30분~2시간<small>옥천면 경유</small></div></div>
+          <div class="fact"><div class="k">주차</div><div class="v">양평생활문화센터<small>무료 · 행사 혼잡</small></div></div>
+        </div>
+      </div>
+      <div class="ibody">
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>포인트</h4>
+        <ul class="points">
+          <li class="hl"><b>개막일 저녁 개막식 → 불꽃놀이 (무료)</b><small>낮엔 ‘양평 지역문화人’ 지역예술인 무대</small></li>
+          <li class="hl"><b>옥천냉면</b> — 양평읍 들어가기 전 옥천면에서 점심</li>
+          <li><b>양강섬 → 천주교 양근성지 → 들꽃수목원</b> 강변 산책 (3코스 끝 구간)</li>
+          <li><b>전국 문화원 부스 · 야외 전시 ‘양평 아뜰리에’ · 플리마켓 · 돗자리 피크닉</b></li>
+          <li class="warn">행사 주차 안내는 보도에 없음 → 공지 확인 · 공식 홈페이지 ‘3코스 양강섬 우회도로 안내’ 공지 확인</li>
+        </ul>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-park"/></svg>주차</h4>
+        <div class="park">
+          <div class="pk main"><div class="pt">양평생활문화센터 <span class="badge pop">무료</span></div><p>평소엔 양평문화센터 무료 주차(2024년 기사 기준) · 물안개공원 입구 · 행사 땐 혼잡 · 통제 가능</p><div class="addr" data-places="pk_ypcc" data-bare></div></div>
+          <div class="pk"><div class="pt">대안 · 양평역 1주차장 <span class="badge rec">유료</span></div><p>1일 최대 6,000원 · 행사 기간엔 셔틀(양평역 ↔ 물안개공원) 운행</p><div class="addr" data-places="pk_yangpyeong" data-bare></div></div>
+        </div>
+
+        <h4><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>일정</h4>
+        <ol class="tl">
+          <li><span class="when">09:30</span><div class="what"><h5>원당 출발</h5><p>연휴 첫날이라 오전 양평 방향 정체 예상</p><span class="mv"><b>🚗 약 1시간 30분~2시간</b> · 옥천면까지</span></div></li>
+          <li><span class="when">11:30</span><div class="what"><h5>옥천면에서 옥천냉면</h5><p>양평읍 들어가기 전 옥천면 · 연휴 영업 여부 미리 확인</p><div class="addr" data-places="r_okcheon r_okcheon2"></div></div></li>
+          <li><span class="when">13:00</span><div class="what"><h5>양평읍 주차 → 3코스 끝 구간 산책</h5><p>양강섬 → 천주교 양근성지 → 들꽃수목원 왕복(편도 약 1~2km)</p><span class="mv walk"><b>🚶 왕복 2~4km · 1~2시간</b></span><div class="addr" data-places="yanggang yanggeun deulkkot"></div></div></li>
+          <li class="hl"><span class="when">15:30</span><div class="what"><h5>박람회장 둘러보기</h5><p>전국 문화원 부스 · 야외 전시 ‘양평 아뜰리에’ · 플리마켓 · 돗자리 피크닉 형태</p></div></li>
+          <li class="hl"><span class="when">저녁</span><div class="what"><h5>개막식 → 불꽃놀이</h5><p>개막 시각은 보도에 나오지 않음 → 양평문화원 공지 확인</p></div></li>
+          <li><span class="when">21:00</span><div class="what"><h5>출차 · 도로 혼잡 예상</h5><p>불꽃놀이 직후 한꺼번에 몰리니 조금 여유 두고 출발</p><span class="mv"><b>🚗 약 1시간 15분~1시간 30분</b></span></div></li>
+          <li><span class="when">22:30</span><div class="what"><h5>원당 도착</h5></div></li>
+        </ol>
+        <p class="after"><b>풀코스로 걷고 싶다면</b> · 3코스 아신역 → 양평역 완주(10.9km · 약 3시간 · 보통) → <a href="#c3">3코스 일정</a>처럼 양평역에 차 두고 전철로 아신역 출발</p>
       </div>
     </article>
   </section>
 
   <!-- ================= 내비 주소 ================= -->
   <section id="navi">
-    <div class="sec-head"><span class="num pin">📍</span><h2>내비 주소 모음</h2><span class="s">누르면 복사 · 도로명 / 지번</span></div>
+    <div class="sec-head"><h2>📍 내비 주소 모음</h2><span class="s">누르면 복사 · 도로명 / 지번</span></div>
 
-    <h3 class="group-t"><span class="badge go">10/9</span>3코스 끝 구간 + 박람회</h3>
-    <div class="places" data-places="okcheon okcheon2 ypcc yanggang yanggeun deulkkot mulangae yangpyeong"></div>
+    <h3 class="group-t"><span class="badge pop">주차</span>차 세우는 곳</h3>
+    <div class="places" data-places="pk_yangsu pk_dumul pk_yangpyeong pk_ypcc pk_yongmun pk_yongmunsan"></div>
 
-    <h3 class="group-t"><span class="badge ok">10/5</span>두물머리 · 세미원</h3>
-    <div class="places" data-places="dumulpark dumul semiwon asin"></div>
+    <h3 class="group-t"><span class="badge rec">식당</span>코스별 식당</h3>
+    <div class="places" data-places="r_hwanggeum r_yeonbat r_hotdog r_guksu r_okcheon r_okcheon2 r_jungang r_sinnae"></div>
 
-    <h3 class="group-t"><span class="badge pop">역</span>물소리길 코스 출발 · 도착 역</h3>
-    <div class="places" data-places="yangsu sinwon asin yangpyeong wondeok yongmun jipyeong ilsin yangdong"></div>
+    <h3 class="group-t"><span class="badge ok">장소</span>들르는 곳</h3>
+    <div class="places" data-places="dumul semiwon mongyang yanggang yanggeun deulkkot mulangae"></div>
 
-    <h3 class="group-t"><span class="badge rec">명소</span>그 밖의 장소</h3>
-    <div class="places" data-places="yongmunsan gudun"></div>
+    <h3 class="group-t"><span class="badge ok">역</span>코스 출발 · 도착 · 환승 역</h3>
+    <div class="places" data-places="st_yangsu st_sinwon st_guksu st_asin"></div>
 
-    <p class="foot">주소는 2026년 10월 2일 검색 기준. 붙여넣은 뒤 내비에 뜨는 목적지 이름이 맞는지 한 번 확인하고, 도로명으로 안 잡히면 지번으로. 세미원 인근 공영주차장 · 느티나무 근처 사설 주차장은 공개된 주소가 없어 현장 안내를 따른다.</p>
+    <p class="foot">주소는 2026년 10월 검색 기준. 붙여넣은 뒤 내비에 뜨는 목적지 이름이 맞는지 한 번 확인하고, 도로명으로 안 잡히면 지번으로. 양평역 · 용문역 주소는 각 역 주차장 카드에 들어 있다.</p>
   </section>
 
-  <!-- ================= 03 ================= -->
-  <section id="s3">
-    <div class="sec-head"><span class="num">03</span><h2>많이 찾는 코스 TOP 3</h2><span class="s">지도에서 위치 확인 · 순서는 데이트 난이도 기준</span></div>
+  <!-- ================= 참고 ================= -->
+  <section id="more">
+    <div class="sec-head"><h2>참고</h2><span class="s">코스 전체 · 운영 · 팁 · 출처</span></div>
 
-    <div class="line-map">
-      <svg class="wide" viewBox="0 0 800 178" role="img" aria-label="물소리길 노선도: 양수–신원–아신–양평–원덕–용문–지평–일신–양동, 6코스는 용문역에서 용문산관광지로 갈라짐">
-        <g font-family="var(--sans)" fill="var(--ink-3)" font-size="12">
-          <text x="208" y="44" text-anchor="middle">〰 남한강 〰</text>
-          <text x="430" y="44" text-anchor="middle">흑천</text>
-        </g>
-        <g stroke-width="6" stroke-linecap="round" fill="none">
-          <path d="M40 112 H460 M460 112 H752" stroke="var(--track)"/>
-          <path d="M40 112 H208" stroke="var(--green)"/>
-          <path d="M208 112 H292" stroke="var(--orange)"/>
-          <path d="M460 112 L528 54" stroke="var(--green)"/>
-        </g>
-        <g fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5">
-          <circle cx="40" cy="112" r="6.5"/><circle cx="124" cy="112" r="6.5"/><circle cx="208" cy="112" r="6.5"/>
-          <circle cx="292" cy="112" r="6.5"/><circle cx="376" cy="112" r="6.5"/><circle cx="460" cy="112" r="6.5"/>
-          <circle cx="562" cy="112" r="6.5"/><circle cx="657" cy="112" r="6.5"/><circle cx="752" cy="112" r="6.5"/>
-          <circle cx="528" cy="54" r="6.5"/>
-        </g>
-        <g font-family="var(--sans)" font-size="12" font-weight="700" text-anchor="middle">
-          <g fill="var(--green)"><circle cx="82" cy="112" r="12"/><circle cx="166" cy="112" r="12"/><circle cx="494" cy="83" r="12"/></g>
-          <circle cx="250" cy="112" r="12" fill="var(--orange)"/>
-          <g fill="var(--surface)" stroke="var(--track)" stroke-width="1.5">
-            <circle cx="334" cy="112" r="12"/><circle cx="418" cy="112" r="12"/><circle cx="511" cy="112" r="12"/><circle cx="609.5" cy="112" r="12"/><circle cx="704.5" cy="112" r="12"/>
-          </g>
-          <g fill="var(--on-accent)"><text x="82" y="116">1</text><text x="166" y="116">2</text><text x="250" y="116">3</text><text x="494" y="87">6</text></g>
-          <g fill="var(--ink-2)"><text x="334" y="116">4</text><text x="418" y="116">5</text><text x="511" y="116">7</text><text x="609.5" y="116">8</text><text x="704.5" y="116">9</text></g>
-        </g>
-        <g font-family="var(--sans)" text-anchor="middle">
-          <g font-size="13" font-weight="700" fill="var(--ink)">
-            <text x="40" y="143">양수</text><text x="124" y="143">신원</text><text x="208" y="143">아신</text><text x="292" y="143">양평</text><text x="376" y="143">원덕</text>
-            <text x="460" y="143">용문</text><text x="562" y="143">지평</text><text x="657" y="143">일신</text><text x="752" y="143">양동</text>
-          </g>
-          <g font-size="11" fill="var(--ink-3)"><text x="40" y="160">두물머리</text><text x="292" y="160">양강섬</text><text x="657" y="160">구둔역</text></g>
-          <text x="542" y="50" text-anchor="start" font-size="13" font-weight="700" fill="var(--ink)">용문산관광지</text>
-          <text x="542" y="66" text-anchor="start" font-size="11" fill="var(--ink-3)">용문사 은행나무</text>
-        </g>
-      </svg>
-      <svg class="tall" viewBox="0 0 340 560" role="img" aria-label="물소리길 노선도(세로): 양수–신원–아신–양평–원덕–용문–지평–일신–양동, 6코스는 용문역에서 용문산관광지로 갈라짐">
-        <g stroke-width="6" stroke-linecap="round" fill="none">
-          <path d="M120 30 V530" stroke="var(--track)"/>
-          <path d="M120 30 V150" stroke="var(--green)"/>
-          <path d="M120 150 V210" stroke="var(--orange)"/>
-          <path d="M120 330 L222 372" stroke="var(--green)"/>
-        </g>
-        <g font-family="var(--sans)" font-size="12" fill="var(--ink-3)">
-          <text x="148" y="94">〰 남한강</text>
-          <text x="148" y="290">흑천</text>
-        </g>
-        <g fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5">
-          <circle cx="120" cy="30" r="6.5"/><circle cx="120" cy="90" r="6.5"/><circle cx="120" cy="150" r="6.5"/><circle cx="120" cy="210" r="6.5"/>
-          <circle cx="120" cy="270" r="6.5"/><circle cx="120" cy="330" r="6.5"/><circle cx="120" cy="410" r="6.5"/><circle cx="120" cy="470" r="6.5"/><circle cx="120" cy="530" r="6.5"/>
-          <circle cx="222" cy="372" r="6.5"/>
-        </g>
-        <g font-family="var(--sans)" font-size="12" font-weight="700" text-anchor="middle">
-          <g fill="var(--green)"><circle cx="120" cy="60" r="12"/><circle cx="120" cy="120" r="12"/><circle cx="171" cy="351" r="12"/></g>
-          <circle cx="120" cy="180" r="12" fill="var(--orange)"/>
-          <g fill="var(--surface)" stroke="var(--track)" stroke-width="1.5">
-            <circle cx="120" cy="240" r="12"/><circle cx="120" cy="300" r="12"/><circle cx="120" cy="370" r="12"/><circle cx="120" cy="440" r="12"/><circle cx="120" cy="500" r="12"/>
-          </g>
-          <g fill="var(--on-accent)"><text x="120" y="64">1</text><text x="120" y="124">2</text><text x="120" y="184">3</text><text x="171" y="355">6</text></g>
-          <g fill="var(--ink-2)"><text x="120" y="244">4</text><text x="120" y="304">5</text><text x="120" y="374">7</text><text x="120" y="444">8</text><text x="120" y="504">9</text></g>
-        </g>
-        <g font-family="var(--sans)" text-anchor="end">
-          <g font-size="14" font-weight="700" fill="var(--ink)">
-            <text x="100" y="35">양수</text><text x="100" y="95">신원</text><text x="100" y="155">아신</text><text x="100" y="215">양평</text><text x="100" y="275">원덕</text>
-            <text x="100" y="335">용문</text><text x="100" y="415">지평</text><text x="100" y="475">일신</text><text x="100" y="535">양동</text>
-          </g>
-          <g font-size="11.5" fill="var(--ink-3)"><text x="100" y="51">두물머리</text><text x="100" y="231">양강섬</text><text x="100" y="491">구둔역</text></g>
-        </g>
-        <text x="236" y="377" font-family="var(--sans)" font-size="14" font-weight="700" fill="var(--ink)">용문산관광지</text>
-        <text x="236" y="394" font-family="var(--sans)" font-size="11.5" fill="var(--ink-3)">용문사 은행나무</text>
-      </svg>
-      <div class="legend">
-        <span><i style="background:var(--green)"></i>인기 TOP 3 (1 · 2 · 6코스)</span>
-        <span><i style="background:var(--orange)"></i>9일 추천 (3코스)</span>
-      </div>
-    </div>
-
-    <article class="top r1">
-      <span class="rank">1</span>
-      <div>
-        <h3>2코스 · 터널이 있는 기찻길<small>신원역 → 아신역</small></h3>
-        <div class="tags"><span>8.6km</span><span>약 3시간</span><span>남한강 · 옛 철길</span></div>
-        <div class="two-col">
-          <div><h5><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>볼거리</h5>
-            <ul class="dots"><li>남한강변 수변공원</li><li>옛 철길 터널(원복 · 기곡 터널)</li><li>기차 속 갤러리</li></ul></div>
-          <div><h5><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg>자차 팁 · 주의</h5>
-            <ul class="dots"><li>터널 2곳이 아신역 쪽에 몰려 있음 → 아신역 쪽에서 원복터널까지 왕복 약 5.6km면 하이라이트만</li><li>남한강 자전거길과 함께 쓰는 길 → 자전거 주의</li><li>양평군 여름(7~8월) 추천 코스</li></ul></div>
-        </div>
-        <div class="addr" data-places="asin"></div>
-      </div>
-    </article>
-
-    <article class="top r2">
-      <span class="rank">2</span>
-      <div>
-        <h3>6코스 · 용문산 은행나무길<small>용문역 → 용문산관광지</small></h3>
-        <div class="tags"><span>10.3km</span><span>약 3시간</span><span>보통</span><span>양평군 10월 추천</span></div>
-        <div class="two-col">
-          <div><h5><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>볼거리</h5>
-            <ul class="dots"><li>용문사 은행나무(천연기념물 · 높이 42m)</li><li>흑천 · 용문천</li></ul></div>
-          <div><h5><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg>자차 팁 · 주의</h5>
-            <ul class="dots"><li>종점 용문산관광지에 대형 주차장(유료) → 차로 가기 편함</li><li>관광지 ↔ 은행나무 왕복 약 2km(1시간 이내)</li><li>은행잎 절정은 늦가을(10월 셋째 주에도 물드는 중이던 후기) → 5 · 9일엔 초록일 가능성 큼</li></ul></div>
-        </div>
-        <div class="addr" data-places="yongmunsan"></div>
-      </div>
-    </article>
-
-    <article class="top r3">
-      <span class="rank">3</span>
-      <div>
-        <h3>1코스 · 문화유적길<small>양수역 → 신원역</small></h3>
-        <div class="tags"><span>10.5km</span><span>약 3시간</span><span>보통</span></div>
-        <div class="two-col">
-          <div><h5><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>볼거리</h5>
-            <ul class="dots"><li>정창손 묘 · 한음 이덕형 신도비</li><li>몽양 여운형 생가</li><li>하천길 + 산길</li></ul></div>
-          <div><h5><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg>자차 팁 · 주의</h5>
-            <ul class="dots"><li>출발점 양수역 바로 옆이 두물머리 → 두물머리 · 세미원 산책과 묶기 좋음</li><li>지도 · 패스포트는 양서면사무소 비치(공휴일 휴무)</li></ul></div>
-        </div>
-        <div class="addr" data-places="yangsu"></div>
-      </div>
-    </article>
-    <p class="foot">선정 기준: 코스별 공식 방문객 통계는 공개된 자료가 없어 양평군 계절 추천 · 언론 소개 · 후기 빈도로 골랐습니다.</p>
-  </section>
-
-  <!-- ================= 04 ================= -->
-  <section id="s4">
-    <div class="sec-head"><span class="num">04</span><h2>물소리길 1~9코스 한눈에</h2><span class="s">9개 코스 전체 정리</span></div>
+    <h3 class="sub-h">물소리길 1~9코스 한눈에</h3>
     <table class="tbl courses">
       <thead><tr><th>코스</th><th>이름</th><th>구간</th><th>거리</th><th>특징</th></tr></thead>
       <tbody>
-        <tr><td><span class="cn g">1</span></td><td class="nm">문화유적길</td><td>양수역 → 신원역</td><td>10.5km</td><td>이덕형 신도비 · 여운형 생가, 하천길 + 산길 <span class="badge pop">인기</span></td></tr>
-        <tr><td><span class="cn g">2</span></td><td class="nm">터널이 있는 기찻길</td><td>신원역 → 아신역</td><td>8.6km</td><td>옛 철길 터널 · 남한강변, 자전거길 공유 <span class="badge pop">인기</span></td></tr>
-        <tr><td><span class="cn o">3</span></td><td class="nm">강변이야기길</td><td>아신역 → 양평역</td><td>10.9km</td><td>들꽃수목원 · 양근성지 · 양강섬, 양강섬 구간 우회 공지 <span class="badge rec">9일 추천</span></td></tr>
+        <tr><td><span class="cn g">1</span></td><td class="nm">문화유적길</td><td>양수역 → 신원역</td><td>10.5km</td><td>이덕형 신도비 · 여운형 생가, 하천길 + 산길 <span class="badge pop">이번 선택</span></td></tr>
+        <tr><td><span class="cn g">2</span></td><td class="nm">터널이 있는 기찻길</td><td>신원역 → 아신역</td><td>8.6km</td><td>옛 철길 터널 · 남한강변, 자전거길 공유 <span class="badge pop">이번 선택</span></td></tr>
+        <tr><td><span class="cn g">3</span></td><td class="nm">강변이야기길</td><td>아신역 → 양평역</td><td>10.9km</td><td>들꽃수목원 · 양근성지 · 양강섬, 양강섬 구간 우회 공지 <span class="badge pop">이번 선택</span></td></tr>
         <tr><td><span class="cn">4</span></td><td class="nm">버드나무 나루께길</td><td>양평역 → 원덕역</td><td>10.5km</td><td>남한강 풍광, 흙길 · 산길, 맨발 걷기 구간, 갈산공원</td></tr>
         <tr><td><span class="cn">5</span></td><td class="nm">흑천길</td><td>원덕역 → 용문역</td><td>8km</td><td>흑천 물길과 추읍산 풍경</td></tr>
-        <tr><td><span class="cn g">6</span></td><td class="nm">용문산 은행나무길</td><td>용문역 → 용문산관광지</td><td>10.3km</td><td>용문사 은행나무, 양평군 10월 추천 <span class="badge pop">인기</span></td></tr>
+        <tr><td><span class="cn g">6</span></td><td class="nm">용문산 은행나무길</td><td>용문역 → 용문산관광지</td><td>10.3km</td><td>용문사 은행나무, 양평군 10월 추천 <span class="badge pop">이번 선택</span></td></tr>
         <tr><td><span class="cn">7</span></td><td class="nm muted">‒</td><td>용문역 → 지평역</td><td>10.7km</td><td>화전리 · 옥현리 마을길</td></tr>
         <tr><td><span class="cn">8</span></td><td class="nm muted">‒</td><td>지평역 → 일신역</td><td class="muted">확인 불가</td><td class="muted">‒</td></tr>
         <tr><td><span class="cn">9</span></td><td class="nm muted">‒</td><td>일신역 → 양동역</td><td>11.4km</td><td>구둔역(영화 ‘건축학개론’ 촬영지) · 폐터널 · 옛 매곡역 <span class="badge rec">구둔역 개관 미정</span></td></tr>
       </tbody>
     </table>
-    <p class="foot">거리: 양평군 물소리길 공식 코스 안내 기준(1코스는 두루누비). 7~9코스는 공식 별칭을, 8코스는 거리를 공개 자료에서 확인하지 못했습니다. 공식 소요시간은 대체로 코스당 약 3시간이지만 쉬면서 걸으면 더 걸립니다(6코스 후기 4시간 38분).</p>
-  </section>
+    <p class="foot">거리: 양평군 물소리길 공식 코스 안내 기준(1코스는 두루누비). 7~9코스는 공식 별칭을, 8코스는 거리를 공개 자료에서 확인하지 못했습니다. 공식 소요시간은 대체로 코스당 약 3시간이지만 쉬면서 걸으면 더 걸립니다(6코스 후기 4시간 38분). 일정의 걷기 시간은 쉬는 시간을 조금 더한 추정입니다.</p>
 
-  <!-- ================= 05 ================= -->
-  <section id="s5">
-    <div class="sec-head"><span class="num">05</span><h2>공휴일 운영 · 주차</h2><span class="s">10월 5일 · 9일 기준</span></div>
+    <h3 class="sub-h">10월 9일 운영 · 주차</h3>
     <table class="tbl ops">
-      <thead><tr><th>대상</th><th style="text-align:center">10/5(월)</th><th style="text-align:center">10/9(금)</th><th>운영 · 요금</th><th>주차 · 비고</th></tr></thead>
+      <thead><tr><th>대상</th><th style="text-align:center">10/9(금)</th><th>운영 · 요금</th><th>주차 · 비고</th></tr></thead>
       <tbody>
-        <tr>
-          <td>물소리길<small>전 코스</small></td>
-          <td class="c"><span class="lbl">10/5</span><span class="st open">개방</span></td>
-          <td class="c"><span class="lbl">10/9</span><span class="st open">개방</span></td>
-          <td data-label="운영 · 요금">사계절 상시 개방 · 무료<br>도보 권장 08:00~18:00(동절기 17:00)</td>
-          <td data-label="주차 · 비고">단풍철 대비 제초 · 코스 점검 · 보수 진행 · 편도 코스라 주차 후 왕복 또는 택시로 차량 회수</td>
-        </tr>
-        <tr>
-          <td>두물머리</td>
-          <td class="c"><span class="lbl">10/5</span><span class="st open">개방</span></td>
-          <td class="c"><span class="lbl">10/9</span><span class="st open">개방</span></td>
-          <td data-label="운영 · 요금">연중 무료 개방</td>
-          <td data-label="주차 · 비고">교량하부 공영주차장 무료 · 170면 · 24시간 (명소까지 조금 걸음) / 느티나무 근처 사설 1일 3,000원</td>
-        </tr>
-        <tr>
-          <td>세미원<small>두물머리 옆</small></td>
-          <td class="c"><span class="lbl">10/5</span><span class="st open">운영</span></td>
-          <td class="c"><span class="lbl">10/9</span><span class="st open">운영</span></td>
-          <td data-label="운영 · 요금">09:00~18:00(입장 마감 17:30) · 4~10월 휴관일 없음<br>성인 7,000원(양평사랑상품권 2,000원 지급)</td>
-          <td data-label="주차 · 비고">전용 주차장 공사 중 → 인근 공영주차장(도보 약 5분) · 음식물 반입 불가(음료 가능) · 수련문화제 9/1~10/31</td>
-        </tr>
-        <tr>
-          <td>용문산관광지<small>용문사</small></td>
-          <td class="c"><span class="lbl">10/5</span><span class="st open">개방</span></td>
-          <td class="c"><span class="lbl">10/9</span><span class="st open">개방</span></td>
-          <td data-label="운영 · 요금">상시 개방 · 입장료 무료(2023.5.1~)</td>
-          <td data-label="주차 · 비고">주차 경차 1,500 · 소형 3,000 · 중대형 5,000원 · 단풍철 주차관리 · 안전요원 배치 예정</td>
-        </tr>
-        <tr>
-          <td>지역문화박람회<small>양강섬 일원</small></td>
-          <td class="c"><span class="lbl">10/5</span><span class="st none">‒</span></td>
-          <td class="c"><span class="lbl">10/9</span><span class="st event">개막</span></td>
-          <td data-label="운영 · 요금">10/9(금)~11(일) · 무료<br>9일: 낮 지역예술인 무대 → 저녁 개막식 · 불꽃놀이</td>
-          <td data-label="주차 · 비고">행사 주차 안내 보도 없음(공지 확인) · 셔틀 양평역 ↔ 물안개공원 · 10일(토) 저녁 양강섬예술축제 별도</td>
-        </tr>
-        <tr>
-          <td>구둔역<small>9코스</small></td>
-          <td class="c"><span class="lbl">10/5</span><span class="st tbd">미정</span></td>
-          <td class="c"><span class="lbl">10/9</span><span class="st tbd">미정</span></td>
-          <td data-label="운영 · 요금">아트스테이션 공사(2024.2.20~2026.3.31) 후 개관 일정 미정</td>
-          <td data-label="주차 · 비고">관광 안내상 주차 무료(개관 전 이용 가능 여부는 미확인)</td>
-        </tr>
+        <tr><td>물소리길<small>전 코스</small></td><td class="c"><span class="st open">개방</span></td><td data-label="운영 · 요금">사계절 상시 개방 · 무료<br>도보 권장 08:00~18:00(동절기 17:00)</td><td data-label="주차 · 비고">단풍철 대비 제초 · 코스 점검 · 보수 진행 · 편도 코스라 주차 후 왕복 또는 전철 · 택시로 차량 회수</td></tr>
+        <tr><td>두물머리</td><td class="c"><span class="st open">개방</span></td><td data-label="운영 · 요금">연중 무료 개방</td><td data-label="주차 · 비고">교량하부 공영주차장 무료 · 170면 · 24시간 (명소까지 조금 걸음) / 느티나무 근처 사설 1일 3,000원</td></tr>
+        <tr><td>세미원<small>두물머리 옆</small></td><td class="c"><span class="st open">운영</span></td><td data-label="운영 · 요금">09:00~18:00(입장 마감 17:30) · 4~10월 휴관일 없음<br>성인 7,000원(양평사랑상품권 2,000원 지급)</td><td data-label="주차 · 비고">전용 주차장 공사 중 → 인근 공영주차장(도보 약 5분) · 음식물 반입 불가(음료 가능) · 수련문화제 9/1~10/31</td></tr>
+        <tr><td>용문산관광지<small>용문사</small></td><td class="c"><span class="st open">개방</span></td><td data-label="운영 · 요금">상시 개방 · 입장료 무료(2023.5.1~)</td><td data-label="주차 · 비고">주차 경차 1,500 · 소형 3,000 · 중대형 5,000원 · 단풍철 주차관리 · 안전요원 배치 예정</td></tr>
+        <tr><td>지역문화박람회<small>양강섬 일원</small></td><td class="c"><span class="st event">개막</span></td><td data-label="운영 · 요금">10/9(금)~11(일) · 무료<br>9일: 낮 지역예술인 무대 → 저녁 개막식 · 불꽃놀이</td><td data-label="주차 · 비고">행사 주차 안내 보도 없음(공지 확인) · 셔틀 양평역 ↔ 물안개공원 · 10일(토) 저녁 양강섬예술축제 별도</td></tr>
+        <tr><td>몽양 여운형 생가 · 기념관<small>1코스</small></td><td class="c"><span class="st open">운영</span></td><td data-label="운영 · 요금">09:30부터 · 월요일 · 1월 1일 · 설 · 추석 당일 휴관</td><td data-label="주차 · 비고">주차 정보는 공개 자료에서 확인 못 함 → 코스를 걸어서 들르기</td></tr>
+        <tr><td>구둔역<small>9코스</small></td><td class="c"><span class="st tbd">미정</span></td><td data-label="운영 · 요금">아트스테이션 공사(2024.2.20~2026.3.31) 후 개관 일정 미정</td><td data-label="주차 · 비고">관광 안내상 주차 무료(개관 전 이용 가능 여부는 미확인)</td></tr>
       </tbody>
     </table>
-  </section>
 
-  <!-- ================= 06 ================= -->
-  <section id="s6">
-    <div class="sec-head"><span class="num">06</span><h2>자차 여행 실전 팁</h2><span class="s">알아두면 편한 것들</span></div>
+    <h3 class="sub-h">자차 여행 실전 팁</h3>
     <div class="tips">
-      <div class="tip"><span class="ic o"><svg class="ico" aria-hidden="true"><use href="#i-road"/></svg></span><div><h4>출발 시간</h4><p>9일은 연휴 첫날이라 오전 양평 방향, 5일은 연휴 마지막 날이라 저녁 서울 방향 정체 예상</p></div></div>
-      <div class="tip"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-swap"/></svg></span><div><h4>편도 코스 대처</h4><p>① 주차 후 하이라이트 구간만 왕복 ② 완주하면 택시로 출발점 차량 회수</p></div></div>
-      <div class="tip"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-park"/></svg></span><div><h4>주차</h4><p>두물머리 공영(무료) · 세미원은 인근 공영(도보 5분) · 용문산관광지(유료) · 박람회는 공지 확인</p></div></div>
-      <div class="tip"><span class="ic o"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span><div><h4>양수리 정체</h4><p>두물머리 · 세미원 일대는 평소에도 체증이 잦은 곳 → 일정에 여유</p></div></div>
+      <div class="tip"><span class="ic o"><svg class="ico" aria-hidden="true"><use href="#i-road"/></svg></span><div><h4>출발 시간</h4><p>9일은 연휴 첫날이라 오전 양평 방향 정체 예상 → 07:30 전후 출발. 박람회 날 밤엔 불꽃놀이 직후 출차가 몰림</p></div></div>
+      <div class="tip"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-swap"/></svg></span><div><h4>편도 코스 대처</h4><p>① 한쪽 역에 주차 → 전철로 출발역 → 걸어서 차로 ② 주차 후 하이라이트 구간만 왕복 ③ 완주 후 택시로 차량 회수</p></div></div>
+      <div class="tip"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-park"/></svg></span><div><h4>주차</h4><p>양수역 공영(무료) · 두물머리 교량하부 공영(무료) · 양평역 1주차장(유료) · 용문역(무료) · 용문산관광지(유료) · 세미원은 인근 공영(도보 5분) · 박람회는 공지 확인</p></div></div>
+      <div class="tip"><span class="ic o"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span><div><h4>양수리 정체</h4><p>두물머리 · 세미원 일대는 평소에도 체증이 잦은 곳 → 1 · 2코스는 일정에 여유</p></div></div>
       <div class="tip"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-qr"/></svg></span><div><h4>길찾기</h4><p>리본 · 화살표 표식 + 입구 · 도장 지점 · 갈림길 QR → ‘양평공감이음’에서 현재 위치 · 경로 · 포토존 확인</p></div></div>
-      <div class="tip"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-stamp"/></svg></span><div><h4>스탬프</h4><p>코스별 인증 도장, 전 구간 완주 시 인증서 · 기념품 · 패스포트는 양평역 관광안내소 · 양서면사무소 비치</p></div></div>
-      <div class="tip"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-shirt"/></svg></span><div><h4>옷차림</h4><p>얇은 겉옷 + 운동화 · 1 · 3 · 4코스 등 산길 구간은 비 온 뒤 미끄럼 주의</p></div></div>
-      <div class="tip"><span class="ic o"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></span><div><h4>시간 계획</h4><p>도보 권장 시간(18시) 안에 마무리 · 사진 찍고 쉬는 시간까지 넉넉히</p></div></div>
+      <div class="tip"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-stamp"/></svg></span><div><h4>스탬프</h4><p>코스별 인증 도장, 전 구간 완주 시 인증서 · 기념품 · 패스포트는 양평역 관광안내소 · 양서면사무소(공휴일 휴무) 비치</p></div></div>
+      <div class="tip"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-shirt"/></svg></span><div><h4>옷차림</h4><p>얇은 겉옷 + 운동화 · 1 · 3 · 4코스 등 산길 구간은 비 온 뒤 미끄럼 주의 · 박람회 코스는 돗자리</p></div></div>
+      <div class="tip"><span class="ic o"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></span><div><h4>시간 계획</h4><p>도보 권장 시간(18시) 안에 걷기 마무리 · 사진 찍고 쉬는 시간까지 넉넉히</p></div></div>
     </div>
-  </section>
 
-  <!-- ================= 07 ================= -->
-  <section id="s7">
-    <div class="sec-head"><span class="num">07</span><h2>출처</h2><span class="s">링크를 누르면 원문으로 이동</span></div>
+    <h3 class="sub-h">출처</h3>
     <ol class="refs">
-      <li><a href="https://www.yp21.go.kr/mulsorigil/index.do" target="_blank" rel="noopener">양평 물소리길 공식 홈페이지</a> — 코스 구간 · 거리, 3코스 우회 공지</li>
+      <li><a href="https://www.yp21.go.kr/mulsorigil/index.do" target="_blank" rel="noopener">양평 물소리길 공식 홈페이지</a> — 코스 구간 · 거리, 3코스 우회 공지 · <a href="https://www.yp21.go.kr/mulsorigil/contents.do?key=1775" target="_blank" rel="noopener">2코스</a></li>
       <li>두루누비(한국관광공사): <a href="https://www.durunubi.kr/4-2-1-1-walk-mobility-view-detail.do?crs_idx=T_CRS_MNG0000004458&amp;brd_div=DNWW" target="_blank" rel="noopener">1코스</a> · <a href="https://www.durunubi.kr/4-2-1-1-walk-mobility-view-detail.do?crs_idx=T_CRS_MNG0000004390&amp;brd_div=DNWW" target="_blank" rel="noopener">3코스</a> · <a href="https://www.durunubi.kr/8-1-2-1-info-commentary-recommend-detail.do?category1=&amp;category2=&amp;month_idx=3261" target="_blank" rel="noopener">6코스</a></li>
       <li>기상청 10월 1일 브리핑 보도: <a href="https://www.fnnews.com/news/202610011317238644" target="_blank" rel="noopener">파이낸셜뉴스</a> · <a href="https://www.newspim.com/news/view/20261001000664" target="_blank" rel="noopener">뉴스핌</a> · <a href="https://www.insight.co.kr/news/576152" target="_blank" rel="noopener">인사이트</a> · <a href="https://www.mt.co.kr/society/2026/10/01/2026100111351632469" target="_blank" rel="noopener">머니투데이</a> · <a href="https://www.cbci.co.kr/news/articleView.html?idxno=611669" target="_blank" rel="noopener">CBC뉴스</a></li>
       <li>지역문화박람회(2026.9.29): <a href="https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=03250486645585040" target="_blank" rel="noopener">이데일리</a> · <a href="https://www.segye.com/newsView/20260929506840" target="_blank" rel="noopener">세계일보</a> · <a href="https://www.ppss.kr/news/articleView.html?idxno=312899" target="_blank" rel="noopener">PPSS</a></li>
@@ -803,42 +957,53 @@
       <li>양평군 관광: <a href="https://tour.yp21.go.kr/www/selectTourCntntsWebView.do?ctgry=4&amp;key=69&amp;tourNo=173" target="_blank" rel="noopener">용문산관광지</a> · <a href="https://tour.yp21.go.kr/www/selectTourCntntsWebView.do?tourNo=179&amp;pageUnit=12&amp;pageIndex=1&amp;searchCnd=all&amp;key=69&amp;ctgry=4&amp;sortTy=RECOMEND" target="_blank" rel="noopener">구 구둔역</a></li>
       <li><a href="https://gnews.gg.go.kr/news/news_detail.do?number=202405031418053516C094&amp;s_code=C094" target="_blank" rel="noopener">경기도뉴스포털(2024.5.3)</a> — 물안개공원 · 양평문화센터 주차</li>
       <li><a href="https://www.asiatoday.co.kr/kn/view.php?key=20251120010010638" target="_blank" rel="noopener">아시아투데이(2025.11.20)</a> — QR 안내체계(양평공감이음)</li>
-      <li>오마이뉴스: <a href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003267570" target="_blank" rel="noopener">가을 여행 · 물소리길 정비(2026.9.15)</a> · <a href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002785117" target="_blank" rel="noopener">계절별 추천 코스(2021)</a></li>
+      <li>오마이뉴스: <a href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003267570" target="_blank" rel="noopener">가을 여행 · 물소리길 정비(2026.9.15)</a> · <a href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002785117" target="_blank" rel="noopener">계절별 추천 코스 · 1 · 3코스 경유지(2021)</a></li>
       <li><a href="https://m.news.nate.com/view/20260330n32949" target="_blank" rel="noopener">헤럴드경제(2026.3.30)</a> — 인증 도장 · 완주 인증서</li>
       <li>후기 · 기타: <a href="https://reviewtimes.co.kr/event/1391" target="_blank" rel="noopener">리뷰타임스(6코스)</a> · <a href="https://m.tripinfo.co.kr/info.html?content_type_id=12&amp;content_id=126915" target="_blank" rel="noopener">트립인포(용문산)</a> · <a href="https://www.ktsketch.co.kr/news/articleView.html?idxno=2607" target="_blank" rel="noopener">여행스케치(옥천냉면)</a> · <a href="https://aflyingjellyfish.com/entry/%EC%96%91%ED%8F%89-%EB%AC%BC%EC%86%8C%EB%A6%AC%EA%B8%B8-%EC%A0%84%EC%B2%A0-%ED%83%80%EA%B3%A0-%EA%B0%80%EB%8A%94-%EB%82%A8%ED%95%9C%EA%B0%95-%EB%B6%81%ED%95%9C%EA%B0%95-%EB%94%B0%EB%9D%BC-%EA%B1%B7%EB%8A%94-%EA%B8%B8-%EC%BD%94%EC%8A%A4" target="_blank" rel="noopener">블로그(도보 권장 시간)</a> · <a href="https://blog.daum.net/hsykms/1315" target="_blank" rel="noopener">블로그(6코스 소요시간)</a> · <a href="https://www.welfarehello.com/community/hometownNews/278a0355-25c5-426a-b73e-891f32379ffa" target="_blank" rel="noopener">커뮤니티(입장료 폐지)</a></li>
+      <li>코스 경유지: <a href="https://blog.daum.net/choeyoyo32/1417" target="_blank" rel="noopener">2코스 걷기 후기</a> · <a href="https://m.cafe.daum.net/ggtrail/8XTQ/3501" target="_blank" rel="noopener">6코스 트레킹 후기</a> · <a href="https://ggc.ggcf.kr/p/630704266fdd0163345d977f" target="_blank" rel="noopener">몽양 여운형 생가 · 기념관(경기문화재단)</a></li>
+      <li>주차: <a href="https://www.placeview.co.kr/id/MTEwNzUxOTA2NyAg" target="_blank" rel="noopener">양수역 공영주차장</a> · <a href="https://k114.co.kr/store/detail.asp?seq=20519105" target="_blank" rel="noopener">양평역 1주차장</a> · <a href="https://monoalda.com/parking/%EC%9A%A9%EB%AC%B8%EC%97%AD" target="_blank" rel="noopener">용문역 주차장</a> · <a href="https://ypcf.or.kr/map" target="_blank" rel="noopener">양평생활문화센터(양평문화재단)</a></li>
+      <li>이동: <a href="https://www.nahonza.com/336" target="_blank" rel="noopener">용문역 ↔ 용문사 버스</a> · <a href="https://namu.wiki/w/%EC%9A%A9%EB%AC%B8%EC%97%AD(%EC%A4%91%EC%95%99%EC%84%A0)" target="_blank" rel="noopener">경의중앙선 용문역 배차</a></li>
+      <li>식당: <a href="https://www.diningcode.com/profile.php?rid=YzIDclPSTgoN" target="_blank" rel="noopener">국수리국수집</a> · <a href="https://www.diningcode.com/profile.php?rid=h92sWFEWsvTj" target="_blank" rel="noopener">황금연못</a> · <a href="https://www.siksinhot.com/P/253175" target="_blank" rel="noopener">명가연밭</a> · <a href="https://www.diningcode.com/profile.php?rid=T99nCOacIF3Q" target="_blank" rel="noopener">두물머리 연핫도그</a> · <a href="https://www.diningcode.com/profile.php?rid=n88OpjqwR95f" target="_blank" rel="noopener">옥천냉면 황해식당</a> · <a href="https://www.diningcode.com/profile.php?rid=NsnNBzoi7dyJ" target="_blank" rel="noopener">옥천냉면 본점</a> · <a href="https://travelyangpyeong.com/product/%EC%9A%A9%EB%AC%B8%EC%82%B0-%EC%A4%91%EC%95%99%EC%8B%9D%EB%8B%B9/68/" target="_blank" rel="noopener">용문산 중앙식당</a> · <a href="https://www.tabling.co.kr/place/677cd82b66de5f0698940917" target="_blank" rel="noopener">신내서울해장국 본점</a></li>
     </ol>
-    <p class="notice"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>예보 · 운영 정보는 바뀔 수 있으니 출발 전 공식 채널에서 다시 확인하세요 · 2026년 10월 2일 작성</span></p>
+    <p class="notice"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>예보 · 운영 정보 · 식당 영업시간은 바뀔 수 있으니 출발 전 공식 채널에서 다시 확인하세요 · 연휴라 식당 휴무 · 브레이크 시간은 전화로 확인 · 2026년 10월 2일 작성</span></p>
   </section>
 
-  <footer>양평 물소리길 가을 데이트 · 웹 버전 v1.0 · 2026.10.02 · 내비 주소는 검색 기준이니 목적지 이름을 한 번 확인</footer>
+  <footer>양평 물소리길 가을 데이트 · 웹 버전 v2.0 · 10월 9일 확정판 · 운전 · 걷기 시간과 내비 주소는 검색 기준 추정이니 출발 전 한 번 확인</footer>
 </div>
 
 <script>
 (function () {
   /* 내비 주소 — 누르면 클립보드로 복사해 내비 검색창에 붙여넣기.
-     road = 도로명, jibun = 지번 (둘 중 아는 것만), role = 이 장소가 일정에서 하는 역할 */
+     road = 도로명, jibun = 지번 (둘 중 아는 것만), role = 주소 모음 카드에 쓰는 한 줄 설명 */
   var PLACES = {
-    okcheon:    { name: "옥천냉면 황해식당",           role: "점심 후보 · 이름이 비슷한 두 집 중 하나",            road: "경기 양평군 옥천면 경강로 1493-12",  jibun: "경기 양평군 옥천면 옥천리 884-14" },
-    okcheon2:   { name: "옥천냉면 황해식당 본점",      role: "점심 후보 · ‘본점’ 간판 집",                         road: "경기 양평군 옥천면 고읍로 140" },
-    ypcc:       { name: "양평생활문화센터 주차장",     role: "3코스 산책 · 박람회 주차 — 물안개공원 입구 ‘양평문화센터’ 무료 주차(2024년 기사 기준)", road: "경기 양평군 양평읍 물안개공원길 38" },
-    yanggang:   { name: "양강섬",                       role: "박람회장 · 섬 안 주차장 없음 → 위 주차장에서 도보",  road: "경기 양평군 양평읍 양근로 98-57" },
-    yanggeun:   { name: "천주교 양근성지",              role: "3코스 산책 경유",                                     road: "경기 양평군 양평읍 물안개공원길 37", jibun: "경기 양평군 양평읍 오빈리 173-2" },
-    deulkkot:   { name: "들꽃수목원",                   role: "3코스 산책 반환점",                                   road: "경기 양평군 양평읍 수목원길 16",     jibun: "경기 양평군 양평읍 오빈리 210-37" },
-    mulangae:   { name: "물안개공원",                   role: "박람회 셔틀 정류장 (양평역 ↔ 물안개공원)",            jibun: "경기 양평군 양평읍 오빈리 154-12" },
-    yangpyeong: { name: "양평역",                       role: "3코스 도착 · 4코스 출발 · 박람회 셔틀 · 관광안내소(역 앞 광장)", road: "경기 양평군 양평읍 역전길 30", jibun: "경기 양평군 양평읍 양근리 130-37" },
-    dumulpark:  { name: "두물머리 교량하부 공영주차장", role: "두물머리 무료 주차 · 170면 · 24시간",                jibun: "경기 양평군 양서면 양수리 770-4" },
-    dumul:      { name: "두물머리",                     role: "명소 · 느티나무",                                     road: "경기 양평군 양서면 두물머리길 145",  jibun: "경기 양평군 양서면 양수리 697" },
-    semiwon:    { name: "세미원",                       role: "전용 주차장 공사 중 → 인근 공영주차장(도보 약 5분)",  road: "경기 양평군 양서면 양수로 93" },
-    asin:       { name: "아신역",                       role: "2코스 도착 · 3코스 출발 · 터널 구간 왕복 기점",       road: "경기 양평군 옥천면 아신역1길 23",    jibun: "경기 양평군 옥천면 아신리 산112-2" },
-    yangsu:     { name: "양수역",                       role: "1코스 출발 · 두물머리 옆",                            road: "경기 양평군 양서면 목왕로 55-10",    jibun: "경기 양평군 양서면 용담리 255-2" },
-    sinwon:     { name: "신원역",                       role: "1코스 도착 · 2코스 출발",                             road: "경기 양평군 양서면 신원역길 5-3",    jibun: "경기 양평군 양서면 신원리 480-29" },
-    wondeok:    { name: "원덕역",                       role: "4코스 도착 · 5코스 출발",                             road: "경기 양평군 양평읍 원덕흑천길 138" },
-    yongmun:    { name: "용문역",                       role: "5코스 도착 · 6 · 7코스 출발",                         road: "경기 양평군 용문면 용문역길 21",     jibun: "경기 양평군 용문면 다문리 736-13" },
-    jipyeong:   { name: "지평역",                       role: "7코스 도착 · 8코스 출발",                             road: "경기 양평군 지평면 지평역길 32",     jibun: "경기 양평군 지평면 지평리 1120-10" },
-    ilsin:      { name: "일신역",                       role: "8코스 도착 · 9코스 출발",                             road: "경기 양평군 지평면 노곡길 2",        jibun: "경기 양평군 지평면 일신리 1815-27" },
-    yangdong:   { name: "양동역",                       role: "9코스 도착",                                          road: "경기 양평군 양동면 양동역길 19" },
-    yongmunsan: { name: "용문산관광지",                 role: "6코스 종점 · 대형 주차장(유료) · 용문사 은행나무",    road: "경기 양평군 용문면 용문산로 782",    jibun: "경기 양평군 용문면 신점리 515-2" },
-    gudun:      { name: "구둔역 (옛 역사)",             role: "9코스 · 개관 일정 미정",                              road: "경기 양평군 지평면 구둔역길 8",      jibun: "경기 양평군 지평면 일신리 1336-9" }
+    pk_yangsu:      { name: "양수역 공영주차장",             role: "무료 · 역 바로 아래 · 1 · 2코스",                    jibun: "경기 양평군 양서면 용담리 253-2" },
+    pk_dumul:       { name: "두물머리 교량하부 공영주차장",  role: "무료 · 170면 · 24시간",                              jibun: "경기 양평군 양서면 양수리 770-4" },
+    pk_yangpyeong:  { name: "양평역 · 1주차장",              role: "유료 · 1일 최대 6,000원 · 3코스 · 추천 · 박람회",     road: "경기 양평군 양평읍 역전길 30",       jibun: "경기 양평군 양평읍 양근리 130-37" },
+    pk_ypcc:        { name: "양평생활문화센터 주차장",       role: "무료 · 물안개공원 입구 · 박람회장 옆(행사 혼잡)",    road: "경기 양평군 양평읍 물안개공원길 38" },
+    pk_yongmun:     { name: "용문역 · 주차장",               role: "3주차장 무료 · 24시간 · 6코스",                       road: "경기 양평군 용문면 용문역길 21",     jibun: "경기 양평군 용문면 다문리 736-13" },
+    pk_yongmunsan:  { name: "용문산관광지 주차장",           role: "유료 · 경차 1,500 · 소형 3,000 · 중대형 5,000원",     jibun: "경기 양평군 용문면 신점리 515-2" },
+
+    r_hwanggeum:    { name: "황금연못",                      role: "1코스 점심 · 매운탕 · 청국장 · 신원역 앞",            jibun: "경기 양평군 양서면 신원리 473-2" },
+    r_yeonbat:      { name: "명가연밭",                      role: "1코스 · 연잎밥 · 양수역 앞",                          road: "경기 양평군 양서면 목왕로 34" },
+    r_hotdog:       { name: "두물머리 연핫도그",             role: "간식 · 두물머리",                                     road: "경기 양평군 양서면 두물머리길 103-8" },
+    r_guksu:        { name: "국수리국수집",                  role: "2코스 · 추천 코스 점심 · 된장칼국수",                 road: "경기 양평군 양서면 경강로 1061" },
+    r_okcheon:      { name: "옥천냉면 황해식당",             role: "3코스 · 박람회 코스 점심",                            road: "경기 양평군 옥천면 경강로 1493-12",  jibun: "경기 양평군 옥천면 옥천리 884-14" },
+    r_okcheon2:     { name: "옥천냉면 황해식당 본점",        role: "이름 비슷한 다른 집 · ‘본점’ 간판",                   road: "경기 양평군 옥천면 고읍로 140" },
+    r_jungang:      { name: "용문산 중앙식당",               role: "6코스 점심 · 산채정식 · 더덕구이",                    road: "경기 양평군 용문면 용문산로 644" },
+    r_sinnae:       { name: "양평 신내서울해장국 본점",      role: "6코스 귀갓길 · 해장국",                               road: "경기 양평군 개군면 신내길 16" },
+
+    dumul:          { name: "두물머리",                      role: "1 · 2코스 끝나고 산책",                               road: "경기 양평군 양서면 두물머리길 145",  jibun: "경기 양평군 양서면 양수리 697" },
+    semiwon:        { name: "세미원",                        role: "1코스 선택 · 전용 주차장 공사 중",                    road: "경기 양평군 양서면 양수로 93" },
+    mongyang:       { name: "몽양 여운형 생가 · 기념관",     role: "1코스 후반 · 월요일 휴관",                            road: "경기 양평군 양서면 몽양길 66" },
+    yanggang:       { name: "양강섬",                        role: "박람회장 · 섬 안 주차장 없음",                        road: "경기 양평군 양평읍 양근로 98-57" },
+    yanggeun:       { name: "천주교 양근성지",               role: "3코스 · 박람회 코스 산책",                            road: "경기 양평군 양평읍 물안개공원길 37", jibun: "경기 양평군 양평읍 오빈리 173-2" },
+    deulkkot:       { name: "들꽃수목원",                    role: "3코스 · 박람회 코스 반환점",                          road: "경기 양평군 양평읍 수목원길 16",     jibun: "경기 양평군 양평읍 오빈리 210-37" },
+    mulangae:       { name: "물안개공원",                    role: "박람회 셔틀 정류장 (양평역 ↔ 물안개공원)",            jibun: "경기 양평군 양평읍 오빈리 154-12" },
+
+    st_yangsu:      { name: "양수역",                        role: "1코스 출발 · 두물머리 옆",                            road: "경기 양평군 양서면 목왕로 55-10",    jibun: "경기 양평군 양서면 용담리 255-2" },
+    st_sinwon:      { name: "신원역",                        role: "1코스 도착 · 2코스 출발",                             road: "경기 양평군 양서면 신원역길 5-3",    jibun: "경기 양평군 양서면 신원리 480-29" },
+    st_guksu:       { name: "국수역",                        role: "2코스 중간 · 추천 코스 출발",                         road: "경기 양평군 양서면 국수역길 45",     jibun: "경기 양평군 양서면 국수리 258-25" },
+    st_asin:        { name: "아신역",                        role: "2코스 도착 · 3코스 출발",                             road: "경기 양평군 옥천면 아신역1길 23",    jibun: "경기 양평군 옥천면 아신리 산112-2" }
   };
 
   /* ---------- 클립보드 ---------- */
@@ -942,15 +1107,18 @@
     return svg;
   }
 
-  /* 일정 속 인라인 주소: 장소 이름 + 복사 버튼 */
+  /* 일정 속 인라인 주소: 장소 이름 + 복사 버튼 (data-bare면 이름 없이 버튼만) */
   var inline = document.querySelectorAll(".addr[data-places]");
   for (var i = 0; i < inline.length; i++) {
+    var bare = inline[i].hasAttribute("data-bare");
     ids(inline[i]).forEach(function (id) {
       var p = PLACES[id];
-      var nm = el("span", "pname");
-      nm.appendChild(pinIcon());
-      nm.appendChild(document.createTextNode(p.name));
-      this.appendChild(nm);
+      if (!bare) {
+        var nm = el("span", "pname");
+        nm.appendChild(pinIcon());
+        nm.appendChild(document.createTextNode(p.name));
+        this.appendChild(nm);
+      }
       addRows(this, p);
     }, inline[i]);
   }
@@ -961,8 +1129,7 @@
     ids(grids[j]).forEach(function (id) {
       var p = PLACES[id];
       var card = el("article", "place");
-      if (!document.getElementById("p-" + id)) card.id = "p-" + id;
-      card.appendChild(el("h4", "", p.name));
+      card.appendChild(el("h5", "", p.name));
       if (p.role) card.appendChild(el("p", "role", p.role));
       var box = el("div", "addr");
       addRows(box, p);
