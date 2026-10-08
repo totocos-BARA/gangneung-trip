@@ -250,6 +250,7 @@
   .tl li.move .what::before { width: 10px; height: 10px; left: -6px; top: 5px; border-color: var(--ink-3); }
   .tl h5 { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.45; }
   .tl p { margin: 2px 0 0; font-size: 13.5px; color: var(--ink-2); }
+  .tl p.alt { margin-top: 6px; }
   .mv { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); background: var(--surface-2); border-radius: 8px; padding: 4px 10px; }
   .mv b { color: var(--ink); }
   .mv.walk { background: var(--green-soft); color: var(--green-ink); }
@@ -571,7 +572,7 @@
         <div class="top"><span class="badge go">⭐ Claude 추천 2</span><span class="stars" aria-label="추천도 5점 만점에 5점">★★★★★</span></div>
         <h3>터널 걷고 두물머리 노을로 끝</h3>
         <p class="one">추천 1의 아침(국수리국수집 + 터널) 그대로 · 박람회 대신 세미원 → 두물머리 노을 · 차는 무료 양수역에 하루 종일</p>
-        <dl><dt>흐름</dt><dd class="mini">원당 🚗 양수역P 🚆 국수 🍜 🚶 터널 🚶 아신 🚆 양수 🚶 세미원 🚶 두물머리 🌇 🚶 양수역P 🚗 한옥집 🍽 🚗 원당</dd><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>09:00 → 21:00 · 약 12시간</dd><dt>걷기</dt><dd>약 8.5km · 나눠서 3시간 안팎</dd><dt>주차</dt><dd>양수역 공영주차장 (무료)</dd><dt>식사</dt><dd>국수리국수집 · 양수리한옥집</dd></dl>
+        <dl><dt>흐름</dt><dd class="mini">원당 🚗 양수역P 🚆 국수 🍜 🚶 터널 🚶 아신 🚆 양수 🚶 세미원 🚶 두물머리 🌇 🚶 양수역P 🚗 한옥집 🍽 🚗 원당</dd><dt>난이도</dt><dd><span class="lv easy">쉬움</span></dd><dt>총 소요</dt><dd>09:00 → 21:00 · 약 12시간</dd><dt>걷기</dt><dd>약 8.5km · 나눠서 3시간 안팎</dd><dt>주차</dt><dd>양수역 공영주차장 (무료)</dd><dt>식사</dt><dd>국수리국수집 · 양수리한옥집 (저녁 대안 2곳)</dd></dl>
         <span class="go-btn">일정 보기 →</span>
       </a>
       <a class="pcard" href="#c2">
@@ -921,7 +922,7 @@
           <li class="hl"><b>원복터널 · 기곡터널 · 기차 속 갤러리</b><small>추천 1과 같은 국수 → 아신 구간 · 국수리국수집은 11시 오픈 첫 타임</small></li>
           <li class="hl"><b>세미원 수련문화제 → 배다리</b><small>9/1~10/31 가을 수련 정원 · 강 위에 배를 이어 만든 다리를 걸어 두물머리로 건너감</small></li>
           <li class="hl"><b>두물머리 노을</b><small>해 지는 시각 약 18:05(서울 기준) · 400년 느티나무 · 황포돛배 쪽이 명당 · 해 지고 20분쯤 하늘이 가장 붉음</small></li>
-          <li><b>두물머리 연핫도그</b> 간식 → <b>양수리한옥집 아귀찜 · 해물찜</b>으로 저녁</li>
+          <li><b>두물머리 연핫도그</b> 간식 → <b>양수리한옥집 아귀찜 · 해물찜</b>으로 저녁 · 대기가 길면 플랜 B 다우리 간장게장 · 플랜 C 기와집순두부</li>
           <li class="warn">연휴 오후 두물머리는 사람 많음 · 세미원 입장 마감 17:30 · 배다리는 현장 운영 확인(안 열면 두물머리길로 걸어서 약 15분) · 해 지면 금방 쌀쌀 → 겉옷</li>
         </ul>
 
@@ -942,18 +943,20 @@
           <li class="hl"><span class="when">14:15</span><div class="what"><h5>세미원 — 수련문화제</h5><p>양수역에서 걸어서 약 10분 · 09:00~18:00(<b>입장 마감 17:30</b>) · 성인 7,000원(양평사랑상품권 2,000원 지급) · 음식물 반입 불가(음료 가능)</p><span class="mv walk"><b>🚶 정원 한 바퀴 · 약 1시간 30분</b></span><div class="addr" data-places="semiwon" data-bare></div></div></li>
           <li><span class="when">16:00</span><div class="what"><h5>배다리 건너 두물머리 산책 + 연핫도그</h5><p>느티나무 · 두물경(두 강이 만나는 끝) · 강변 벤치에서 쉬기</p><div class="addr" data-places="dumul r_hotdog"></div></div></li>
           <li class="hl"><span class="when">17:40</span><div class="what"><h5>두물머리 노을</h5><p>해 지는 시각 약 18:05 · 느티나무 · 황포돛배 쪽에 미리 자리 잡기 · 해 지고 20분쯤까지 하늘이 붉음</p><div class="addr" data-places="dumul" data-bare></div></div></li>
-          <li class="move"><span class="when">18:15</span><div class="what"><h5>양수역 공영주차장으로</h5><span class="mv walk"><b>🚶 약 20분</b> · 두물머리길 따라</span><div class="addr" data-places="pk_yangsu" data-bare></div></div></li>
-          <li><span class="when">18:40</span><div class="what"><h5>저녁 — 양수리한옥집</h5><p>아귀찜 · 해물찜 + 들깨칼국수 · <b>라스트오더 19:30</b> → 노을 보고 바로 이동</p><span class="mv"><b>🚗 약 5분</b> (추정)</span><div class="addr" data-places="r_hanok" data-bare></div></div></li>
-          <li><span class="when">19:40</span><div class="what"><h5>출발 → 귀가</h5><span class="mv"><b>🚗 약 1시간~1시간 30분</b></span><div class="addr" data-places="r_hanok" data-bare></div></div></li>
+          <li class="move"><span class="when">18:15</span><div class="what"><h5>양수역 공영주차장으로</h5><p>걸으면서 한옥집에 전화로 대기 확인 ☎ <a href="tel:0507-1420-7377">0507-1420-7377</a> → 길면 바로 플랜 B로</p><span class="mv walk"><b>🚶 약 20분</b> · 두물머리길 따라</span><div class="addr" data-places="pk_yangsu" data-bare></div></div></li>
+          <li><span class="when">18:40</span><div class="what"><h5>저녁 — 양수리한옥집 <span class="badge ok">플랜 A</span></h5><p>아귀찜 · 해물찜 + 들깨칼국수 · <b>라스트오더 19:30</b> → 노을 보고 바로 이동</p><span class="mv"><b>🚗 약 5분</b> (추정)</span><p class="alt">대기가 길거나 문을 닫았으면 → <b>플랜 B 다우리</b> 간장게장 · <b>라스트오더 19:00</b>이라 바로 판단 · 🚗 약 3분 → 그것도 안 되면 <b>플랜 C 기와집순두부 본점</b> 순두부 · <b>라스트오더 20:00</b> · 집 가는 길 🚗 약 10~15분 (둘 다 추정)</p><div class="addr" data-places="r_hanok r_dauri r_giwa"></div></div></li>
+          <li><span class="when">19:40</span><div class="what"><h5>식당 출발 → 귀가</h5><p>플랜 C(남양주 조안면)는 집 가는 길이라 조금 덜 걸림</p><span class="mv"><b>🚗 약 1시간~1시간 30분</b></span></div></li>
           <li><span class="when">21:00</span><div class="what"><h5>원당 도착</h5></div></li>
         </ol>
-        <p class="after"><b>늦어지면</b> · 양수역 도착이 11시를 넘겨도 노을(18:05)은 그대로 — 세미원을 1시간으로 줄이면 됨 · 한옥집 라스트오더 19:30이라 노을 보고 바로 이동</p>
+        <p class="after"><b>늦어지면</b> · 양수역 도착이 11시를 넘겨도 노을(18:05)은 그대로 — 세미원을 1시간으로 줄이면 됨 · 한옥집 라스트오더 19:30이라 노을 보고 바로 이동 · 19:30을 넘기면 20:00까지 주문받는 플랜 C 기와집순두부(집 가는 길)</p>
 
         <h4><svg class="ico" aria-hidden="true"><use href="#i-food"/></svg>식당</h4>
         <div class="foods">
           <div class="food"><div class="ft">국수리국수집 <span class="badge rec">점심 · 국수역 근처</span></div><p class="menu">된장칼국수 · 부추수제비 · 메밀비빔국수 · 녹두빈대떡</p><p class="meta">11:00~20:30 (20:00 입장 마감) · 브레이크 16:00~17:00 · 수요일 휴무(금요일 영업)</p><div class="addr" data-places="r_guksu" data-bare></div></div>
           <div class="food"><div class="ft">두물머리 연핫도그 <span class="badge ok">간식</span></div><p class="menu">연잎 반죽 핫도그 (순한맛 · 매운맛) 4,000원</p><p class="meta">운영시간 변동 있음 · 강변 야외 테이블</p><div class="addr" data-places="r_hotdog" data-bare></div></div>
-          <div class="food"><div class="ft">양수리한옥집 <span class="badge rec">저녁 · 양수리</span></div><p class="menu">아귀찜 · 해물찜 (순한맛 · 보통 · 매운맛) + 들깨칼국수 · 남은 양념에 볶음밥</p><p class="meta">11:00~20:30 · 브레이크 15:00~16:00 · 라스트오더 19:30 · 월요일 휴무(금요일 영업) · 한옥 건물 · 주차 넉넉</p><div class="addr" data-places="r_hanok" data-bare></div></div>
+          <div class="food"><div class="ft">양수리한옥집 <span class="badge rec">저녁 플랜 A · 양수리</span></div><p class="menu">아귀찜 · 해물찜 (순한맛 · 보통 · 매운맛) + 들깨칼국수 · 남은 양념에 볶음밥</p><p class="meta">11:00~20:30 · 브레이크 15:00~16:00 · 라스트오더 19:30 · 월요일 휴무(금요일 영업) · 한옥 건물 · 주차 넉넉 · ☎ <a href="tel:0507-1420-7377">0507-1420-7377</a></p><div class="addr" data-places="r_hanok" data-bare></div></div>
+          <div class="food"><div class="ft">다우리 <span class="badge ok">저녁 플랜 B · 양수역 근처</span></div><p class="menu">간장게장 정식 · 양념게장 정식 · 간장새우 정식 (나물 반찬 · 된장찌개)</p><p class="meta">10:30~20:00 · <b>라스트오더 19:00</b> · 수요일 휴무(금요일 영업) · 매장 앞 무료 주차 · 양수역에서 🚗 약 3분(추정) · ☎ <a href="tel:0507-1400-5257">0507-1400-5257</a></p><div class="addr" data-places="r_dauri" data-bare></div></div>
+          <div class="food"><div class="ft">기와집순두부 본점 <span class="badge ok">저녁 플랜 C · 집 가는 길</span></div><p class="menu">순두부백반 · 콩탕백반 · 두부김치 · 군두부 · 수요미식회에 나온 집</p><p class="meta">10:30~20:30 · <b>라스트오더 20:00</b> · 정기 휴무 없음(안내 기준) · 주차 가능 · 대기 있을 수 있음 · 양수리에서 🚗 약 10~15분(추정) · 하남에 같은 이름 가게가 있으니 남양주 조안면 주소로 · ☎ <a href="tel:031-576-9009">031-576-9009</a></p><div class="addr" data-places="r_giwa" data-bare></div></div>
         </div>
       </div>
     </article>
@@ -1014,7 +1017,7 @@
     <div class="places" data-places="pk_yangsu pk_dumul pk_yangpyeong pk_ypcc pk_yongmun pk_yongmunsan"></div>
 
     <h3 class="group-t"><span class="badge rec">식당</span>코스별 식당</h3>
-    <div class="places" data-places="r_hwanggeum r_yeonbat r_hotdog r_guksu r_hanok r_okcheon r_okcheon2 r_jungang r_sinnae"></div>
+    <div class="places" data-places="r_hwanggeum r_yeonbat r_hotdog r_guksu r_hanok r_dauri r_giwa r_okcheon r_okcheon2 r_jungang r_sinnae"></div>
 
     <h3 class="group-t"><span class="badge ok">장소</span>들르는 곳</h3>
     <div class="places" data-places="dumul semiwon jeongcs leedh mongyang mulsori_center okcheon_park yanggang yanggeun deulkkot mulangae yongmunsa"></div>
@@ -1089,12 +1092,12 @@
       <li>코스 경유지: <a href="https://blog.daum.net/choeyoyo32/1417" target="_blank" rel="noopener">2코스 걷기 후기</a> · <a href="https://m.cafe.daum.net/ggtrail/8XTQ/3501" target="_blank" rel="noopener">6코스 트레킹 후기</a> · <a href="https://ggc.ggcf.kr/p/630704266fdd0163345d977f" target="_blank" rel="noopener">몽양 여운형 생가 · 기념관(경기문화재단)</a></li>
       <li>주차: <a href="https://www.placeview.co.kr/id/MTEwNzUxOTA2NyAg" target="_blank" rel="noopener">양수역 공영주차장</a> · <a href="https://k114.co.kr/store/detail.asp?seq=20519105" target="_blank" rel="noopener">양평역 1주차장</a> · <a href="https://monoalda.com/parking/%EC%9A%A9%EB%AC%B8%EC%97%AD" target="_blank" rel="noopener">용문역 주차장</a> · <a href="https://ypcf.or.kr/map" target="_blank" rel="noopener">양평생활문화센터(양평문화재단)</a></li>
       <li>이동: <a href="https://www.nahonza.com/336" target="_blank" rel="noopener">용문역 ↔ 용문사 버스</a> · <a href="https://namu.wiki/w/%EC%9A%A9%EB%AC%B8%EC%97%AD(%EC%A4%91%EC%95%99%EC%84%A0)" target="_blank" rel="noopener">경의중앙선 용문역 배차</a></li>
-      <li>식당: <a href="https://www.diningcode.com/profile.php?rid=YzIDclPSTgoN" target="_blank" rel="noopener">국수리국수집</a> · <a href="https://www.diningcode.com/profile.php?rid=h92sWFEWsvTj" target="_blank" rel="noopener">황금연못</a> · <a href="https://www.siksinhot.com/P/253175" target="_blank" rel="noopener">명가연밭</a> · <a href="https://www.diningcode.com/profile.php?rid=T99nCOacIF3Q" target="_blank" rel="noopener">두물머리 연핫도그</a> · <a href="https://www.diningcode.com/profile.php?rid=n88OpjqwR95f" target="_blank" rel="noopener">옥천냉면 황해식당</a> · <a href="https://www.diningcode.com/profile.php?rid=NsnNBzoi7dyJ" target="_blank" rel="noopener">옥천냉면 본점</a> · <a href="https://travelyangpyeong.com/product/%EC%9A%A9%EB%AC%B8%EC%82%B0-%EC%A4%91%EC%95%99%EC%8B%9D%EB%8B%B9/68/" target="_blank" rel="noopener">용문산 중앙식당</a> · <a href="https://www.tabling.co.kr/place/677cd82b66de5f0698940917" target="_blank" rel="noopener">신내서울해장국 본점</a> · <a href="https://www.ktriptips.com/kor/food/2853622" target="_blank" rel="noopener">양수리한옥집</a> · <a href="https://polle.com/place/12pq5w/%EC%96%91%EC%88%98%EB%A6%AC%20%ED%95%9C%EC%98%A5%EC%A7%91" target="_blank" rel="noopener">양수리한옥집 후기</a></li>
+      <li>식당: <a href="https://www.diningcode.com/profile.php?rid=YzIDclPSTgoN" target="_blank" rel="noopener">국수리국수집</a> · <a href="https://www.diningcode.com/profile.php?rid=h92sWFEWsvTj" target="_blank" rel="noopener">황금연못</a> · <a href="https://www.siksinhot.com/P/253175" target="_blank" rel="noopener">명가연밭</a> · <a href="https://www.diningcode.com/profile.php?rid=T99nCOacIF3Q" target="_blank" rel="noopener">두물머리 연핫도그</a> · <a href="https://www.diningcode.com/profile.php?rid=n88OpjqwR95f" target="_blank" rel="noopener">옥천냉면 황해식당</a> · <a href="https://www.diningcode.com/profile.php?rid=NsnNBzoi7dyJ" target="_blank" rel="noopener">옥천냉면 본점</a> · <a href="https://travelyangpyeong.com/product/%EC%9A%A9%EB%AC%B8%EC%82%B0-%EC%A4%91%EC%95%99%EC%8B%9D%EB%8B%B9/68/" target="_blank" rel="noopener">용문산 중앙식당</a> · <a href="https://www.tabling.co.kr/place/677cd82b66de5f0698940917" target="_blank" rel="noopener">신내서울해장국 본점</a> · <a href="https://www.ktriptips.com/kor/food/2853622" target="_blank" rel="noopener">양수리한옥집</a> · <a href="https://polle.com/place/12pq5w/%EC%96%91%EC%88%98%EB%A6%AC%20%ED%95%9C%EC%98%A5%EC%A7%91" target="_blank" rel="noopener">양수리한옥집 후기</a> · <a href="https://www.ktriptips.com/kor/food/2854157" target="_blank" rel="noopener">다우리</a> · <a href="https://polle.com/place/3ervd5/%EB%8B%A4%EC%9A%B0%EB%A6%AC%20%EA%B0%84%EC%9E%A5%EA%B2%8C%EC%9E%A5" target="_blank" rel="noopener">다우리 후기</a> · <a href="https://www.diningcode.com/profile.php?rid=MCxQGsiq1OTK" target="_blank" rel="noopener">기와집순두부 본점</a> · <a href="https://polle.com/place/2NBC3L/%EA%B8%B0%EC%99%80%EC%A7%91%20%EC%88%9C%EB%91%90%EB%B6%80" target="_blank" rel="noopener">기와집순두부 후기</a></li>
     </ol>
-    <p class="notice"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>예보 · 운영 정보 · 식당 영업시간은 바뀔 수 있으니 출발 전 공식 채널에서 다시 확인하세요 · 연휴라 식당 휴무 · 브레이크 시간은 전화로 확인 · 2026년 10월 2일 작성 · 10월 8일 수정(원당 09:00 출발 · 날씨 갱신 · 추천 2 노을 코스 추가)</span></p>
+    <p class="notice"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>예보 · 운영 정보 · 식당 영업시간은 바뀔 수 있으니 출발 전 공식 채널에서 다시 확인하세요 · 연휴라 식당 휴무 · 브레이크 시간은 전화로 확인 · 2026년 10월 2일 작성 · 10월 8일 수정(원당 09:00 출발 · 날씨 갱신 · 추천 2 노을 코스 · 저녁 플랜 B · C 추가)</span></p>
   </section>
 
-  <footer>양평 물소리길 가을 데이트 · 웹 버전 v2.2 · 10월 9일 확정판 · 원당 09:00 출발 · 운전 · 걷기 시간과 내비 주소는 검색 기준 추정이니 출발 전 한 번 확인</footer>
+  <footer>양평 물소리길 가을 데이트 · 웹 버전 v2.3 · 10월 9일 확정판 · 원당 09:00 출발 · 운전 · 걷기 시간과 내비 주소는 검색 기준 추정이니 출발 전 한 번 확인</footer>
 </div>
 
 <script>
@@ -1113,7 +1116,9 @@
     r_yeonbat:      { name: "명가연밭",                      role: "1코스 · 연잎밥 · 양수역 앞",                          road: "경기 양평군 양서면 목왕로 34" },
     r_hotdog:       { name: "두물머리 연핫도그",             role: "간식 · 두물머리",                                     road: "경기 양평군 양서면 두물머리길 103-8" },
     r_guksu:        { name: "국수리국수집",                  role: "2코스 · 추천 1 · 2 점심 · 된장칼국수",                 road: "경기 양평군 양서면 경강로 1061" },
-    r_hanok:        { name: "양수리한옥집",                  role: "추천 2 저녁 · 아귀찜 · 해물찜 · 라스트오더 19:30",   road: "경기 양평군 양서면 양수로138번길 41" },
+    r_hanok:        { name: "양수리한옥집",                  role: "추천 2 저녁 플랜 A · 아귀찜 · 해물찜 · 라스트오더 19:30",   road: "경기 양평군 양서면 양수로138번길 41" },
+    r_dauri:        { name: "다우리",                        role: "추천 2 저녁 플랜 B · 간장게장 정식 · 라스트오더 19:00",     road: "경기 양평군 양서면 목왕로 129" },
+    r_giwa:         { name: "기와집순두부 본점",             role: "추천 2 저녁 플랜 C · 순두부 · 라스트오더 20:00 · 집 가는 길", road: "경기 남양주시 조안면 북한강로 133" },
     r_okcheon:      { name: "옥천냉면 황해식당",             role: "3코스 · 박람회 코스 점심",                            road: "경기 양평군 옥천면 경강로 1493-12",  jibun: "경기 양평군 옥천면 옥천리 884-14" },
     r_okcheon2:     { name: "옥천냉면 황해식당 본점",        role: "이름 비슷한 다른 집 · ‘본점’ 간판",                   road: "경기 양평군 옥천면 고읍로 140" },
     r_jungang:      { name: "용문산 중앙식당",               role: "6코스 점심 · 산채정식 · 더덕구이",                    road: "경기 양평군 용문면 용문산로 644" },
